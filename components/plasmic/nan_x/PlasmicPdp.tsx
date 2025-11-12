@@ -436,7 +436,7 @@ function PlasmicPdp__RenderFunc(props: {
             )}
           >
             {
-              "The nanX\u00ae Spray Gun sanitizes any space in seconds. It eliminates germs on contact\u2014without soaking surfaces or leaving residue."
+              "The nanX\u2122 Spray Gun sanitizes any space in seconds. It eliminates germs on contact\u2014without soaking surfaces or leaving residue."
             }
           </div>
           <div
