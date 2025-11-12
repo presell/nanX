@@ -185,7 +185,7 @@ function PlasmicFooter__RenderFunc(props: {
               sty.text__vQCiq
             )}
           >
-            {"Pioneering a cleaner world with NanoMist\u2122 technology."}
+            {"Creating a cleaner world with NanoMist\u2122 technology."}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox___9GKxh)}>
             <FacebookSvgSvgIcon
