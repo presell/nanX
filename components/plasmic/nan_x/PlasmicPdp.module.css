@@ -900,7 +900,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__mVaHk {
     animation: none;
-    font-size: 13px;
+    font-size: 11.5px;
   }
 }
 .freeBox__mZv8E {
@@ -1568,7 +1568,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text__ljhCd {
     animation: none;
-    font-size: 13px;
+    font-size: 11.5px;
   }
 }
 .freeBox___0GLbS {
@@ -2235,7 +2235,7 @@
 @media (min-width: 0px) and (max-width: 768px) {
   .text___0KrKw {
     animation: none;
-    font-size: 13px;
+    font-size: 11.5px;
   }
 }
 .freeBox__rix8V {
@@ -2905,6 +2905,7 @@
   white-space: pre-wrap;
   text-decoration-line: none;
   text-overflow: clip;
+  margin-bottom: 0px;
   min-width: 0;
 }
 .freeBox__dmcDk {
@@ -3117,6 +3118,12 @@
   text-overflow: clip;
   margin-right: 10px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__jLgVc {
+    margin-right: 8px;
+    font-size: 13px;
+  }
+}
 .text__qkmb4 {
   animation: none;
   position: relative;
@@ -3137,6 +3144,11 @@
   text-decoration-line: line-through;
   text-overflow: clip;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__qkmb4 {
+    font-size: 13px;
+  }
 }
 .freeBox__sznNh {
   display: flex;

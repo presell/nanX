@@ -1859,7 +1859,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text__gjtGj
                   )}
                 >
-                  {"NanoMist\u2122 Spray: Illuminates and targets germs."}
+                  {"NanoMist\u2122 Spray: Complete surface coverage"}
                 </div>
               </div>
             ) : null}
@@ -1889,7 +1889,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text__mBcSj
                   )}
                 >
-                  {"Blue LED Beam: Illuminates and targets germs."}
+                  {"Blue LED Beam: Illuminates and targets germs"}
                 </div>
               </div>
             ) : null}
@@ -1919,7 +1919,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text__lXzmu
                   )}
                 >
-                  {"USB-C Charging: Recharges in under 2 hours."}
+                  {"USB-C Charging: Rapid fast rechargeing"}
                 </div>
               </div>
             ) : null}
@@ -1949,7 +1949,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text__duyh1
                   )}
                 >
-                  {"13 oz Tank: Sanitizes multiple rooms per fill."}
+                  {"13 oz Tank: Sanitizes multiple rooms per fill"}
                 </div>
               </div>
             ) : null}
@@ -1979,7 +1979,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text___1BdIm
                   )}
                 >
-                  {"Surface Safe: Works with all water-based cleaners."}
+                  {"Surface Safe: Works with water-based cleaners"}
                 </div>
               </div>
             ) : null}
