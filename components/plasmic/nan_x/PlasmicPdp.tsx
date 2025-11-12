@@ -262,7 +262,7 @@ function PlasmicPdp__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"100%"}
-            loading={"lazy"}
+            loading={"eager"}
             src={{
               src: "/plasmic/nan_x/images/nanX1Png.png",
               fullWidth: 1024,
@@ -281,7 +281,7 @@ function PlasmicPdp__RenderFunc(props: {
               displayMinHeight={"0"}
               displayMinWidth={"0"}
               displayWidth={"100%"}
-              loading={"lazy"}
+              loading={"eager"}
               src={{
                 src: "/plasmic/nan_x/images/nanX1Png.png",
                 fullWidth: 1024,
@@ -299,7 +299,7 @@ function PlasmicPdp__RenderFunc(props: {
               displayMinHeight={"0"}
               displayMinWidth={"0"}
               displayWidth={"100%"}
-              loading={"lazy"}
+              loading={"eager"}
               src={{
                 src: "/plasmic/nan_x/images/nanX1Png.png",
                 fullWidth: 1024,
