@@ -134,7 +134,7 @@ function PlasmicReturns__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicReturns.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -160,6 +160,16 @@ function PlasmicReturns__RenderFunc(props: {
           key="twitter:description"
           name="twitter:description"
           content={PlasmicReturns.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicReturns.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicReturns.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -401,7 +411,8 @@ export const PlasmicReturns = Object.assign(
       title: "Return & Warranty Policy | nanX™",
       description:
         "Every order is backed by a 30-day, no-questions-asked money-back guarantee—and an optional lifetime warranty for lasting protection.",
-      ogImageSrc: "",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/20e233b0acb6b6c934cd365980f2ab84.png",
       canonical: ""
     }
   }

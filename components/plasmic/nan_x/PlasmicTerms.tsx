@@ -135,7 +135,7 @@ function PlasmicTerms__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicTerms.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -161,6 +161,16 @@ function PlasmicTerms__RenderFunc(props: {
           key="twitter:description"
           name="twitter:description"
           content={PlasmicTerms.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicTerms.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicTerms.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -540,7 +550,8 @@ export const PlasmicTerms = Object.assign(
       title: "Terms of Service | nanX™",
       description:
         "By purchasing or using our products, you agree to our standard policies and conditions.",
-      ogImageSrc: "",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/20e233b0acb6b6c934cd365980f2ab84.png",
       canonical: ""
     }
   }

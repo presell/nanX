@@ -134,7 +134,7 @@ function PlasmicPrivacy__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicPrivacy.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -160,6 +160,16 @@ function PlasmicPrivacy__RenderFunc(props: {
           key="twitter:description"
           name="twitter:description"
           content={PlasmicPrivacy.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicPrivacy.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicPrivacy.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -491,7 +501,8 @@ export const PlasmicPrivacy = Object.assign(
       title: "Privacy Policy | nanX™",
       description:
         "Learn how nanX™ protects your data. We never sell or share your information and use secure payment processing.",
-      ogImageSrc: "",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/20e233b0acb6b6c934cd365980f2ab84.png",
       canonical: ""
     }
   }

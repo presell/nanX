@@ -138,7 +138,7 @@ function PlasmicDiscover__RenderFunc(props: {
   return (
     <React.Fragment>
       <Head>
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <title key="title">{PlasmicDiscover.pageMetadata.title}</title>
         <meta
           key="og:title"
@@ -164,6 +164,16 @@ function PlasmicDiscover__RenderFunc(props: {
           key="twitter:description"
           name="twitter:description"
           content={PlasmicDiscover.pageMetadata.description}
+        />
+        <meta
+          key="og:image"
+          property="og:image"
+          content={PlasmicDiscover.pageMetadata.ogImageSrc}
+        />
+        <meta
+          key="twitter:image"
+          name="twitter:image"
+          content={PlasmicDiscover.pageMetadata.ogImageSrc}
         />
       </Head>
 
@@ -323,7 +333,8 @@ export const PlasmicDiscover = Object.assign(
       title: "Disinfectant Spray Gun | nanX™",
       description:
         "The cordless nanX® Spray Gun eliminates germs on contact—without soaking surfaces or leaving residue. Clean smarter with NanoMist™ technology.",
-      ogImageSrc: "",
+      ogImageSrc:
+        "https://site-assets.plasmic.app/20e233b0acb6b6c934cd365980f2ab84.png",
       canonical: ""
     }
   }
