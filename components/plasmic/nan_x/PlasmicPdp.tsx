@@ -1291,6 +1291,38 @@ function PlasmicPdp__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
+                $steps["checkoutPixel"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const fbpixel = document.createElement("script");
+                            fbpixel.textContent = `
+  console.log('Facebook Pixel script is about to run...');
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout');
+    console.log('Facebook Pixel InitiateCheckout event fired successfully.');
+  } else {
+    console.warn('fbq is not defined — Meta Pixel may not be loaded.');
+  }
+`;
+                            return document.body.appendChild(fbpixel);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["checkoutPixel"] != null &&
+                  typeof $steps["checkoutPixel"] === "object" &&
+                  typeof $steps["checkoutPixel"].then === "function"
+                ) {
+                  $steps["checkoutPixel"] = await $steps["checkoutPixel"];
+                }
+
                 $steps["_1"] =
                   $state.selected == 1
                     ? (() => {
@@ -2022,7 +2054,40 @@ function PlasmicPdp__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                const fbpixel =
+                                  document.createElement("script");
+                                fbpixel.textContent = `
+  console.log('Facebook Pixel script is about to run...');
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout');
+    console.log('Facebook Pixel InitiateCheckout event fired successfully.');
+  } else {
+    console.warn('fbq is not defined — Meta Pixel may not be loaded.');
+  }
+`;
+                                return document.body.appendChild(fbpixel);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["_2"] = true
                       ? (() => {
                           const actionArgs = {
                             destination:
@@ -2043,11 +2108,11 @@ function PlasmicPdp__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["_2"] != null &&
+                      typeof $steps["_2"] === "object" &&
+                      typeof $steps["_2"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["_2"] = await $steps["_2"];
                     }
                   }}
                 >
