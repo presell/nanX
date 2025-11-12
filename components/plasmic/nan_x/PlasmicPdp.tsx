@@ -1286,7 +1286,99 @@ function PlasmicPdp__RenderFunc(props: {
                 </div>
               </div>
             ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox__ow0B)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__ow0B)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["_1"] =
+                  $state.selected == 1
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://buy.stripe.com/8x23cu1JY7QtgqegBReME00?prefilled_promo_code=BlackFriday10"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_1"] != null &&
+                  typeof $steps["_1"] === "object" &&
+                  typeof $steps["_1"].then === "function"
+                ) {
+                  $steps["_1"] = await $steps["_1"];
+                }
+
+                $steps["_2"] =
+                  $state.selected == 2
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://buy.stripe.com/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_2"] != null &&
+                  typeof $steps["_2"] === "object" &&
+                  typeof $steps["_2"].then === "function"
+                ) {
+                  $steps["_2"] = await $steps["_2"];
+                }
+
+                $steps["_3"] =
+                  $state.selected == 3
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://buy.stripe.com/7sY7sKfAOdaN8XMfxNeME02?prefilled_promo_code=BlackFriday"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_3"] != null &&
+                  typeof $steps["_3"] === "object" &&
+                  typeof $steps["_3"].then === "function"
+                ) {
+                  $steps["_3"] = await $steps["_3"];
+                }
+              }}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -1925,7 +2017,40 @@ function PlasmicPdp__RenderFunc(props: {
                 >
                   {"$194.70"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__sznNh)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__sznNh)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination:
+                              "https://buy.stripe.com/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
