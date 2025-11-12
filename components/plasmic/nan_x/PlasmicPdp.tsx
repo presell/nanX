@@ -264,9 +264,9 @@ function PlasmicPdp__RenderFunc(props: {
             displayWidth={"100%"}
             loading={"eager"}
             src={{
-              src: "/plasmic/nan_x/images/nanX1Png.png",
+              src: "/plasmic/nan_x/images/nanX2Jpg.jpg",
               fullWidth: 1024,
-              fullHeight: 1536,
+              fullHeight: 1024,
               aspectRatio: undefined
             }}
           />
@@ -283,9 +283,9 @@ function PlasmicPdp__RenderFunc(props: {
               displayWidth={"100%"}
               loading={"eager"}
               src={{
-                src: "/plasmic/nan_x/images/nanX1Png.png",
-                fullWidth: 1024,
-                fullHeight: 1536,
+                src: "/plasmic/nan_x/images/nanX3Jpg.jpg",
+                fullWidth: 1500,
+                fullHeight: 1500,
                 aspectRatio: undefined
               }}
             />
@@ -323,11 +323,11 @@ function PlasmicPdp__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"310px"}
-            loading={"lazy"}
+            loading={"eager"}
             src={{
-              src: "/plasmic/nan_x/images/nanX1Png.png",
+              src: "/plasmic/nan_x/images/nanX2Jpg.jpg",
               fullWidth: 1024,
-              fullHeight: 1536,
+              fullHeight: 1024,
               aspectRatio: undefined
             }}
           />
@@ -341,7 +341,25 @@ function PlasmicPdp__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={"310px"}
-            loading={"lazy"}
+            loading={"eager"}
+            src={{
+              src: "/plasmic/nan_x/images/nanX3Jpg.jpg",
+              fullWidth: 1500,
+              fullHeight: 1500,
+              aspectRatio: undefined
+            }}
+          />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__rLivj)}
+            displayHeight={"225px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"310px"}
+            loading={"eager"}
             src={{
               src: "/plasmic/nan_x/images/nanX1Png.png",
               fullWidth: 1024,

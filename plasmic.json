@@ -218,6 +218,21 @@
           "id": "TKsRT4F1HQ_3",
           "name": "nanX - Social Share - 1.png",
           "filePath": "../public/plasmic/nan_x/images/nanXSocialShare1Png.png"
+        },
+        {
+          "id": "_srR3KI2aY6E",
+          "name": "nanX - 4.jpg",
+          "filePath": "../public/plasmic/nan_x/images/nanX4Jpg.jpg"
+        },
+        {
+          "id": "O9YPf_sVGB7o",
+          "name": "nanX - 2.jpg",
+          "filePath": "../public/plasmic/nan_x/images/nanX2Jpg.jpg"
+        },
+        {
+          "id": "F4J0mk3cKuQq",
+          "name": "nanX - 3.jpg",
+          "filePath": "../public/plasmic/nan_x/images/nanX3Jpg.jpg"
         }
       ],
       "indirect": false,
