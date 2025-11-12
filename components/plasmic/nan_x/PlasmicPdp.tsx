@@ -1323,26 +1323,27 @@ function PlasmicPdp__RenderFunc(props: {
                   $steps["checkoutPixel"] = await $steps["checkoutPixel"];
                 }
 
-                $steps["_1"] = false
-                  ? (() => {
-                      const actionArgs = {
-                        destination:
-                          "https://buy.stripe.com/8x23cu1JY7QtgqegBReME00?prefilled_promo_code=BlackFriday10"
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                $steps["_1"] =
+                  $state.selected == 1
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://buy.stripe.com/8x23cu1JY7QtgqegBReME00?prefilled_promo_code=BlackFriday10"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["_1"] != null &&
                   typeof $steps["_1"] === "object" &&
