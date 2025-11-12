@@ -63,6 +63,7 @@ import Announcement from "../../Announcement"; // plasmic-import: 4lO7SXttxyIT/c
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/styleTokensProvider
 
@@ -88,6 +89,7 @@ export type PlasmicDiscover__OverridesType = {
   nav?: Flex__<typeof Nav>;
   pdp?: Flex__<typeof Pdp>;
   footer?: Flex__<typeof Footer>;
+  metaPixel?: Flex__<typeof Embed>;
 };
 
 export interface DefaultDiscoverProps {}
@@ -209,6 +211,15 @@ function PlasmicDiscover__RenderFunc(props: {
             data-plasmic-override={overrides.footer}
             className={classNames("__wab_instance", sty.footer)}
           />
+
+          <Embed
+            data-plasmic-name={"metaPixel"}
+            data-plasmic-override={overrides.metaPixel}
+            className={classNames("__wab_instance", sty.metaPixel)}
+            code={
+              "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -216,11 +227,12 @@ function PlasmicDiscover__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "announcement", "nav", "pdp", "footer"],
+  root: ["root", "announcement", "nav", "pdp", "footer", "metaPixel"],
   announcement: ["announcement"],
   nav: ["nav"],
   pdp: ["pdp"],
-  footer: ["footer"]
+  footer: ["footer"],
+  metaPixel: ["metaPixel"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -231,6 +243,7 @@ type NodeDefaultElementType = {
   nav: typeof Nav;
   pdp: typeof Pdp;
   footer: typeof Footer;
+  metaPixel: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -299,6 +312,7 @@ export const PlasmicDiscover = Object.assign(
     nav: makeNodeComponent("nav"),
     pdp: makeNodeComponent("pdp"),
     footer: makeNodeComponent("footer"),
+    metaPixel: makeNodeComponent("metaPixel"),
 
     // Metadata about props expected for PlasmicDiscover
     internalVariantProps: PlasmicDiscover__VariantProps,

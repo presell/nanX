@@ -12,6 +12,7 @@
     "@plasmicapp/cli": "^0.1.348",
     "@plasmicapp/loader-nextjs": "^1.0.443",
     "@plasmicapp/react-web": "^0.2.406",
+    "@plasmicpkgs/plasmic-basic-components": "^0.0.256",
     "next": "14.2.33",
     "react": "^18",
     "react-dom": "^18"

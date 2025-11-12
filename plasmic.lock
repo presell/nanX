@@ -3,7 +3,9 @@
     {
       "projectId": "4jNtNf7ennmHcnVPPcPauY",
       "version": "latest",
-      "dependencies": {},
+      "dependencies": {
+        "caTPwKxj5ZrD9LQ7DMdK4Z": "3.47.0"
+      },
       "lang": "ts",
       "fileLocks": [
         {
@@ -24,12 +26,12 @@
         {
           "type": "renderModule",
           "assetId": "vpVHI2O2CRUx",
-          "checksum": "08b69bb43e1efd27f651a0b3a4ee3302"
+          "checksum": "2cf782444478799670839820b19b4461"
         },
         {
           "type": "cssRules",
           "assetId": "vpVHI2O2CRUx",
-          "checksum": "08b69bb43e1efd27f651a0b3a4ee3302"
+          "checksum": "2cf782444478799670839820b19b4461"
         },
         {
           "type": "renderModule",
@@ -44,12 +46,12 @@
         {
           "type": "renderModule",
           "assetId": "uogUMQBXCRRV",
-          "checksum": "81c5e3b85e3a2eef1011095687408f55"
+          "checksum": "a9e5d670d05fbb71ca6a72bc58b9d9a2"
         },
         {
           "type": "cssRules",
           "assetId": "uogUMQBXCRRV",
-          "checksum": "81c5e3b85e3a2eef1011095687408f55"
+          "checksum": "a9e5d670d05fbb71ca6a72bc58b9d9a2"
         },
         {
           "type": "renderModule",
@@ -175,6 +177,30 @@
           "assetId": "4jNtNf7ennmHcnVPPcPauY",
           "type": "projectCss",
           "checksum": "bbf29a089b6c738e30fef18995f18107"
+        }
+      ],
+      "codegenVersion": "0.0.2"
+    },
+    {
+      "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+      "version": "3.47.0",
+      "dependencies": {},
+      "lang": "ts",
+      "fileLocks": [
+        {
+          "assetId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+          "type": "projectCss",
+          "checksum": "56a5d447501c0753e4cf451641894e78"
+        },
+        {
+          "assetId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+          "checksum": "efdcd613ac98718578f9c563cd75fd38",
+          "type": "projectModule"
+        },
+        {
+          "assetId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+          "checksum": "da63876a1ab2ffe408f66af115d28c46",
+          "type": "styleTokensProvider"
         }
       ],
       "codegenVersion": "0.0.2"
