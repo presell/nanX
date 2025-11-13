@@ -149,6 +149,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/returns"
+        },
+        {
+          "id": "7oFtnP1VA9G_",
+          "name": "Confirmation",
+          "type": "managed",
+          "projectId": "4jNtNf7ennmHcnVPPcPauY",
+          "renderModuleFilePath": "plasmic/nan_x/PlasmicConfirmation.tsx",
+          "importSpec": {
+            "modulePath": "../pages/confirmation.tsx"
+          },
+          "cssFilePath": "plasmic/nan_x/PlasmicConfirmation.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/confirmation"
         }
       ],
       "icons": [
