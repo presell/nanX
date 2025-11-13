@@ -1,57 +1,51 @@
 import type { AppProps } from "next/app";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import Script from "next/script";
 import "../styles/globals.css";
 
-// --- Fix TS error by declaring gtag on Window (inline) ---
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
+import { PlasmicRootProvider } from "@plasmicapp/react-web";
+import { PlasmicPageLoader } from "../plasmic-init";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("config", "G-NV5QCKX1X7", {
-          page_path: url,
-        });
-      }
-    };
-
-    router.events.on("routeChangeComplete", handleRouteChange);
-    return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
-    };
-  }, [router.events]);
-
+export default function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <>
-      {/* Google Analytics script loader */}
+    <PlasmicRootProvider>
+      {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-NV5QCKX1X7"
       />
 
-      {/* GA initialization */}
       <Script id="ga-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          window.gtag = gtag;
-
+          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-NV5QCKX1X7', {
-            page_path: window.location.pathname,
-          });
+          gtag('config', 'G-NV5QCKX1X7');
         `}
       </Script>
 
-      <Component {...pageProps} />
-    </>
+      {/* Track route changes */}
+      <Script id="ga-route-track" strategy="afterInteractive">
+        {`
+          if (typeof window !== "undefined") {
+            const handleRoute = (url) => {
+              if (window.gtag) {
+                window.gtag("config", "G-NV5QCKX1X7", {
+                  page_path: url,
+                });
+              }
+            };
+
+            window.addEventListener("plasmic:pageview", (e) =>
+              handleRoute(e.detail?.path || window.location.pathname)
+            );
+          }
+        `}
+      </Script>
+
+      {/* Render the page with Plasmic loader */}
+      <PlasmicPageLoader>
+        <Component {...pageProps} />
+      </PlasmicPageLoader>
+    </PlasmicRootProvider>
   );
 }
