@@ -233,6 +233,36 @@
           "id": "F4J0mk3cKuQq",
           "name": "nanX - 3.jpg",
           "filePath": "../public/plasmic/nan_x/images/nanX3Jpg.jpg"
+        },
+        {
+          "id": "vxhDBWn4ZH1N",
+          "name": "nanX - Article - 1.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle1Png.png"
+        },
+        {
+          "id": "CW7E4Rau3hM7",
+          "name": "nanX - Article - 2.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle2Png.png"
+        },
+        {
+          "id": "2s61xTcNAO2F",
+          "name": "nanX - Article - 3.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle3Png.png"
+        },
+        {
+          "id": "Na0yZyKIpnm_",
+          "name": "nanX - Article - 4.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle4Png.png"
+        },
+        {
+          "id": "SGUm8-4uoL-p",
+          "name": "nanX - Article - 5.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle5Png.png"
+        },
+        {
+          "id": "qlhCH50F-N1Y",
+          "name": "nanX - Article - 6.png",
+          "filePath": "../public/plasmic/nan_x/images/nanXArticle6Png.png"
         }
       ],
       "indirect": false,

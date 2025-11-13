@@ -7,7 +7,7 @@
   justify-content: flex-start;
   align-items: center;
   background: #1c3a13;
-  padding-top: 60px;
+  padding-top: 90px;
   padding-bottom: 20px;
   position: relative;
   grid-column-start: 1 !important;
@@ -27,6 +27,7 @@
   max-width: 85%;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 90px;
   min-width: 0;
 }
 .freeBox__sw4Tz {

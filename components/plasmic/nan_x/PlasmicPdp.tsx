@@ -1346,7 +1346,7 @@ function PlasmicPdp__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           destination:
-                            "https://buy.stripe.com/8x23cu1JY7QtgqegBReME00?prefilled_promo_code=BlackFriday10"
+                            "https://pay.nanxclean.com/b/8x23cu1JY7QtgqegBReME00?prefilled_promo_code=BlackFriday10"
                         };
                         return (({ destination }) => {
                           if (
@@ -1375,7 +1375,7 @@ function PlasmicPdp__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           destination:
-                            "https://buy.stripe.com/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                            "https://pay.nanxclean.com/b/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
                         };
                         return (({ destination }) => {
                           if (
@@ -1404,7 +1404,7 @@ function PlasmicPdp__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           destination:
-                            "https://buy.stripe.com/7sY7sKfAOdaN8XMfxNeME02?prefilled_promo_code=BlackFriday"
+                            "https://pay.nanxclean.com/b/7sY7sKfAOdaN8XMfxNeME02?prefilled_promo_code=BlackFriday"
                         };
                         return (({ destination }) => {
                           if (
@@ -2109,7 +2109,7 @@ function PlasmicPdp__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             destination:
-                              "https://buy.stripe.com/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                              "https://pay.nanxclean.com/b/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
                           };
                           return (({ destination }) => {
                             if (

@@ -72,6 +72,8 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectcss
 import sty from "./PlasmicDiscover.module.css"; // plasmic-import: uogUMQBXCRRV/css
 
+import DotSvgIcon from "./icons/PlasmicIcon__DotSvg"; // plasmic-import: MOshPqjEhwKE/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicDiscover__VariantMembers = {};
@@ -132,6 +134,8 @@ function PlasmicDiscover__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const globalVariants = _useGlobalVariants();
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -210,6 +214,720 @@ function PlasmicDiscover__RenderFunc(props: {
             className={classNames("__wab_instance", sty.nav)}
           />
 
+          <div className={classNames(projectcss.all, sty.freeBox___5Igd3)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___3GYsw
+              )}
+            >
+              {"Sanitize Any Surface In Seconds. No Scrubbing Required."}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__aVqpt)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bbE4H
+                )}
+              >
+                <React.Fragment>
+                  <React.Fragment>{"Written by "}</React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ textDecorationLine: "underline" }}
+                  >
+                    {"nanX"}
+                  </span>
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sShn1
+                )}
+              >
+                {"3 minute read"}
+              </div>
+              <DotSvgIcon
+                className={classNames(projectcss.all, sty.svg__gtva3)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__m5O3Z
+                )}
+              >
+                {"1 citation"}
+              </div>
+              <DotSvgIcon
+                className={classNames(projectcss.all, sty.svg___6UnOc)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yyww
+                )}
+              >
+                {"share"}
+              </div>
+            </div>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__m4FCj)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "180px"
+                  : "350px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={"none"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"100%"}
+              loading={"eager"}
+              src={{
+                src: "/plasmic/nan_x/images/nanXArticle1Png.png",
+                fullWidth: 1020,
+                fullHeight: 525,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fD2ZR
+              )}
+            >
+              {"Did You Know Surface Wiping Barely Kills Anything?"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__xr2Sp
+              )}
+            >
+              {
+                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray them, those harsh chemicals become an aerosol that pollutes the air you breathe.\n\nMost people think their current cleaning routine is \u201cgood enough,\u201d but the truth is it\u2019s slow, it worsens indoor air quality, and it still leaves behind some of the nastiest germs.\n\nNow keep reading, because what you\u2019re about to learn will completely change how you disinfect your home."
+              }
+            </div>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__o74J)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "180px"
+                  : "350px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={"none"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"100%"}
+              loading={"eager"}
+              src={{
+                src: "/plasmic/nan_x/images/nanXArticle2Png.png",
+                fullWidth: 1020,
+                fullHeight: 525,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__edTv8
+              )}
+            >
+              {
+                "Instead of relying on chemical-heavy cleaners and wiping every surface by hand, you can simply mist your surfaces using an almost magical, highly potent disinfecting solution \u2014 made from a couple of ingredients already sitting in your medicine cabinet.\n\nNo scrubbing.\nNo toxic fumes.\nNo sticky residue."
+              }
+            </div>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__avExl)}
+              displayHeight={
+                hasVariant(globalVariants, "screen", "mobileOnly")
+                  ? "180px"
+                  : "350px"
+              }
+              displayMaxHeight={"none"}
+              displayMaxWidth={"none"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={"100%"}
+              loading={"eager"}
+              src={{
+                src: "/plasmic/nan_x/images/nanXArticle3Png.png",
+                fullWidth: 1020,
+                fullHeight: 525,
+                aspectRatio: undefined
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__u4KEb
+              )}
+            >
+              {"The Power of \u201cMisting\u201d Instead of Wiping"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__yw7OK
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "But what do we mean by \u201cmist\u201d?\n\nWe\u2019re talking about using a "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__a1RG
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"disinfectant spray gun"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {".\n\nThese devices spray an ultra-fine "}
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__sHwnD
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"NanoMist\u2122"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    " \u2014 a lightweight, fast-drying mist that coats every surface evenly and reaches places wipes can\u2019t, like around handles, edges, cracks, and tight corners.\n\nPeople are using these "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__lUyk1
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"spray guns"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    " on kitchen counters, bathroom sinks, toilet seats and handles, door knobs, high-touch areas, and even electronics.\n\nThe mist settles, kills germs on contact, and dries almost instantly.\n\nThat means your home becomes cleaner, safer, and more thoroughly disinfected \u2014 without wiping a single thing."
+                  }
+                </React.Fragment>
+              </React.Fragment>
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__f563K
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__gdnjg)}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "180px"
+                    : "350px"
+                }
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100%"}
+                loading={"eager"}
+                src={{
+                  src: "/plasmic/nan_x/images/nanX1Png.png",
+                  fullWidth: 1024,
+                  fullHeight: 1536,
+                  aspectRatio: undefined
+                }}
+              />
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__jnjl6
+              )}
+            >
+              {
+                "So What Is This Powerful \u201cMedicine Cabinet\u201d Disinfect Solution?"
+              }
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qyr0C
+              )}
+            >
+              {
+                "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you definitely don\u2019t need expensive specialty sprays.\n\nAll you need is one common disinfecting ingredient almost every household already has\u2026\nand a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
+              }
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__kL2T3
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img___3KejC)}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "180px"
+                    : "350px"
+                }
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100%"}
+                loading={"eager"}
+                src={{
+                  src: "/plasmic/nan_x/images/nanXArticle4Png.png",
+                  fullWidth: 1020,
+                  fullHeight: 525,
+                  aspectRatio: undefined
+                }}
+              />
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__eUvNz
+              )}
+            >
+              {"Hydrogen Peroxide."}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qm7Ue
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide outperforms many standard surface cleaners in eliminating stubborn biofilms \u2014 the protective layers that allow dangerous germs to survive traditional wiping.\n\n(Some people even use simple rubbing alcohol for an even quicker-drying option \u2014 both work incredibly well.)\n\nWhen this clean solution is turned into an ultra-fine"
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__pNvk5
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {" NanoMist\u2122"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    ", it becomes a super effective, residue-free disinfectant that instantly coats surfaces and destroys germs \u2014 without scrubbing.\n\nIt\u2019s so easy you\u2019ll wonder why you spent years wiping everything by hand."
+                  }
+                </React.Fragment>
+              </React.Fragment>
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link___6K2Pl
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__zOrgf)}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "180px"
+                    : "350px"
+                }
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100%"}
+                loading={"eager"}
+                src={{
+                  src: "/plasmic/nan_x/images/nanXArticle5Png.png",
+                  fullWidth: 1020,
+                  fullHeight: 525,
+                  aspectRatio: undefined
+                }}
+              />
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__amg6J
+              )}
+            >
+              {"The Real Danger of \u201cGood Enough\u201d Cleaning"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__sWnHm
+              )}
+            >
+              {
+                "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes one single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a microscopic amount can trigger days of violent food poisoning, dehydration, and serious gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick.\u201d"
+              }
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__srKa6
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img___0DsZ)}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "180px"
+                    : "350px"
+                }
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100%"}
+                loading={"eager"}
+                src={{
+                  src: "/plasmic/nan_x/images/nanXArticle6Png.png",
+                  fullWidth: 1020,
+                  fullHeight: 525,
+                  aspectRatio: undefined
+                }}
+              />
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__aFhB
+              )}
+            >
+              {
+                "So What\u2019s the Best Way to Spray the Hydrogen Peroxide (or Alcohol) Solution?"
+              }
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__aX5N
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "While the disinfecting mixture is incredibly potent, how you apply it matters just as much.\n\nNot all "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link___9ZmAl
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"spray guns"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    " are created equal.\n\nCheap knockoffs leak, sputter, and spray unevenly \u2014 leaving gaps, streaks, and untouched areas. Many don\u2019t even produce a true "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__a8Dj
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"NanoMist\u2122"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    ", which means the disinfectant never fully coats the surface.\n\nThat\u2019s why thousands are switching to the "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__l0FCj
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"nanX Disinfectant Spray Gun"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    ".\n\nIt\u2019s engineered to blanket surfaces quickly with an ultra-fine, perfectly even "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__ktyHg
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"NanoMist\u2122"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    ".\n\nIt runs for hours on a single charge, feels solid in the hand, and is built to last.\n\nAnd unlike the cheap versions, the "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__dVnQ
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"nanX Spray Gun"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>
+                  {
+                    " comes with a lifetime warranty \u2014 so you only buy it once."
+                  }
+                </React.Fragment>
+              </React.Fragment>
+            </div>
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                sty.link__aB4H
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__hj8Gu)}
+                displayHeight={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "180px"
+                    : "350px"
+                }
+                displayMaxHeight={"none"}
+                displayMaxWidth={"none"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"100%"}
+                loading={"eager"}
+                src={{
+                  src: "/plasmic/nan_x/images/nanX3Jpg.jpg",
+                  fullWidth: 1500,
+                  fullHeight: 1500,
+                  aspectRatio: undefined
+                }}
+              />
+            </PlasmicLink__>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__kevhx
+              )}
+            >
+              {"And Right Now Is the Best Time of the Year to Get One"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__kQ9Oe
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "The Black Friday sale just went live \u2014 and it\u2019s the steepest discount offered all year.\n\nRight now, when you buy two "
+                  }
+                </React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link___2Ym9G
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"nanX Spray Guns"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>{", you get a "}</React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"third one"}
+                </span>
+                <React.Fragment> </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"free"}
+                </span>
+                <React.Fragment>
+                  {
+                    ".\n\nThat means one for you \u2014 and two as gifts for loved ones who care about keeping their homes clean, safe, and fully disinfected.\n\nIt\u2019s the perfect holiday gift for yourself and everyone you love."
+                  }
+                </React.Fragment>
+              </React.Fragment>
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___3AM9E
+              )}
+            >
+              <React.Fragment>
+                <React.Fragment>{""}</React.Fragment>
+                {
+                  <PlasmicLink__
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.a,
+                      projectcss.__wab_text,
+                      projectcss.plasmic_default__inline,
+                      sty.link__w0TnG
+                    )}
+                    component={Link}
+                    href={`/`}
+                    platform={"nextjs"}
+                  >
+                    {"\ud83d\udc49 Tap Here to Shop the Black Friday Sale"}
+                  </PlasmicLink__>
+                }
+                <React.Fragment>{""}</React.Fragment>
+              </React.Fragment>
+            </div>
+          </div>
           <Pdp
             data-plasmic-name={"pdp"}
             data-plasmic-override={overrides.pdp}
