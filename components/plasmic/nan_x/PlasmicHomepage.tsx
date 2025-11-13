@@ -2528,6 +2528,62 @@ function PlasmicHomepage__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox__sZelj)}
                 />
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox__fy5MR)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pkLOo
+                  )}
+                >
+                  {"1"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pLv2
+                  )}
+                >
+                  {"2"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___6R3SG
+                  )}
+                >
+                  {"3"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pxNwI
+                  )}
+                >
+                  {"4"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tytlb
+                  )}
+                >
+                  {"5"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zeScb
+                  )}
+                >
+                  {"6+"}
+                </div>
+              </div>
             </div>
           </div>
           <Footer

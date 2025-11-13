@@ -4302,6 +4302,126 @@
   display: none;
   border-width: 1px;
 }
+.freeBox__fy5MR {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.text__pkLOo {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__pkLOo {
+    animation: none;
+  }
+}
+.text__pLv2 {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__pLv2 {
+    animation: none;
+  }
+}
+.text___6R3SG {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text___6R3SG {
+    animation: none;
+  }
+}
+.text__pxNwI {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__pxNwI {
+    animation: none;
+  }
+}
+.text__tytlb {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__tytlb {
+    animation: none;
+  }
+}
+.text__zeScb {
+  animation: none;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-right: 5px;
+  text-decoration-line: none;
+  color: #1c3a13;
+  margin-top: 5px;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__zeScb {
+    animation: none;
+  }
+}
 .footer:global(.__wab_instance) {
   position: relative;
   margin-top: 0px;
