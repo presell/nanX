@@ -19,6 +19,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           page_path: url,
         });
       }
+
+      // Fire NewsBreak pageload on route change too
+      if (typeof window !== "undefined" && (window as any).nbpix) {
+        (window as any).nbpix("event", "pageload");
+      }
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -29,7 +34,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <PlasmicRootProvider>
-
       {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
@@ -70,6 +74,34 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             var e = document.getElementsByTagName("script")[0];
             e.parentNode.insertBefore(s, e);
           })();
+        `}
+      </Script>
+
+      {/* NewsBreak Pixel */}
+      <Script id="newsbreak-pixel" strategy="afterInteractive">
+        {`
+          !(function (e, n, t, i, p, a, s) {
+            if (!e[i]) {
+              p = e[i] = function () {
+                p.process ? p.process.apply(p, arguments) : p.queue.push(arguments);
+              };
+              p.queue = [];
+              p.t = +new Date();
+              a = n.createElement(t);
+              a.async = 1;
+              a.src =
+                'https://static.newsbreak.com/business/tracking/nbpixel.js?t=' +
+                864e5 * Math.ceil(new Date() / 864e5);
+              s = n.getElementsByTagName(t)[0];
+              s.parentNode.insertBefore(a, s);
+            }
+          })(window, document, 'script', 'nbpix');
+
+          // Initialize NewsBreak pixel
+          nbpix('init', 'ID-1989004679013777409');
+
+          // Track initial pageload
+          nbpix('event', 'pageload');
         `}
       </Script>
 
