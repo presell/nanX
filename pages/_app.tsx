@@ -3,7 +3,6 @@ import Script from "next/script";
 import "../styles/globals.css";
 
 import { PlasmicRootProvider } from "@plasmicapp/react-web";
-import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -30,7 +29,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <PlasmicRootProvider>
-      {/* Google Analytics loading */}
+      {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-NV5QCKX1X7"
@@ -47,7 +46,30 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
 
-      {/* The actual Plasmic-rendered page */}
+      {/* Microsoft Clarity */}
+      <Script id="clarity-init" strategy="afterInteractive">
+        {`
+          (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "u5iwuk6kg7");
+        `}
+      </Script>
+
+      {/* Axon Pixel */}
+      <Script id="axon-pixel" strategy="afterInteractive">
+        {`
+          var AXON_EVENT_KEY = "73622822-ec61-4730-931c-71acc3c4b177";
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://red.appalon.com/p/loader.js";
+          var e = document.getElementsByTagName("script")[0];
+          e.parentNode.insertBefore(s, e);
+        `}
+      </Script>
+
+      {/* Plasmic-rendered page */}
       <Component {...pageProps} />
     </PlasmicRootProvider>
   );
