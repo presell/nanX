@@ -4,13 +4,20 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import "../styles/globals.css";
 
+// --- Fix TS error by declaring gtag on Window (inline) ---
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (typeof window !== "undefined") {
-        window.gtag?.("config", "G-NV5QCKX1X7", {
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("config", "G-NV5QCKX1X7", {
           page_path: url,
         });
       }
@@ -30,12 +37,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         src="https://www.googletagmanager.com/gtag/js?id=G-NV5QCKX1X7"
       />
 
-      {/* GA initialization + global gtag() function */}
+      {/* GA initialization */}
       <Script id="ga-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           window.gtag = gtag;
+
           gtag('js', new Date());
           gtag('config', 'G-NV5QCKX1X7', {
             page_path: window.location.pathname,
