@@ -63,6 +63,7 @@ import Announcement from "../../Announcement"; // plasmic-import: 4lO7SXttxyIT/c
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/styleTokensProvider
 
@@ -91,6 +92,7 @@ export type PlasmicConfirmation__OverridesType = {
   svg?: Flex__<"svg">;
   footer?: Flex__<typeof Footer>;
   metaPixel?: Flex__<typeof Embed>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultConfirmationProps {}
@@ -273,8 +275,56 @@ function PlasmicConfirmation__RenderFunc(props: {
             data-plasmic-override={overrides.metaPixel}
             className={classNames("__wab_instance", sty.metaPixel)}
             code={
-              "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\nfbq('track', 'Purchase');   // Fires when viewing a product or key page\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n\n  <!-- Track conversion event, please use EXACT 'event', 'complete_payment' in the code below -->\n  <script>\n    nbpix('event','complete_payment', { nb_value: 80} );\n  </script>"
+              "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\nfbq('track', 'Purchase');   // Fires when viewing a product or key page\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n"
             }
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log(
+                            "Attempting NewsBreak complete_payment event..."
+                          );
+                          if (
+                            typeof window !== "undefined" &&
+                            typeof window.nbpix === "function"
+                          ) {
+                            window.nbpix("event", "complete_payment", {
+                              nb_value: 80
+                            });
+                            return console.log(
+                              "NewsBreak complete_payment event fired successfully."
+                            );
+                          } else {
+                            return console.warn(
+                              "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
           />
         </div>
       </div>
@@ -283,12 +333,21 @@ function PlasmicConfirmation__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "announcement", "nav", "svg", "footer", "metaPixel"],
+  root: [
+    "root",
+    "announcement",
+    "nav",
+    "svg",
+    "footer",
+    "metaPixel",
+    "sideEffect"
+  ],
   announcement: ["announcement"],
   nav: ["nav"],
   svg: ["svg"],
   footer: ["footer"],
-  metaPixel: ["metaPixel"]
+  metaPixel: ["metaPixel"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -300,6 +359,7 @@ type NodeDefaultElementType = {
   svg: "svg";
   footer: typeof Footer;
   metaPixel: typeof Embed;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -369,6 +429,7 @@ export const PlasmicConfirmation = Object.assign(
     svg: makeNodeComponent("svg"),
     footer: makeNodeComponent("footer"),
     metaPixel: makeNodeComponent("metaPixel"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicConfirmation
     internalVariantProps: PlasmicConfirmation__VariantProps,

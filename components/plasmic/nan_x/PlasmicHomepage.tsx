@@ -64,6 +64,7 @@ import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/styleTokensProvider
 
@@ -113,6 +114,7 @@ export type PlasmicHomepage__OverridesType = {
   offerReview117?: Flex__<"div">;
   footer?: Flex__<typeof Footer>;
   metaPixel?: Flex__<typeof Embed>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultHomepageProps {}
@@ -2597,8 +2599,54 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-override={overrides.metaPixel}
             className={classNames("__wab_instance", sty.metaPixel)}
             code={
-              "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\nfbq('track', 'ViewContent');   // Fires when viewing a product or key page\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n\n\n\n<!-- Track conversion event without nb_value -->\n<script>\n  nbpix('event', 'view_content');\n</script>"
+              "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\nfbq('track', 'ViewContent');   // Fires when viewing a product or key page\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n\n\n"
             }
+          />
+
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log(
+                            "Attempting NewsBreak view_content event..."
+                          );
+                          if (
+                            typeof window !== "undefined" &&
+                            typeof window.nbpix === "function"
+                          ) {
+                            window.nbpix("event", "view_content");
+                            return console.log(
+                              "NewsBreak view_content event fired successfully."
+                            );
+                          } else {
+                            return console.warn(
+                              "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
           />
         </div>
       </div>
@@ -2630,7 +2678,8 @@ const PlasmicDescendants = {
     "offerReview116",
     "offerReview117",
     "footer",
-    "metaPixel"
+    "metaPixel",
+    "sideEffect"
   ],
   announcement: ["announcement"],
   nav: ["nav"],
@@ -2680,7 +2729,8 @@ const PlasmicDescendants = {
   offerReview116: ["offerReview116"],
   offerReview117: ["offerReview117"],
   footer: ["footer"],
-  metaPixel: ["metaPixel"]
+  metaPixel: ["metaPixel"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2709,6 +2759,7 @@ type NodeDefaultElementType = {
   offerReview117: "div";
   footer: typeof Footer;
   metaPixel: typeof Embed;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2795,6 +2846,7 @@ export const PlasmicHomepage = Object.assign(
     offerReview117: makeNodeComponent("offerReview117"),
     footer: makeNodeComponent("footer"),
     metaPixel: makeNodeComponent("metaPixel"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
