@@ -3,12 +3,34 @@ import Script from "next/script";
 import "../styles/globals.css";
 
 import { PlasmicRootProvider } from "@plasmicapp/react-web";
-import { PlasmicPageLoader } from "../plasmic-init";
+import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-export default function MyApp({ Component, pageProps, router }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  //
+  // Google Analytics: Track route changes
+  //
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        (window as any).gtag("config", "G-NV5QCKX1X7", {
+          page_path: url,
+        });
+      }
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <PlasmicRootProvider>
-      {/* Google Analytics */}
+      {/* Google Analytics loading */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-NV5QCKX1X7"
@@ -19,33 +41,14 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-NV5QCKX1X7');
+          gtag('config', 'G-NV5QCKX1X7', {
+            page_path: window.location.pathname,
+          });
         `}
       </Script>
 
-      {/* Track route changes */}
-      <Script id="ga-route-track" strategy="afterInteractive">
-        {`
-          if (typeof window !== "undefined") {
-            const handleRoute = (url) => {
-              if (window.gtag) {
-                window.gtag("config", "G-NV5QCKX1X7", {
-                  page_path: url,
-                });
-              }
-            };
-
-            window.addEventListener("plasmic:pageview", (e) =>
-              handleRoute(e.detail?.path || window.location.pathname)
-            );
-          }
-        `}
-      </Script>
-
-      {/* Render the page with Plasmic loader */}
-      <PlasmicPageLoader>
-        <Component {...pageProps} />
-      </PlasmicPageLoader>
+      {/* The actual Plasmic-rendered page */}
+      <Component {...pageProps} />
     </PlasmicRootProvider>
   );
 }
