@@ -231,6 +231,34 @@ function PlasmicDiscover__RenderFunc(props: {
                   projectcss.__wab_text,
                   sty.text__bbE4H
                 )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToHomepage"] = true
+                    ? (() => {
+                        const actionArgs = { destination: `/` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToHomepage"] != null &&
+                    typeof $steps["goToHomepage"] === "object" &&
+                    typeof $steps["goToHomepage"].then === "function"
+                  ) {
+                    $steps["goToHomepage"] = await $steps["goToHomepage"];
+                  }
+                }}
               >
                 <React.Fragment>
                   <React.Fragment>{"Written by "}</React.Fragment>
@@ -351,9 +379,24 @@ function PlasmicDiscover__RenderFunc(props: {
                 sty.text__edTv8
               )}
             >
-              {
-                "Instead of relying on chemical-heavy cleaners and wiping every surface by hand, you can simply mist your surfaces using an almost magical, highly potent disinfecting solution \u2014 made from a couple of ingredients already sitting in your medicine cabinet.\n\nNo scrubbing.\nNo toxic fumes.\nNo sticky residue."
-              }
+              <React.Fragment>
+                <React.Fragment>
+                  {
+                    "Instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
+                  }
+                </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"mist"}
+                </span>
+                <React.Fragment>
+                  {
+                    " your surfaces \u2014 not scrub them \u2014 using a powerful disinfecting solution made from ingredients already in your medicine cabinet.\n\nNo scrubbing.\nNo toxic fumes.\nNo sticky residue.\n\nJust mist.\nAnd done."
+                  }
+                </React.Fragment>
+              </React.Fragment>
             </div>
             <PlasmicImg__
               alt={""}
@@ -395,9 +438,16 @@ function PlasmicDiscover__RenderFunc(props: {
             >
               <React.Fragment>
                 <React.Fragment>
-                  {
-                    "But what do we mean by \u201cmist\u201d?\n\nWe\u2019re talking about using a "
-                  }
+                  {"But what do we mean by \u201c"}
+                </React.Fragment>
+                <span
+                  className={"plasmic_default__all plasmic_default__span"}
+                  style={{ fontWeight: 700 }}
+                >
+                  {"mist"}
+                </span>
+                <React.Fragment>
+                  {"\u201d?\n\nWe\u2019re talking about using a "}
                 </React.Fragment>
                 {
                   <PlasmicLink__
@@ -513,7 +563,7 @@ function PlasmicDiscover__RenderFunc(props: {
               )}
             >
               {
-                "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you definitely don\u2019t need expensive specialty sprays.\n\nAll you need is one common disinfecting ingredient almost every household already has\u2026\nand a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
+                "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you definitely don\u2019t need expensive specialty sprays.\n\nAll you need is one common disinfecting ingredient almost every household already has\u2026 and a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
               }
             </div>
             <PlasmicLink__
@@ -567,7 +617,7 @@ function PlasmicDiscover__RenderFunc(props: {
               <React.Fragment>
                 <React.Fragment>
                   {
-                    "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide outperforms many standard surface cleaners in eliminating stubborn biofilms \u2014 the protective layers that allow dangerous germs to survive traditional wiping.\n\n(Some people even use simple rubbing alcohol for an even quicker-drying option \u2014 both work incredibly well.)\n\nWhen this clean solution is turned into an ultra-fine"
+                    "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide outperforms many standard surface cleaners in eliminating stubborn biofilms \u2014 the protective layers that allow dangerous germs to survive traditional wiping.\n\n(Some people even use rubbing alcohol for a rapid drying option \u2014 both work incredibly well.)\n\nWhen this clean solution is turned into an ultra-fine"
                   }
                 </React.Fragment>
                 {
@@ -859,7 +909,7 @@ function PlasmicDiscover__RenderFunc(props: {
               <React.Fragment>
                 <React.Fragment>
                   {
-                    "The Black Friday sale just went live \u2014 and it\u2019s the steepest discount offered all year.\n\nRight now, when you buy two "
+                    "Our Black Friday sale just went live \u2014 and it\u2019s the steepest discount offered all year.\n\nRight now, when you buy two "
                   }
                 </React.Fragment>
                 {

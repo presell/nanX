@@ -314,6 +314,7 @@
   margin-top: 20px;
   color: #1c3a13;
   font-family: "Inter", sans-serif;
+  padding-top: 0px;
   min-width: 0;
 }
 @media (min-width: 0px) and (max-width: 768px) {
