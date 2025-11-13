@@ -29,6 +29,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <PlasmicRootProvider>
+
       {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
@@ -60,16 +61,19 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       {/* Axon Pixel */}
       <Script id="axon-pixel" strategy="afterInteractive">
         {`
-          var AXON_EVENT_KEY = "73622822-ec61-4730-931c-71acc3c4b177";
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://red.appalon.com/p/loader.js";
-          var e = document.getElementsByTagName("script")[0];
-          e.parentNode.insertBefore(s, e);
+          window.AXON_EVENT_KEY = "73622822-ec61-4730-931c-71acc3c4b177";
+
+          (function() {
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "https://red.appalon.com/p/loader.js";
+            var e = document.getElementsByTagName("script")[0];
+            e.parentNode.insertBefore(s, e);
+          })();
         `}
       </Script>
 
-      {/* Plasmic-rendered page */}
+      {/* Render page */}
       <Component {...pageProps} />
     </PlasmicRootProvider>
   );
