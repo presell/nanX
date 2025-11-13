@@ -361,6 +361,7 @@
   margin-right: 0px;
   text-decoration-line: underline;
   color: #1c3a13;
+  cursor: pointer;
 }
 .text__cay0F {
   position: relative;
@@ -3036,6 +3037,7 @@
   align-items: center;
   margin-top: 20px;
   background: #f6f7ef;
+  cursor: pointer;
   min-width: 0;
   border-radius: 15px;
   padding: 16px;
@@ -3192,7 +3194,6 @@
   align-items: center;
   margin-top: 0px;
   background: #1c3a13;
-  cursor: pointer;
   border-radius: 6px;
   padding: 2px 16px;
 }

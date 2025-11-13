@@ -427,37 +427,29 @@ function PlasmicPdp__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["updateSelected"] = true
+                $steps["goToReviews"] = true
                   ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["selected"]
-                        },
-                        operation: 0
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
+                      const actionArgs = { destination: "#reviews" };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["updateSelected"] != null &&
-                  typeof $steps["updateSelected"] === "object" &&
-                  typeof $steps["updateSelected"].then === "function"
+                  $steps["goToReviews"] != null &&
+                  typeof $steps["goToReviews"] === "object" &&
+                  typeof $steps["goToReviews"].then === "function"
                 ) {
-                  $steps["updateSelected"] = await $steps["updateSelected"];
+                  $steps["goToReviews"] = await $steps["goToReviews"];
                 }
               }}
             >
@@ -2038,7 +2030,72 @@ function PlasmicPdp__RenderFunc(props: {
               </div>
             ) : null}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__gpv1G)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__gpv1G)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const fbpixel = document.createElement("script");
+                          fbpixel.textContent = `
+  console.log('Facebook Pixel script is about to run...');
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout');
+    console.log('Facebook Pixel InitiateCheckout event fired successfully.');
+  } else {
+    console.warn('fbq is not defined — Meta Pixel may not be loaded.');
+  }
+`;
+                          return document.body.appendChild(fbpixel);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+
+              $steps["_2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination:
+                        "https://pay.nanxclean.com/b/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["_2"] != null &&
+                typeof $steps["_2"] === "object" &&
+                typeof $steps["_2"].then === "function"
+              ) {
+                $steps["_2"] = await $steps["_2"];
+              }
+            }}
+          >
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__frhnU)}
@@ -2103,73 +2160,7 @@ function PlasmicPdp__RenderFunc(props: {
                 >
                   {"$194.70"}
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__sznNh)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                const fbpixel =
-                                  document.createElement("script");
-                                fbpixel.textContent = `
-  console.log('Facebook Pixel script is about to run...');
-  if (typeof fbq === 'function') {
-    fbq('track', 'InitiateCheckout');
-    console.log('Facebook Pixel InitiateCheckout event fired successfully.');
-  } else {
-    console.warn('fbq is not defined — Meta Pixel may not be loaded.');
-  }
-`;
-                                return document.body.appendChild(fbpixel);
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-
-                    $steps["_2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination:
-                              "https://pay.nanxclean.com/b/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["_2"] != null &&
-                      typeof $steps["_2"] === "object" &&
-                      typeof $steps["_2"].then === "function"
-                    ) {
-                      $steps["_2"] = await $steps["_2"];
-                    }
-                  }}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__sznNh)}>
                   <div
                     className={classNames(
                       projectcss.all,
