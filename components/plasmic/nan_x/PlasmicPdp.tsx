@@ -574,7 +574,7 @@ function PlasmicPdp__RenderFunc(props: {
                         sty.text__kYgL6
                       )}
                     >
-                      {"Plus $4.95 Shipping"}
+                      {"Plus Free Shipping"}
                     </div>
                   </div>
                   <div
@@ -726,7 +726,7 @@ function PlasmicPdp__RenderFunc(props: {
                         sty.text__mVaHk
                       )}
                     >
-                      {"Plus $4.95 Shipping"}
+                      {"Plus Free Shipping"}
                     </div>
                   </div>
                   <div
