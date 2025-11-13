@@ -1337,7 +1337,7 @@ function PlasmicPdp__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["checkoutPixel"] = true
+                $steps["checkoutMeta"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1362,11 +1362,131 @@ function PlasmicPdp__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["checkoutPixel"] != null &&
-                  typeof $steps["checkoutPixel"] === "object" &&
-                  typeof $steps["checkoutPixel"].then === "function"
+                  $steps["checkoutMeta"] != null &&
+                  typeof $steps["checkoutMeta"] === "object" &&
+                  typeof $steps["checkoutMeta"].then === "function"
                 ) {
-                  $steps["checkoutPixel"] = await $steps["checkoutPixel"];
+                  $steps["checkoutMeta"] = await $steps["checkoutMeta"];
+                }
+
+                $steps["checkoutNb1"] =
+                  $state.selected == 1
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 54.9
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb1"] != null &&
+                  typeof $steps["checkoutNb1"] === "object" &&
+                  typeof $steps["checkoutNb1"].then === "function"
+                ) {
+                  $steps["checkoutNb1"] = await $steps["checkoutNb1"];
+                }
+
+                $steps["checkoutNb2"] =
+                  $state.selected == 2
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 109.8
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb2"] != null &&
+                  typeof $steps["checkoutNb2"] === "object" &&
+                  typeof $steps["checkoutNb2"].then === "function"
+                ) {
+                  $steps["checkoutNb2"] = await $steps["checkoutNb2"];
+                }
+
+                $steps["checkoutNb3"] =
+                  $state.selected == 3
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 164.7
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb3"] != null &&
+                  typeof $steps["checkoutNb3"] === "object" &&
+                  typeof $steps["checkoutNb3"].then === "function"
+                ) {
+                  $steps["checkoutNb3"] = await $steps["checkoutNb3"];
                 }
 
                 $steps["_1"] =
@@ -2035,7 +2155,7 @@ function PlasmicPdp__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps["runCode"] = true
+              $steps["checkoutMeta"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -2060,11 +2180,50 @@ function PlasmicPdp__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
+                $steps["checkoutMeta"] != null &&
+                typeof $steps["checkoutMeta"] === "object" &&
+                typeof $steps["checkoutMeta"].then === "function"
               ) {
-                $steps["runCode"] = await $steps["runCode"];
+                $steps["checkoutMeta"] = await $steps["checkoutMeta"];
+              }
+
+              $steps["checkout1Nb"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          console.log(
+                            "Attempting NewsBreak initiate_checkout event..."
+                          );
+                          if (
+                            typeof window !== "undefined" &&
+                            typeof window.nbpix === "function"
+                          ) {
+                            window.nbpix("event", "initiate_checkout", {
+                              nb_value: 109.8
+                            });
+                            return console.log(
+                              "NewsBreak initiate_checkout event fired successfully."
+                            );
+                          } else {
+                            return console.warn(
+                              "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                            );
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["checkout1Nb"] != null &&
+                typeof $steps["checkout1Nb"] === "object" &&
+                typeof $steps["checkout1Nb"].then === "function"
+              ) {
+                $steps["checkout1Nb"] = await $steps["checkout1Nb"];
               }
 
               $steps["_2"] = true
