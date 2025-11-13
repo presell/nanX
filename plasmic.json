@@ -163,6 +163,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/confirmation"
+        },
+        {
+          "id": "dQ3Sxk4fWxOM",
+          "name": "Newsbreak",
+          "type": "managed",
+          "projectId": "4jNtNf7ennmHcnVPPcPauY",
+          "renderModuleFilePath": "plasmic/nan_x/PlasmicNewsbreak.tsx",
+          "importSpec": {
+            "modulePath": "../pages/newsbreak.tsx"
+          },
+          "cssFilePath": "plasmic/nan_x/PlasmicNewsbreak.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/newsbreak"
         }
       ],
       "icons": [
