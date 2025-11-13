@@ -2622,7 +2622,9 @@ function PlasmicHomepage__RenderFunc(props: {
                             typeof window !== "undefined" &&
                             typeof window.nbpix === "function"
                           ) {
-                            window.nbpix("event", "view_content");
+                            window.nbpix("event", "view_content", {
+                              nb_value: 80
+                            });
                             return console.log(
                               "NewsBreak view_content event fired successfully."
                             );
