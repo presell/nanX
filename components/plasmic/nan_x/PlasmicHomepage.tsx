@@ -2623,7 +2623,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             typeof window.nbpix === "function"
                           ) {
                             window.nbpix("event", "view_content", {
-                              nb_value: 80
+                              nb_value: 70
                             });
                             return console.log(
                               "NewsBreak view_content event fired successfully."

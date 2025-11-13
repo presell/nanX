@@ -93,13 +93,20 @@ export type PlasmicPdp__OverridesType = {
   body?: Flex__<"div">;
   desktopImages2?: Flex__<"div">;
   mobileImages2?: Flex__<"div">;
-  options?: Flex__<"div">;
+  optionsv1?: Flex__<"div">;
   _1Unselected?: Flex__<"div">;
   _1Selected?: Flex__<"div">;
   _2Selected?: Flex__<"div">;
   _2Unselected?: Flex__<"div">;
   _3Unselected?: Flex__<"div">;
   _3Selected?: Flex__<"div">;
+  optionsv2?: Flex__<"div">;
+  _1Unselected2?: Flex__<"div">;
+  _1Selected2?: Flex__<"div">;
+  _2Selected2?: Flex__<"div">;
+  _2Unselected2?: Flex__<"div">;
+  _3Unselected2?: Flex__<"div">;
+  _3Selected2?: Flex__<"div">;
   divider1?: Flex__<"div">;
   divider2?: Flex__<"div">;
 };
@@ -468,9 +475,9 @@ function PlasmicPdp__RenderFunc(props: {
             }
           </div>
           <div
-            data-plasmic-name={"options"}
-            data-plasmic-override={overrides.options}
-            className={classNames(projectcss.all, sty.options)}
+            data-plasmic-name={"optionsv1"}
+            data-plasmic-override={overrides.optionsv1}
+            className={classNames(projectcss.all, sty.optionsv1)}
           >
             {(() => {
               try {
@@ -1589,6 +1596,1116 @@ function PlasmicPdp__RenderFunc(props: {
             </div>
           </div>
           <div
+            data-plasmic-name={"optionsv2"}
+            data-plasmic-override={overrides.optionsv2}
+            className={classNames(projectcss.all, sty.optionsv2)}
+          >
+            {(() => {
+              try {
+                return $state.selected != 1;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_1Unselected2"}
+                data-plasmic-override={overrides._1Unselected2}
+                className={classNames(projectcss.all, sty._1Unselected2)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSelected"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selected"]
+                          },
+                          operation: 0,
+                          value: 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelected"] != null &&
+                    typeof $steps["updateSelected"] === "object" &&
+                    typeof $steps["updateSelected"].then === "function"
+                  ) {
+                    $steps["updateSelected"] = await $steps["updateSelected"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___5QqW9)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__qBAqg)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__zd5Kn)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__hwwUi)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__jCgij)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__cFn2I
+                        )}
+                      >
+                        {"1 Spray Gun"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__i8SnD
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__s9KgS
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mfrCk
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__fufxa)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__h3AH)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___08MAk
+                        )}
+                      >
+                        {"Save $20.00"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vFLsc
+                      )}
+                    >
+                      {"$44.90"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___8Qh6L
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$64.90"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.selected == 1;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_1Selected2"}
+                data-plasmic-override={overrides._1Selected2}
+                className={classNames(projectcss.all, sty._1Selected2)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSelected"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selected"]
+                          },
+                          operation: 0,
+                          value: 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelected"] != null &&
+                    typeof $steps["updateSelected"] === "object" &&
+                    typeof $steps["updateSelected"].then === "function"
+                  ) {
+                    $steps["updateSelected"] = await $steps["updateSelected"];
+                  }
+                }}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__flOl7)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___8StWh)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__crpB)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mCFw)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___48Om6
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__eg1Xt
+                        )}
+                      >
+                        {"1 Spray Gun"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__fSbZy
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__r1Bf2
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___1Bdkm
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__wIZl)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__gj716)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__m8Pig
+                        )}
+                      >
+                        {"Save $20.00"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ppw0
+                      )}
+                    >
+                      {"$44.90"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ejMeE
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$64.90"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.selected == 2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_2Selected2"}
+                data-plasmic-override={overrides._2Selected2}
+                className={classNames(projectcss.all, sty._2Selected2)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__naVDj)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rOpwx)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ifYoW)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gaCcw)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___45Ia2
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__wouHj
+                        )}
+                      >
+                        {"Buy 2, Get 1 Free"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gnMss
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__d7BDy
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__a5QzQ
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__iMakU)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__dzV71)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__oWyfT
+                        )}
+                      >
+                        {"Save $104.90"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rcw2G
+                      )}
+                    >
+                      {"$89.80"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ycWpa
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$194.70"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.selected != 2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_2Unselected2"}
+                data-plasmic-override={overrides._2Unselected2}
+                className={classNames(projectcss.all, sty._2Unselected2)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSelected"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selected"]
+                          },
+                          operation: 0,
+                          value: 2
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelected"] != null &&
+                    typeof $steps["updateSelected"] === "object" &&
+                    typeof $steps["updateSelected"].then === "function"
+                  ) {
+                    $steps["updateSelected"] = await $steps["updateSelected"];
+                  }
+                }}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__r1ZZp)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__up4Co)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ejBgr)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___3LXMp)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__m4Xg)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__om1WU
+                        )}
+                      >
+                        {"Buy 2, Get 1 Free"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__l8Vcz
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__n6Ms7
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__cRzLp
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__xwN3H)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__k0Olr)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__skLyi
+                        )}
+                      >
+                        {"Save $104.90"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nDvLn
+                      )}
+                    >
+                      {"$89.80"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pWw30
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$194.70"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.selected != 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_3Unselected2"}
+                data-plasmic-override={overrides._3Unselected2}
+                className={classNames(projectcss.all, sty._3Unselected2)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSelected"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["selected"]
+                          },
+                          operation: 0,
+                          value: 3
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSelected"] != null &&
+                    typeof $steps["updateSelected"] === "object" &&
+                    typeof $steps["updateSelected"].then === "function"
+                  ) {
+                    $steps["updateSelected"] = await $steps["updateSelected"];
+                  }
+                }}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__abau9)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lHuJ)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__wZyeJ)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__cg0Xb)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___56QHs
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__dJKe4
+                        )}
+                      >
+                        {"Buy 3, Get 2 Free"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gZfZ8
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__cOhGw
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iPv8A
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kxdXx)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__p19Kz)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yEb6K
+                        )}
+                      >
+                        {"Save $189.80"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ynruE
+                      )}
+                    >
+                      {"$134.70"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__lujac
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$324.50"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.selected == 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"_3Selected2"}
+                data-plasmic-override={overrides._3Selected2}
+                className={classNames(projectcss.all, sty._3Selected2)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__vt6O)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__o5IjE)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__zKWvJ)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__d0Khr)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__xDkY)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rfoTt
+                        )}
+                      >
+                        {"Buy 3, Get 2 Free"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ydAhi
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__x4TF1
+                          )}
+                        >
+                          {"Save $59.99"}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__onPr0
+                      )}
+                    >
+                      {"Plus Free Shipping"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ng5F4)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__v6TX)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ywdJd
+                        )}
+                      >
+                        {"Save $189.80"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__epE20
+                      )}
+                    >
+                      {"$134.70"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___1DKbI
+                      )}
+                    >
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ textDecorationLine: "line-through" }}
+                        >
+                          {"$324.50"}
+                        </span>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            <div
+              className={classNames(projectcss.all, sty.freeBox__wfs1I)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["checkoutMeta"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const fbpixel = document.createElement("script");
+                            fbpixel.textContent = `
+  console.log('Facebook Pixel script is about to run...');
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout');
+    console.log('Facebook Pixel InitiateCheckout event fired successfully.');
+  } else {
+    console.warn('fbq is not defined — Meta Pixel may not be loaded.');
+  }
+`;
+                            return document.body.appendChild(fbpixel);
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["checkoutMeta"] != null &&
+                  typeof $steps["checkoutMeta"] === "object" &&
+                  typeof $steps["checkoutMeta"].then === "function"
+                ) {
+                  $steps["checkoutMeta"] = await $steps["checkoutMeta"];
+                }
+
+                $steps["checkoutNb1"] =
+                  $state.selected == 1
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 44.9
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb1"] != null &&
+                  typeof $steps["checkoutNb1"] === "object" &&
+                  typeof $steps["checkoutNb1"].then === "function"
+                ) {
+                  $steps["checkoutNb1"] = await $steps["checkoutNb1"];
+                }
+
+                $steps["checkoutNb2"] =
+                  $state.selected == 2
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 89.8
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb2"] != null &&
+                  typeof $steps["checkoutNb2"] === "object" &&
+                  typeof $steps["checkoutNb2"].then === "function"
+                ) {
+                  $steps["checkoutNb2"] = await $steps["checkoutNb2"];
+                }
+
+                $steps["checkoutNb3"] =
+                  $state.selected == 3
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              console.log(
+                                "Attempting NewsBreak initiate_checkout event..."
+                              );
+                              if (
+                                typeof window !== "undefined" &&
+                                typeof window.nbpix === "function"
+                              ) {
+                                window.nbpix("event", "initiate_checkout", {
+                                  nb_value: 134.7
+                                });
+                                return console.log(
+                                  "NewsBreak initiate_checkout event fired successfully."
+                                );
+                              } else {
+                                return console.warn(
+                                  "NewsBreak pixel not loaded yet \u2014 nbpix is undefined."
+                                );
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["checkoutNb3"] != null &&
+                  typeof $steps["checkoutNb3"] === "object" &&
+                  typeof $steps["checkoutNb3"].then === "function"
+                ) {
+                  $steps["checkoutNb3"] = await $steps["checkoutNb3"];
+                }
+
+                $steps["_1"] =
+                  $state.selected == 1
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://pay.nanxclean.com/b/dRm14mdsG4Eh4Hw4T9eME03?prefilled_promo_code=BlackFriday20"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_1"] != null &&
+                  typeof $steps["_1"] === "object" &&
+                  typeof $steps["_1"].then === "function"
+                ) {
+                  $steps["_1"] = await $steps["_1"];
+                }
+
+                $steps["_2"] =
+                  $state.selected == 2
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://pay.nanxclean.com/b/cNidR8fAOb2F2zofxNeME04?prefilled_promo_code=BlackFriday"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_2"] != null &&
+                  typeof $steps["_2"] === "object" &&
+                  typeof $steps["_2"].then === "function"
+                ) {
+                  $steps["_2"] = await $steps["_2"];
+                }
+
+                $steps["_3"] =
+                  $state.selected == 3
+                    ? (() => {
+                        const actionArgs = {
+                          destination:
+                            "https://pay.nanxclean.com/b/3cI7sK74i0o12zodpFeME05?prefilled_promo_code=BlackFriday"
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["_3"] != null &&
+                  typeof $steps["_3"] === "object" &&
+                  typeof $steps["_3"].then === "function"
+                ) {
+                  $steps["_3"] = await $steps["_3"];
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ohp2O
+                )}
+              >
+                {"Order Now"}
+              </div>
+            </div>
+          </div>
+          <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
@@ -2187,7 +3304,7 @@ function PlasmicPdp__RenderFunc(props: {
                 $steps["checkoutMeta"] = await $steps["checkoutMeta"];
               }
 
-              $steps["checkout1Nb"] = true
+              $steps["checkout2Nb"] = true
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
@@ -2200,7 +3317,7 @@ function PlasmicPdp__RenderFunc(props: {
                             typeof window.nbpix === "function"
                           ) {
                             window.nbpix("event", "initiate_checkout", {
-                              nb_value: 109.8
+                              nb_value: 89.8
                             });
                             return console.log(
                               "NewsBreak initiate_checkout event fired successfully."
@@ -2219,18 +3336,18 @@ function PlasmicPdp__RenderFunc(props: {
                   })()
                 : undefined;
               if (
-                $steps["checkout1Nb"] != null &&
-                typeof $steps["checkout1Nb"] === "object" &&
-                typeof $steps["checkout1Nb"].then === "function"
+                $steps["checkout2Nb"] != null &&
+                typeof $steps["checkout2Nb"] === "object" &&
+                typeof $steps["checkout2Nb"].then === "function"
               ) {
-                $steps["checkout1Nb"] = await $steps["checkout1Nb"];
+                $steps["checkout2Nb"] = await $steps["checkout2Nb"];
               }
 
               $steps["_2"] = true
                 ? (() => {
                     const actionArgs = {
                       destination:
-                        "https://pay.nanxclean.com/b/00w7sK60eeeR3Ds5XdeME01?prefilled_promo_code=BlackFriday"
+                        "https://pay.nanxclean.com/b/cNidR8fAOb2F2zofxNeME04?prefilled_promo_code=BlackFriday"
                     };
                     return (({ destination }) => {
                       if (
@@ -2440,13 +3557,20 @@ const PlasmicDescendants = {
     "body",
     "desktopImages2",
     "mobileImages2",
-    "options",
+    "optionsv1",
     "_1Unselected",
     "_1Selected",
     "_2Selected",
     "_2Unselected",
     "_3Unselected",
     "_3Selected",
+    "optionsv2",
+    "_1Unselected2",
+    "_1Selected2",
+    "_2Selected2",
+    "_2Unselected2",
+    "_3Unselected2",
+    "_3Selected2",
     "divider1",
     "divider2"
   ],
@@ -2456,20 +3580,27 @@ const PlasmicDescendants = {
     "body",
     "desktopImages2",
     "mobileImages2",
-    "options",
+    "optionsv1",
     "_1Unselected",
     "_1Selected",
     "_2Selected",
     "_2Unselected",
     "_3Unselected",
     "_3Selected",
+    "optionsv2",
+    "_1Unselected2",
+    "_1Selected2",
+    "_2Selected2",
+    "_2Unselected2",
+    "_3Unselected2",
+    "_3Selected2",
     "divider1",
     "divider2"
   ],
   desktopImages2: ["desktopImages2"],
   mobileImages2: ["mobileImages2"],
-  options: [
-    "options",
+  optionsv1: [
+    "optionsv1",
     "_1Unselected",
     "_1Selected",
     "_2Selected",
@@ -2483,6 +3614,21 @@ const PlasmicDescendants = {
   _2Unselected: ["_2Unselected"],
   _3Unselected: ["_3Unselected"],
   _3Selected: ["_3Selected"],
+  optionsv2: [
+    "optionsv2",
+    "_1Unselected2",
+    "_1Selected2",
+    "_2Selected2",
+    "_2Unselected2",
+    "_3Unselected2",
+    "_3Selected2"
+  ],
+  _1Unselected2: ["_1Unselected2"],
+  _1Selected2: ["_1Selected2"],
+  _2Selected2: ["_2Selected2"],
+  _2Unselected2: ["_2Unselected2"],
+  _3Unselected2: ["_3Unselected2"],
+  _3Selected2: ["_3Selected2"],
   divider1: ["divider1"],
   divider2: ["divider2"]
 } as const;
@@ -2496,13 +3642,20 @@ type NodeDefaultElementType = {
   body: "div";
   desktopImages2: "div";
   mobileImages2: "div";
-  options: "div";
+  optionsv1: "div";
   _1Unselected: "div";
   _1Selected: "div";
   _2Selected: "div";
   _2Unselected: "div";
   _3Unselected: "div";
   _3Selected: "div";
+  optionsv2: "div";
+  _1Unselected2: "div";
+  _1Selected2: "div";
+  _2Selected2: "div";
+  _2Unselected2: "div";
+  _3Unselected2: "div";
+  _3Selected2: "div";
   divider1: "div";
   divider2: "div";
 };
@@ -2574,13 +3727,20 @@ export const PlasmicPdp = Object.assign(
     body: makeNodeComponent("body"),
     desktopImages2: makeNodeComponent("desktopImages2"),
     mobileImages2: makeNodeComponent("mobileImages2"),
-    options: makeNodeComponent("options"),
+    optionsv1: makeNodeComponent("optionsv1"),
     _1Unselected: makeNodeComponent("_1Unselected"),
     _1Selected: makeNodeComponent("_1Selected"),
     _2Selected: makeNodeComponent("_2Selected"),
     _2Unselected: makeNodeComponent("_2Unselected"),
     _3Unselected: makeNodeComponent("_3Unselected"),
     _3Selected: makeNodeComponent("_3Selected"),
+    optionsv2: makeNodeComponent("optionsv2"),
+    _1Unselected2: makeNodeComponent("_1Unselected2"),
+    _1Selected2: makeNodeComponent("_1Selected2"),
+    _2Selected2: makeNodeComponent("_2Selected2"),
+    _2Unselected2: makeNodeComponent("_2Unselected2"),
+    _3Unselected2: makeNodeComponent("_3Unselected2"),
+    _3Selected2: makeNodeComponent("_3Selected2"),
     divider1: makeNodeComponent("divider1"),
     divider2: makeNodeComponent("divider2"),
 

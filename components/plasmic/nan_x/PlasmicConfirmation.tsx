@@ -299,7 +299,7 @@ function PlasmicConfirmation__RenderFunc(props: {
                             typeof window.nbpix === "function"
                           ) {
                             window.nbpix("event", "complete_payment", {
-                              nb_value: 80
+                              nb_value: 70
                             });
                             return console.log(
                               "NewsBreak complete_payment event fired successfully."
