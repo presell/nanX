@@ -301,9 +301,9 @@ function PlasmicPdp__RenderFunc(props: {
               displayWidth={"100%"}
               loading={"eager"}
               src={{
-                src: "/plasmic/nan_x/images/nanX1Png.png",
-                fullWidth: 1024,
-                fullHeight: 1536,
+                src: "/plasmic/nan_x/images/nanXArticle6Png.png",
+                fullWidth: 1020,
+                fullHeight: 525,
                 aspectRatio: undefined
               }}
             />
@@ -361,9 +361,9 @@ function PlasmicPdp__RenderFunc(props: {
             displayWidth={"310px"}
             loading={"eager"}
             src={{
-              src: "/plasmic/nan_x/images/nanX1Png.png",
-              fullWidth: 1024,
-              fullHeight: 1536,
+              src: "/plasmic/nan_x/images/nanXArticle6Png.png",
+              fullWidth: 1020,
+              fullHeight: 525,
               aspectRatio: undefined
             }}
           />

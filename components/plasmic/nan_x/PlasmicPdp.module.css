@@ -215,6 +215,11 @@
   object-fit: cover;
   object-position: 50% 78%;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__r6Bmp {
+    display: none;
+  }
+}
 .img__ilyH2 {
   object-fit: cover;
   max-width: 100%;
@@ -228,6 +233,11 @@
 .img__ilyH2 > picture > img {
   object-fit: cover;
   object-position: 50% 85%;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .img__ilyH2 {
+    display: none;
+  }
 }
 .img__rLivj {
   object-fit: cover;
@@ -2725,6 +2735,7 @@
   text-decoration-line: underline;
   text-overflow: clip;
   min-width: 0;
+  display: none;
 }
 .divider2 {
   display: flex;
