@@ -424,6 +424,42 @@ function PlasmicPdp__RenderFunc(props: {
                 projectcss.__wab_text,
                 sty.text__ka8Sr
               )}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateSelected"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["selected"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSelected"] != null &&
+                  typeof $steps["updateSelected"] === "object" &&
+                  typeof $steps["updateSelected"].then === "function"
+                ) {
+                  $steps["updateSelected"] = await $steps["updateSelected"];
+                }
+              }}
             >
               {"732 Reviews"}
             </div>

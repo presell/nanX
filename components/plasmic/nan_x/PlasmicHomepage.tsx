@@ -76,6 +76,7 @@ import StarSvgrepoComSvgIcon from "./icons/PlasmicIcon__StarSvgrepoComSvg"; // p
 import DotSvgIcon from "./icons/PlasmicIcon__DotSvg"; // plasmic-import: MOshPqjEhwKE/icon
 import CanvasMinusSvgIcon from "./icons/PlasmicIcon__CanvasMinusSvg"; // plasmic-import: gyZOe9j5v6Sj/icon
 import CanvasPlusSvgIcon from "./icons/PlasmicIcon__CanvasPlusSvg"; // plasmic-import: ggHb2k1x_-ZC/icon
+import UserIconSvgIcon from "./icons/PlasmicIcon__UserIconSvg"; // plasmic-import: i3jPzxSOe98G/icon
 
 createPlasmicElementProxy;
 
@@ -105,6 +106,11 @@ export type PlasmicHomepage__OverridesType = {
   divider1?: Flex__<"div">;
   divider2?: Flex__<"div">;
   pdp?: Flex__<typeof Pdp>;
+  reviews12?: Flex__<"div">;
+  offerReview114?: Flex__<"div">;
+  offerReview115?: Flex__<"div">;
+  offerReview116?: Flex__<"div">;
+  offerReview117?: Flex__<"div">;
   footer?: Flex__<typeof Footer>;
   metaPixel?: Flex__<typeof Embed>;
 };
@@ -2113,6 +2119,417 @@ function PlasmicHomepage__RenderFunc(props: {
             className={classNames("__wab_instance", sty.pdp)}
           />
 
+          <div
+            className={classNames(projectcss.all, sty.freeBox__uKHuc)}
+            id={"reviews"}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox___8B3Jv)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__iu7Pb
+                )}
+              >
+                {"4.8"}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__pZtvg)}>
+                <div className={classNames(projectcss.all, sty.freeBox__fKqPo)}>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__wNaT)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__qL0LN)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___9Cvk)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__nBmir)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__kVZrH)}
+                    role={"img"}
+                  />
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tJ0K7
+                  )}
+                >
+                  {"Based on 732 reviews"}
+                </div>
+              </div>
+            </div>
+            <div
+              data-plasmic-name={"reviews12"}
+              data-plasmic-override={overrides.reviews12}
+              className={classNames(projectcss.all, sty.reviews12)}
+            >
+              <div
+                data-plasmic-name={"offerReview114"}
+                data-plasmic-override={overrides.offerReview114}
+                className={classNames(projectcss.all, sty.offerReview114)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__yWKuU)}
+                />
+
+                <div className={classNames(projectcss.all, sty.freeBox__gyozl)}>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__iNoSb)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__lvJiR)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___4POsR)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___3Ntwo)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__oi2HQ)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aufxt
+                    )}
+                  >
+                    {"11/12/2025"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__rcXuK)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___9IbVi)}
+                  >
+                    <UserIconSvgIcon
+                      className={classNames(projectcss.all, sty.svg___9GM26)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yg57C
+                    )}
+                  >
+                    {"Steve"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__nfhYs
+                  )}
+                >
+                  {"Way better than wipes"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8E5MH
+                  )}
+                >
+                  {
+                    "I can sanitize my whole kitchen in under 60 seconds now. The mist covers EVERYTHING evenly, and I\u2019m not choking on chemical fumes anymore. Honestly, this little device is a game changer."
+                  }
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ib1BA)}
+                />
+              </div>
+              <div
+                data-plasmic-name={"offerReview115"}
+                data-plasmic-override={overrides.offerReview115}
+                className={classNames(projectcss.all, sty.offerReview115)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__n5A7Y)}
+                />
+
+                <div className={classNames(projectcss.all, sty.freeBox__pKeO)}>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__vW9F)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__yV9Ss)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__f328H)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__cu0N3)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__aLo6Z)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ni6Os
+                    )}
+                  >
+                    {"11/10/2025"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__b6G6P)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__uo6C7)}
+                  >
+                    <UserIconSvgIcon
+                      className={classNames(projectcss.all, sty.svg___5TjuD)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__a07Mr
+                    )}
+                  >
+                    {"Tonya"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___3RlaT
+                  )}
+                >
+                  {"Amazing product"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__dDw8Z
+                  )}
+                >
+                  {
+                    "Super lightweight, easy to refill, and the battery lasts way longer than I expected. I use it on counters, sinks, toilets\u2014really fast and zero residue left behind."
+                  }
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2Ohsh)}
+                />
+              </div>
+              <div
+                data-plasmic-name={"offerReview116"}
+                data-plasmic-override={overrides.offerReview116}
+                className={classNames(projectcss.all, sty.offerReview116)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__roDBm)}
+                />
+
+                <div className={classNames(projectcss.all, sty.freeBox__kg0Fa)}>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__e3QwB)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__fjlXm)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__myfgV)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__s7Ka)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__tawfm)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dX3VY
+                    )}
+                  >
+                    {"11/07/2025"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__fg08U)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___8JV0)}
+                  >
+                    <UserIconSvgIcon
+                      className={classNames(projectcss.all, sty.svg___5I1D)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__izxBc
+                    )}
+                  >
+                    {"Denise"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oRiXd
+                  )}
+                >
+                  {"Work unbelievably well"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___88X3X
+                  )}
+                >
+                  {
+                    "I own a salon and bought this for quick sanitizing between clients. The mist is super fine and even, just like the expensive foggers we used to buy. Saves me so much time."
+                  }
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__h4O9)}
+                />
+              </div>
+              <div
+                data-plasmic-name={"offerReview117"}
+                data-plasmic-override={overrides.offerReview117}
+                className={classNames(projectcss.all, sty.offerReview117)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2Ypzz)}
+                />
+
+                <div className={classNames(projectcss.all, sty.freeBox__gbIhb)}>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___6QmVq)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__ux6Ct)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__jazH4)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___1323)}
+                    role={"img"}
+                  />
+
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__zFW)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oFjga
+                    )}
+                  >
+                    {"11/06/2025"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__umYvg)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vnhQx)}
+                  >
+                    <UserIconSvgIcon
+                      className={classNames(projectcss.all, sty.svg__q0Nnx)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xpwQ
+                    )}
+                  >
+                    {"Stacey"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1Ell8
+                  )}
+                >
+                  {"Absolutely works!"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jpY7H
+                  )}
+                >
+                  {
+                    "It feels solid but not heavy, and the cordless design is a blessing. I can move room to room without dragging anything. Cleans fast and looks sleek."
+                  }
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__sZelj)}
+                />
+              </div>
+            </div>
+          </div>
           <Footer
             data-plasmic-name={"footer"}
             data-plasmic-override={overrides.footer}
@@ -2151,6 +2568,11 @@ const PlasmicDescendants = {
     "divider1",
     "divider2",
     "pdp",
+    "reviews12",
+    "offerReview114",
+    "offerReview115",
+    "offerReview116",
+    "offerReview117",
     "footer",
     "metaPixel"
   ],
@@ -2190,6 +2612,17 @@ const PlasmicDescendants = {
   divider1: ["divider1"],
   divider2: ["divider2"],
   pdp: ["pdp"],
+  reviews12: [
+    "reviews12",
+    "offerReview114",
+    "offerReview115",
+    "offerReview116",
+    "offerReview117"
+  ],
+  offerReview114: ["offerReview114"],
+  offerReview115: ["offerReview115"],
+  offerReview116: ["offerReview116"],
+  offerReview117: ["offerReview117"],
   footer: ["footer"],
   metaPixel: ["metaPixel"]
 } as const;
@@ -2213,6 +2646,11 @@ type NodeDefaultElementType = {
   divider1: "div";
   divider2: "div";
   pdp: typeof Pdp;
+  reviews12: "div";
+  offerReview114: "div";
+  offerReview115: "div";
+  offerReview116: "div";
+  offerReview117: "div";
   footer: typeof Footer;
   metaPixel: typeof Embed;
 };
@@ -2294,6 +2732,11 @@ export const PlasmicHomepage = Object.assign(
     divider1: makeNodeComponent("divider1"),
     divider2: makeNodeComponent("divider2"),
     pdp: makeNodeComponent("pdp"),
+    reviews12: makeNodeComponent("reviews12"),
+    offerReview114: makeNodeComponent("offerReview114"),
+    offerReview115: makeNodeComponent("offerReview115"),
+    offerReview116: makeNodeComponent("offerReview116"),
+    offerReview117: makeNodeComponent("offerReview117"),
     footer: makeNodeComponent("footer"),
     metaPixel: makeNodeComponent("metaPixel"),
 

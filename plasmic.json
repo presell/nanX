@@ -196,6 +196,11 @@
           "id": "bSpVB1kOekDy",
           "name": "BagSvgIcon",
           "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__BagSvg.tsx"
+        },
+        {
+          "id": "i3jPzxSOe98G",
+          "name": "UserIconSvgIcon",
+          "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__UserIconSvg.tsx"
         }
       ],
       "images": [
