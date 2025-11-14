@@ -4532,7 +4532,7 @@
   min-width: 0;
   padding: 0px;
 }
-.freeBox___3KwKj {
+.benefitsOpen {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -4541,6 +4541,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  cursor: pointer;
   min-width: 0;
 }
 .text__yDaKt {
@@ -4578,6 +4579,60 @@
   height: 1em;
 }
 .svg___9Jjmn {
+  object-fit: cover;
+  max-width: 100%;
+  color: #003e0d;
+  width: 15px;
+  flex-shrink: 0;
+  height: 1em;
+}
+.benefitsClosed {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  cursor: pointer;
+  min-width: 0;
+}
+.text__hlffp {
+  animation: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  color: #003e0d;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  text-decoration-line: none;
+  text-overflow: clip;
+  min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .text__hlffp {
+    animation: none;
+  }
+}
+.svg__ynD18 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #003e0d;
+  width: 15px;
+  flex-shrink: 0;
+  height: 1em;
+}
+.svg__hx54C {
   object-fit: cover;
   max-width: 100%;
   color: #003e0d;
@@ -4815,7 +4870,7 @@
   min-width: 0;
   padding: 0px;
 }
-.freeBox__pyReB {
+.featuresClosed {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -4824,6 +4879,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  cursor: pointer;
   min-width: 0;
 }
 .text__kRrg2 {
@@ -4856,6 +4912,55 @@
   height: 1em;
 }
 .svg__ebyEy {
+  object-fit: cover;
+  max-width: 100%;
+  color: #003e0d;
+  width: 15px;
+  flex-shrink: 0;
+  height: 1em;
+}
+.featuresOpen {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  cursor: pointer;
+  min-width: 0;
+}
+.text__vnmuu {
+  animation: none;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  color: #003e0d;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  text-decoration-line: none;
+  text-overflow: clip;
+  min-width: 0;
+}
+.svg__slCSm {
+  object-fit: cover;
+  max-width: 100%;
+  color: #003e0d;
+  width: 15px;
+  flex-shrink: 0;
+  height: 1em;
+}
+.svg__iHm2F {
   object-fit: cover;
   max-width: 100%;
   color: #003e0d;

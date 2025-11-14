@@ -108,7 +108,11 @@ export type PlasmicPdp__OverridesType = {
   _3Unselected2?: Flex__<"div">;
   _3Selected2?: Flex__<"div">;
   divider1?: Flex__<"div">;
+  benefitsOpen?: Flex__<"div">;
+  benefitsClosed?: Flex__<"div">;
   divider2?: Flex__<"div">;
+  featuresClosed?: Flex__<"div">;
+  featuresOpen?: Flex__<"div">;
 };
 
 export interface DefaultPdpProps {
@@ -2721,86 +2725,193 @@ function PlasmicPdp__RenderFunc(props: {
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__vvmSd)}>
-            <div className={classNames(projectcss.all, sty.freeBox___3KwKj)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yDaKt
-                )}
-              >
-                {"Benefits"}
-              </div>
-              {(() => {
-                try {
-                  return $state.dropdown == 1;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return $state.dropdown == 1;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })() ? (
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"benefitsOpen"}
+                data-plasmic-override={overrides.benefitsOpen}
+                className={classNames(projectcss.all, sty.benefitsOpen)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 2
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__yDaKt
+                  )}
+                >
+                  {"Benefits"}
+                </div>
                 <CanvasMinusSvgIcon
                   className={classNames(projectcss.all, sty.svg__vrXJh)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateDropdown"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dropdown"]
-                            },
-                            operation: 0,
-                            value: 0
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDropdown"] != null &&
-                      typeof $steps["updateDropdown"] === "object" &&
-                      typeof $steps["updateDropdown"].then === "function"
-                    ) {
-                      $steps["updateDropdown"] = await $steps["updateDropdown"];
-                    }
-                  }}
                   role={"img"}
                 />
-              ) : null}
-              {(() => {
-                try {
-                  return $state.dropdown != 1;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
+
+                {false ? (
+                  <CanvasPlusSvgIcon
+                    className={classNames(projectcss.all, sty.svg___9Jjmn)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDropdown"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dropdown"]
+                              },
+                              operation: 0,
+                              value: 1
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDropdown"] != null &&
+                        typeof $steps["updateDropdown"] === "object" &&
+                        typeof $steps["updateDropdown"].then === "function"
+                      ) {
+                        $steps["updateDropdown"] =
+                          await $steps["updateDropdown"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                ) : null}
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown != 1;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })() ? (
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"benefitsClosed"}
+                data-plasmic-override={overrides.benefitsClosed}
+                className={classNames(projectcss.all, sty.benefitsClosed)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hlffp
+                  )}
+                >
+                  {"Benefits"}
+                </div>
+                {false ? (
+                  <CanvasMinusSvgIcon
+                    className={classNames(projectcss.all, sty.svg__ynD18)}
+                    role={"img"}
+                  />
+                ) : null}
                 <CanvasPlusSvgIcon
-                  className={classNames(projectcss.all, sty.svg___9Jjmn)}
+                  className={classNames(projectcss.all, sty.svg__hx54C)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2840,8 +2951,8 @@ function PlasmicPdp__RenderFunc(props: {
                   }}
                   role={"img"}
                 />
-              ) : null}
-            </div>
+              </div>
+            ) : null}
             {(() => {
               try {
                 return $state.dropdown == 1;
@@ -2995,31 +3106,186 @@ function PlasmicPdp__RenderFunc(props: {
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__iA2Kh)}>
-            <div className={classNames(projectcss.all, sty.freeBox__pyReB)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kRrg2
-                )}
-              >
-                {"Features & Specs"}
-              </div>
-              {(() => {
-                try {
-                  return $state.dropdown == 2;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
+            {(() => {
+              try {
+                return $state.dropdown == 1;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
                 }
-              })() ? (
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"featuresClosed"}
+                data-plasmic-override={overrides.featuresClosed}
+                className={classNames(projectcss.all, sty.featuresClosed)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 2
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kRrg2
+                  )}
+                >
+                  {"Features & Specs"}
+                </div>
+                {false ? (
+                  <CanvasMinusSvgIcon
+                    className={classNames(projectcss.all, sty.svg__x3Oaq)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDropdown"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dropdown"]
+                              },
+                              operation: 0,
+                              value: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDropdown"] != null &&
+                        typeof $steps["updateDropdown"] === "object" &&
+                        typeof $steps["updateDropdown"].then === "function"
+                      ) {
+                        $steps["updateDropdown"] =
+                          await $steps["updateDropdown"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                ) : null}
+                <CanvasPlusSvgIcon
+                  className={classNames(projectcss.all, sty.svg__ebyEy)}
+                  role={"img"}
+                />
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown == 2;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"featuresOpen"}
+                data-plasmic-override={overrides.featuresOpen}
+                className={classNames(projectcss.all, sty.featuresOpen)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 1
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vnmuu
+                  )}
+                >
+                  {"Features & Specs"}
+                </div>
                 <CanvasMinusSvgIcon
-                  className={classNames(projectcss.all, sty.svg__x3Oaq)}
+                  className={classNames(projectcss.all, sty.svg__slCSm)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3059,63 +3325,15 @@ function PlasmicPdp__RenderFunc(props: {
                   }}
                   role={"img"}
                 />
-              ) : null}
-              {(() => {
-                try {
-                  return $state.dropdown != 2;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <CanvasPlusSvgIcon
-                  className={classNames(projectcss.all, sty.svg__ebyEy)}
-                  onClick={async event => {
-                    const $steps = {};
 
-                    $steps["updateDropdown"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dropdown"]
-                            },
-                            operation: 0,
-                            value: 2
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDropdown"] != null &&
-                      typeof $steps["updateDropdown"] === "object" &&
-                      typeof $steps["updateDropdown"].then === "function"
-                    ) {
-                      $steps["updateDropdown"] = await $steps["updateDropdown"];
-                    }
-                  }}
-                  role={"img"}
-                />
-              ) : null}
-            </div>
+                {false ? (
+                  <CanvasPlusSvgIcon
+                    className={classNames(projectcss.all, sty.svg__iHm2F)}
+                    role={"img"}
+                  />
+                ) : null}
+              </div>
+            ) : null}
             {(() => {
               try {
                 return $state.dropdown == 2;
@@ -3572,7 +3790,11 @@ const PlasmicDescendants = {
     "_3Unselected2",
     "_3Selected2",
     "divider1",
-    "divider2"
+    "benefitsOpen",
+    "benefitsClosed",
+    "divider2",
+    "featuresClosed",
+    "featuresOpen"
   ],
   announcement: ["announcement"],
   nav: ["nav"],
@@ -3595,7 +3817,11 @@ const PlasmicDescendants = {
     "_3Unselected2",
     "_3Selected2",
     "divider1",
-    "divider2"
+    "benefitsOpen",
+    "benefitsClosed",
+    "divider2",
+    "featuresClosed",
+    "featuresOpen"
   ],
   desktopImages2: ["desktopImages2"],
   mobileImages2: ["mobileImages2"],
@@ -3630,7 +3856,11 @@ const PlasmicDescendants = {
   _3Unselected2: ["_3Unselected2"],
   _3Selected2: ["_3Selected2"],
   divider1: ["divider1"],
-  divider2: ["divider2"]
+  benefitsOpen: ["benefitsOpen"],
+  benefitsClosed: ["benefitsClosed"],
+  divider2: ["divider2"],
+  featuresClosed: ["featuresClosed"],
+  featuresOpen: ["featuresOpen"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3657,7 +3887,11 @@ type NodeDefaultElementType = {
   _3Unselected2: "div";
   _3Selected2: "div";
   divider1: "div";
+  benefitsOpen: "div";
+  benefitsClosed: "div";
   divider2: "div";
+  featuresClosed: "div";
+  featuresOpen: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3742,7 +3976,11 @@ export const PlasmicPdp = Object.assign(
     _3Unselected2: makeNodeComponent("_3Unselected2"),
     _3Selected2: makeNodeComponent("_3Selected2"),
     divider1: makeNodeComponent("divider1"),
+    benefitsOpen: makeNodeComponent("benefitsOpen"),
+    benefitsClosed: makeNodeComponent("benefitsClosed"),
     divider2: makeNodeComponent("divider2"),
+    featuresClosed: makeNodeComponent("featuresClosed"),
+    featuresOpen: makeNodeComponent("featuresOpen"),
 
     // Metadata about props expected for PlasmicPdp
     internalVariantProps: PlasmicPdp__VariantProps,
