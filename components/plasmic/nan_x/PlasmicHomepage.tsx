@@ -3480,7 +3480,7 @@ function PlasmicHomepage__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return currentItem.reviewName;
+                                return currentItem.reviewHeadline;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
