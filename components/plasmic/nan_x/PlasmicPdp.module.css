@@ -215,6 +215,20 @@
   object-fit: cover;
   object-position: 50% 78%;
 }
+.img__rLivj {
+  object-fit: cover;
+  max-width: 100%;
+  width: 310px;
+  height: 225px;
+  margin-right: 15px;
+  object-position: 50% 50%;
+  flex-shrink: 0;
+  border-radius: 30px;
+}
+.img__rLivj > picture > img {
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 .img__ilyH2 {
   object-fit: cover;
   max-width: 100%;
@@ -229,19 +243,19 @@
   object-fit: cover;
   object-position: 50% 85%;
 }
-.img__rLivj {
+.img__l3JJ {
   object-fit: cover;
   max-width: 100%;
   width: 310px;
   height: 225px;
   margin-right: 15px;
-  object-position: 50% 50%;
+  object-position: 50% 85%;
   flex-shrink: 0;
   border-radius: 30px;
 }
-.img__rLivj > picture > img {
+.img__l3JJ > picture > img {
   object-fit: cover;
-  object-position: 50% 50%;
+  object-position: 50% 85%;
 }
 .freeBox__fjoc {
   display: flex;
@@ -5443,15 +5457,17 @@
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 50px;
   background: #f6f7ef;
   cursor: pointer;
+  margin-bottom: 30px;
   min-width: 0;
   border-radius: 15px;
   padding: 16px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__gpv1G {
+    margin-bottom: 10px;
     padding: 12px;
   }
 }

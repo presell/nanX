@@ -140,6 +140,7 @@ export type PlasmicHomepage__OverridesType = {
   reviewHeadline6?: Flex__<"div">;
   reviewBody6?: Flex__<"div">;
   _1Active?: Flex__<"div">;
+  _1Inactive?: Flex__<"div">;
   _2Inactive?: Flex__<"div">;
   _2Active?: Flex__<"div">;
   _3Inactive?: Flex__<"div">;
@@ -3050,6 +3051,11 @@ function PlasmicHomepage__RenderFunc(props: {
               data-plasmic-override={overrides.reviews12}
               className={classNames(projectcss.all, sty.reviews12)}
             >
+              <div className={classNames(projectcss.all, sty.freeBox__udlYh)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__gmV0)}
+                />
+              </div>
               {(() => {
                 try {
                   return $state.reviewPage == 1;
@@ -4424,17 +4430,56 @@ function PlasmicHomepage__RenderFunc(props: {
                   })
                 : null}
               <div className={classNames(projectcss.all, sty.freeBox__fy5MR)}>
-                <div
-                  data-plasmic-name={"_1Active"}
-                  data-plasmic-override={overrides._1Active}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty._1Active
-                  )}
-                >
-                  {"1"}
-                </div>
+                {(() => {
+                  try {
+                    return $state.reviewPage == 1;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_1Active"}
+                    data-plasmic-override={overrides._1Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._1Active
+                    )}
+                  >
+                    {"1"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage != 1;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_1Inactive"}
+                    data-plasmic-override={overrides._1Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._1Inactive
+                    )}
+                  >
+                    {"1"}
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return $state.reviewPage != 2;
@@ -5522,6 +5567,7 @@ const PlasmicDescendants = {
     "reviewHeadline6",
     "reviewBody6",
     "_1Active",
+    "_1Inactive",
     "_2Inactive",
     "_2Active",
     "_3Inactive",
@@ -5606,6 +5652,7 @@ const PlasmicDescendants = {
     "reviewHeadline6",
     "reviewBody6",
     "_1Active",
+    "_1Inactive",
     "_2Inactive",
     "_2Active",
     "_3Inactive",
@@ -5684,6 +5731,7 @@ const PlasmicDescendants = {
   reviewHeadline6: ["reviewHeadline6"],
   reviewBody6: ["reviewBody6"],
   _1Active: ["_1Active"],
+  _1Inactive: ["_1Inactive"],
   _2Inactive: ["_2Inactive"],
   _2Active: ["_2Active"],
   _3Inactive: ["_3Inactive"],
@@ -5751,6 +5799,7 @@ type NodeDefaultElementType = {
   reviewHeadline6: "div";
   reviewBody6: "div";
   _1Active: "div";
+  _1Inactive: "div";
   _2Inactive: "div";
   _2Active: "div";
   _3Inactive: "div";
@@ -5876,6 +5925,7 @@ export const PlasmicHomepage = Object.assign(
     reviewHeadline6: makeNodeComponent("reviewHeadline6"),
     reviewBody6: makeNodeComponent("reviewBody6"),
     _1Active: makeNodeComponent("_1Active"),
+    _1Inactive: makeNodeComponent("_1Inactive"),
     _2Inactive: makeNodeComponent("_2Inactive"),
     _2Active: makeNodeComponent("_2Active"),
     _3Inactive: makeNodeComponent("_3Inactive"),

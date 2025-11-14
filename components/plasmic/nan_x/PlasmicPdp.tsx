@@ -348,6 +348,24 @@ function PlasmicPdp__RenderFunc(props: {
 
           <PlasmicImg__
             alt={""}
+            className={classNames(sty.img__rLivj)}
+            displayHeight={"225px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"310px"}
+            loading={"eager"}
+            src={{
+              src: "/plasmic/nan_x/images/nanXArticle6Png.png",
+              fullWidth: 1020,
+              fullHeight: 525,
+              aspectRatio: undefined
+            }}
+          />
+
+          <PlasmicImg__
+            alt={""}
             className={classNames(sty.img__ilyH2)}
             displayHeight={"225px"}
             displayMaxHeight={"none"}
@@ -366,7 +384,7 @@ function PlasmicPdp__RenderFunc(props: {
 
           <PlasmicImg__
             alt={""}
-            className={classNames(sty.img__rLivj)}
+            className={classNames(sty.img__l3JJ)}
             displayHeight={"225px"}
             displayMaxHeight={"none"}
             displayMaxWidth={"100%"}
@@ -375,9 +393,9 @@ function PlasmicPdp__RenderFunc(props: {
             displayWidth={"310px"}
             loading={"eager"}
             src={{
-              src: "/plasmic/nan_x/images/nanXArticle6Png.png",
-              fullWidth: 1020,
-              fullHeight: 525,
+              src: "/plasmic/nan_x/images/_71I4QaOb5DlAcSl1500Jpg.jpg",
+              fullWidth: 1500,
+              fullHeight: 1500,
               aspectRatio: undefined
             }}
           />
