@@ -353,7 +353,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         {
-          "A surprisingly powerful homemade disinfectant is sitting right inside your medicine cabinet."
+          "A surprisingly powerful homemade disinfectant is sitting inside your medicine cabinet."
         }
       </div>
       <div
@@ -514,7 +514,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         {
-          "So What Is This Powerful \u201cMedicine Cabinet\u201d Disinfect Solution?"
+          "So What Is This Powerful \u201cMedicine Cabinet\u201d Disinfectant Solution?"
         }
       </div>
       <div
@@ -525,7 +525,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         {
-          "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you definitely don\u2019t need expensive specialty sprays.\n\nAll you need is one common disinfecting ingredient almost every household already has\u2026 and a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
+          "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you don\u2019t need expensive store-bought sprays.\n\nAll you need is one common ingredient almost every household already has\u2026 and a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
         }
       </div>
       <PlasmicLink__
@@ -582,7 +582,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
             </PlasmicLink__>
           }
           <React.Fragment>
-            {" disinfectant reservoir\u2014quick, simple, and mess-free."}
+            {" disinfectant reservoir\u2014free, quick, simple, and mess-free."}
           </React.Fragment>
         </React.Fragment>
       </div>
@@ -593,7 +593,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
           sty.text__lay6W
         )}
       >
-        {"Hydrogen Peroxide."}
+        {"The Secret? Hydrogen Peroxide."}
       </div>
       <div
         className={classNames(
@@ -605,20 +605,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         <React.Fragment>
           <React.Fragment>
             {
-              "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide kills germs better than nearly all store-bought sprays \u2014 even the dangerous germs protected by tough layers that regular cleaners can\u2019t penetrate.\n\n"
-            }
-          </React.Fragment>
-          <span
-            className={"plasmic_default__all plasmic_default__span"}
-            style={{ fontStyle: "italic" }}
-          >
-            {
-              "(Some people even use rubbing alcohol for a rapid drying option \u2014 both work incredibly well.)"
-            }
-          </span>
-          <React.Fragment>
-            {
-              "\n\nWhen this hydrogen peroxide solution is turned into an ultra-fine"
+              "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide kills germs better than nearly all store-bought sprays \u2014 even the dangerous germs protected by tough layers that regular cleaners cannot penetrate.\n\nWhen this hydrogen peroxide solution is turned into an ultra-fine"
             }
           </React.Fragment>
           {
@@ -639,7 +626,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
           }
           <React.Fragment>
             {
-              ", it becomes a super effective, residue-free disinfectant that instantly coats surfaces and destroys germs \u2014 without scrubbing.\n\nIt\u2019s so easy you\u2019ll wonder why you spent years wiping everything by hand."
+              ", it becomes a super effective, residue-free disinfectant that instantly coats surfaces and destroys germs on contact \u2014 without scrubbing.\n\nIt\u2019s so easy you\u2019ll wonder why you spent years wiping everything by hand and wasting money on expensive store-bought disinfectant sprays."
             }
           </React.Fragment>
         </React.Fragment>
@@ -700,7 +687,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         {
-          "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes one single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a microscopic amount can trigger days of violent food poisoning, dehydration, and serious gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick\u201d \u2014 and it\u2019s even more important this winter, with cold and flu season in full swing."
+          "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes a single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a single microscopic amount left behind can spread across your surfaces \u2014 and one touch is enough to trigger days of violent food poisoning and long-term gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick\u201d \u2014 and it\u2019s even more important this winter, with cold and flu season in full swing."
         }
       </div>
       <PlasmicLink__
@@ -968,9 +955,34 @@ function PlasmicAdvertorial__RenderFunc(props: {
           sty.text__vRfGf
         )}
       >
-        {
-          "Our Black Friday event just went live \u2014 and the deal is honestly unbelievable.\n\nFor a very limited time, you can claim a free nanX\u2122 Spray Gun as part of our biggest holiday promotion of the year.\n\nNo gimmicks.\nNo hoops to jump through.\nNot even shipping costs.\n\nIt\u2019s the kind of offer people wait all year for \u2014 and once it\u2019s gone, it\u2019s gone."
-        }
+        <React.Fragment>
+          <React.Fragment>
+            {
+              "Our Black Friday event just went live \u2014 and the deal is honestly unbelievable.\n\nFor a very limited time, you can claim a free "
+            }
+          </React.Fragment>
+          {
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                projectcss.plasmic_default__inline,
+                sty.link__fGkB
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              {"nanX\u2122 Spray Gun"}
+            </PlasmicLink__>
+          }
+          <React.Fragment>
+            {
+              " as part of our biggest holiday promotion of the year.\n\nNo gimmicks.\nNo hoops to jump through.\nNot even shipping costs.\n\nIt\u2019s the kind of offer people wait all year for \u2014 and once it\u2019s gone, it\u2019s gone."
+            }
+          </React.Fragment>
+        </React.Fragment>
       </div>
       <div
         className={classNames(
