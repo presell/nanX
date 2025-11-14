@@ -3425,7 +3425,7 @@ function PlasmicPdp__RenderFunc(props: {
                     sty.text__jLgVc
                   )}
                 >
-                  {"$109.80"}
+                  {"$89.80"}
                 </div>
                 <div
                   className={classNames(
