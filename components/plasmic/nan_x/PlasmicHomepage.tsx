@@ -78,6 +78,7 @@ import DotSvgIcon from "./icons/PlasmicIcon__DotSvg"; // plasmic-import: MOshPqj
 import CanvasMinusSvgIcon from "./icons/PlasmicIcon__CanvasMinusSvg"; // plasmic-import: gyZOe9j5v6Sj/icon
 import CanvasPlusSvgIcon from "./icons/PlasmicIcon__CanvasPlusSvg"; // plasmic-import: ggHb2k1x_-ZC/icon
 import UserIconSvgIcon from "./icons/PlasmicIcon__UserIconSvg"; // plasmic-import: i3jPzxSOe98G/icon
+import XCircleCloseDeleteSvgIcon from "./icons/PlasmicIcon__XCircleCloseDeleteSvg"; // plasmic-import: f6ZpAAdFw3F6/icon
 
 createPlasmicElementProxy;
 
@@ -108,13 +109,51 @@ export type PlasmicHomepage__OverridesType = {
   divider2?: Flex__<"div">;
   pdp?: Flex__<typeof Pdp>;
   reviews12?: Flex__<"div">;
-  offerReview114?: Flex__<"div">;
-  offerReview115?: Flex__<"div">;
-  offerReview116?: Flex__<"div">;
-  offerReview117?: Flex__<"div">;
+  reviews1?: Flex__<"div">;
+  reviewDate?: Flex__<"div">;
+  reviewName?: Flex__<"div">;
+  reviewHeadline?: Flex__<"div">;
+  reviewBody?: Flex__<"div">;
+  reviews2?: Flex__<"div">;
+  reviewDate2?: Flex__<"div">;
+  reviewName2?: Flex__<"div">;
+  reviewHeadline2?: Flex__<"div">;
+  reviewBody2?: Flex__<"div">;
+  reviews3?: Flex__<"div">;
+  reviewDate3?: Flex__<"div">;
+  reviewName3?: Flex__<"div">;
+  reviewHeadline3?: Flex__<"div">;
+  reviewBody3?: Flex__<"div">;
+  reviews4?: Flex__<"div">;
+  reviewDate4?: Flex__<"div">;
+  reviewName4?: Flex__<"div">;
+  reviewHeadline4?: Flex__<"div">;
+  reviewBody4?: Flex__<"div">;
+  reviews5?: Flex__<"div">;
+  reviewDate5?: Flex__<"div">;
+  reviewName5?: Flex__<"div">;
+  reviewHeadline5?: Flex__<"div">;
+  reviewBody5?: Flex__<"div">;
+  reviews6?: Flex__<"div">;
+  reviewDate6?: Flex__<"div">;
+  reviewName6?: Flex__<"div">;
+  reviewHeadline6?: Flex__<"div">;
+  reviewBody6?: Flex__<"div">;
+  _1Active?: Flex__<"div">;
+  _2Inactive?: Flex__<"div">;
+  _2Active?: Flex__<"div">;
+  _3Inactive?: Flex__<"div">;
+  _3Active?: Flex__<"div">;
+  _4Inactive?: Flex__<"div">;
+  _4Active?: Flex__<"div">;
+  _5Inactive?: Flex__<"div">;
+  _5Active?: Flex__<"div">;
+  _6Inactive?: Flex__<"div">;
+  _6Active?: Flex__<"div">;
   footer?: Flex__<typeof Footer>;
   metaPixel?: Flex__<typeof Embed>;
   sideEffect?: Flex__<typeof SideEffect>;
+  offerReview118?: Flex__<"div">;
 };
 
 export interface DefaultHomepageProps {}
@@ -173,6 +212,30 @@ function PlasmicHomepage__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 1
+      },
+      {
+        path: "popOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "reviewPage",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+      },
+      {
+        path: "imageReview",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "imageReviewData",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -2125,466 +2188,2883 @@ function PlasmicHomepage__RenderFunc(props: {
             className={classNames(projectcss.all, sty.freeBox__uKHuc)}
             id={"reviews"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___8B3Jv)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iu7Pb
-                )}
-              >
-                {"4.8"}
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__pZtvg)}>
-                <div className={classNames(projectcss.all, sty.freeBox__fKqPo)}>
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__wNaT)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__qL0LN)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg___9Cvk)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__nBmir)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__kVZrH)}
-                    role={"img"}
-                  />
-                </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qKa8S
+              )}
+            >
+              {"Customer Reviews"}
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__v6Pn6)}>
+              <div className={classNames(projectcss.all, sty.freeBox___8B3Jv)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__tJ0K7
+                    sty.text__iu7Pb
                   )}
                 >
-                  {"Based on 732 reviews"}
+                  {"4.8"}
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__pZtvg)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__fKqPo)}
+                  >
+                    <StarSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__wNaT)}
+                      role={"img"}
+                    />
+
+                    <StarSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__qL0LN)}
+                      role={"img"}
+                    />
+
+                    <StarSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg___9Cvk)}
+                      role={"img"}
+                    />
+
+                    <StarSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__nBmir)}
+                      role={"img"}
+                    />
+
+                    <StarSvgrepoComSvgIcon
+                      className={classNames(projectcss.all, sty.svg__kVZrH)}
+                      role={"img"}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tJ0K7
+                    )}
+                  >
+                    {"Based on 732 reviews"}
+                  </div>
                 </div>
               </div>
+              <div className={classNames(projectcss.all, sty.freeBox__ztq9)} />
+
+              <div className={classNames(projectcss.all, sty.freeBox___7XwvK)}>
+                <div className={classNames(projectcss.all, sty.freeBox__t2Osh)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ww3Y1
+                    )}
+                  >
+                    {"5"}
+                  </div>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___2FUwS)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__muliR)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__akFHk)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jChJn
+                    )}
+                  >
+                    {"685"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__qo1OV)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lPGf
+                    )}
+                  >
+                    {"4"}
+                  </div>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__rezGn)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rHvs9)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__fWCgV)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cwAb0
+                    )}
+                  >
+                    {"36"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___8Yiyw)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hhA0A
+                    )}
+                  >
+                    {"3"}
+                  </div>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___9A4Hs)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__k1Gs)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__u4Jz4)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sOwfq
+                    )}
+                  >
+                    {"5"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__ydgzT)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jDdGt
+                    )}
+                  >
+                    {"2"}
+                  </div>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg___3MczQ)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__am7Pp)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___3A6Mm
+                      )}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__shsi1
+                    )}
+                  >
+                    {"3"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__sbPbN)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__uGeho
+                    )}
+                  >
+                    {"1"}
+                  </div>
+                  <StarSvgrepoComSvgIcon
+                    className={classNames(projectcss.all, sty.svg__njzQz)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__s3Isw)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__nqc2F)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oz36T
+                    )}
+                  >
+                    {"4"}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__de7O8)}>
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__dLCb)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"eager"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateImageReviewData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["imageReviewData"]
+                          },
+                          operation: 0,
+                          value: [
+                            {
+                              reviewImage:
+                                "https://res.cloudinary.com/dco1kuplm/image/upload/v1763149128/review1_yluoxm.jpg",
+                              reviewName: "Melissa",
+                              reviewDate: "10/22/2025",
+                              reviewHeadline: "Looks even better in person",
+                              reviewBody:
+                                "The build quality surprised me. It feels sturdy, the bottle locks in tight, and it sprays a really fine mist. I love how clean and simple it looks on my counter."
+                            }
+                          ]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateImageReviewData"] != null &&
+                    typeof $steps["updateImageReviewData"] === "object" &&
+                    typeof $steps["updateImageReviewData"].then === "function"
+                  ) {
+                    $steps["updateImageReviewData"] =
+                      await $steps["updateImageReviewData"];
+                  }
+
+                  $steps["updatePopOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popOpen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopOpen"] != null &&
+                    typeof $steps["updatePopOpen"] === "object" &&
+                    typeof $steps["updatePopOpen"].then === "function"
+                  ) {
+                    $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                  }
+
+                  $steps["goToPopScroll"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#popScroll" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPopScroll"] != null &&
+                    typeof $steps["goToPopScroll"] === "object" &&
+                    typeof $steps["goToPopScroll"].then === "function"
+                  ) {
+                    $steps["goToPopScroll"] = await $steps["goToPopScroll"];
+                  }
+                }}
+                src={{
+                  src: "/plasmic/nan_x/images/_51HiuZj5H2LJpg.jpg",
+                  fullWidth: 1080,
+                  fullHeight: 1306,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__xdZyY)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"eager"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateImageReviewData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["imageReviewData"]
+                          },
+                          operation: 0,
+                          value: [
+                            {
+                              reviewImage:
+                                "https://res.cloudinary.com/dco1kuplm/image/upload/v1763149128/review2_qbyozn.jpg",
+                              reviewName: "Karen",
+                              reviewDate: "10/18/2025",
+                              reviewHeadline:
+                                "Fits right in with my home setup",
+                              reviewBody:
+                                "I keep it on a shelf in my kitchen and it actually looks cute next to my fall decorations. I use it every night after cooking and it works so fast."
+                            }
+                          ]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateImageReviewData"] != null &&
+                    typeof $steps["updateImageReviewData"] === "object" &&
+                    typeof $steps["updateImageReviewData"].then === "function"
+                  ) {
+                    $steps["updateImageReviewData"] =
+                      await $steps["updateImageReviewData"];
+                  }
+
+                  $steps["updatePopOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popOpen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopOpen"] != null &&
+                    typeof $steps["updatePopOpen"] === "object" &&
+                    typeof $steps["updatePopOpen"].then === "function"
+                  ) {
+                    $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                  }
+
+                  $steps["goToPopScroll"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#popScroll" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPopScroll"] != null &&
+                    typeof $steps["goToPopScroll"] === "object" &&
+                    typeof $steps["goToPopScroll"].then === "function"
+                  ) {
+                    $steps["goToPopScroll"] = await $steps["goToPopScroll"];
+                  }
+                }}
+                src={{
+                  src: "/plasmic/nan_x/images/review2Jpg.jpg",
+                  fullWidth: 1224,
+                  fullHeight: 1632,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__tMMm)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"eager"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateImageReviewData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["imageReviewData"]
+                          },
+                          operation: 0,
+                          value: [
+                            {
+                              reviewImage:
+                                "https://res.cloudinary.com/dco1kuplm/image/upload/v1763149128/review3_fxfolb.jpg",
+                              reviewName: "Robert",
+                              reviewDate: "10/15/2025",
+                              reviewHeadline: "Very solid in the hand",
+                              reviewBody:
+                                "The grip feels good and the spray is super consistent. I use it on my counters and sink after every meal. No leaks and no dripping at all."
+                            }
+                          ]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateImageReviewData"] != null &&
+                    typeof $steps["updateImageReviewData"] === "object" &&
+                    typeof $steps["updateImageReviewData"].then === "function"
+                  ) {
+                    $steps["updateImageReviewData"] =
+                      await $steps["updateImageReviewData"];
+                  }
+
+                  $steps["updatePopOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popOpen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopOpen"] != null &&
+                    typeof $steps["updatePopOpen"] === "object" &&
+                    typeof $steps["updatePopOpen"].then === "function"
+                  ) {
+                    $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                  }
+
+                  $steps["goToPopScroll"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#popScroll" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPopScroll"] != null &&
+                    typeof $steps["goToPopScroll"] === "object" &&
+                    typeof $steps["goToPopScroll"].then === "function"
+                  ) {
+                    $steps["goToPopScroll"] = await $steps["goToPopScroll"];
+                  }
+                }}
+                src={{
+                  src: "/plasmic/nan_x/images/review3Jpg.jpg",
+                  fullWidth: 949,
+                  fullHeight: 2107,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__fDhPh)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"eager"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateImageReviewData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["imageReviewData"]
+                          },
+                          operation: 0,
+                          value: [
+                            {
+                              reviewImage:
+                                "https://res.cloudinary.com/dco1kuplm/image/upload/v1763149205/review4.1_f1yipr.jpg",
+                              reviewName: "Jenny",
+                              reviewDate: "10/12/2025",
+                              reviewHeadline: "Easy to use and lightweight",
+                              reviewBody:
+                                "I can clean my whole bathroom in a few minutes now. The mist covers everything evenly and I don’t have to bend or reach awkward spots. Love it."
+                            }
+                          ]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateImageReviewData"] != null &&
+                    typeof $steps["updateImageReviewData"] === "object" &&
+                    typeof $steps["updateImageReviewData"].then === "function"
+                  ) {
+                    $steps["updateImageReviewData"] =
+                      await $steps["updateImageReviewData"];
+                  }
+
+                  $steps["updatePopOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popOpen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopOpen"] != null &&
+                    typeof $steps["updatePopOpen"] === "object" &&
+                    typeof $steps["updatePopOpen"].then === "function"
+                  ) {
+                    $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                  }
+
+                  $steps["goToPopScroll"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#popScroll" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPopScroll"] != null &&
+                    typeof $steps["goToPopScroll"] === "object" &&
+                    typeof $steps["goToPopScroll"].then === "function"
+                  ) {
+                    $steps["goToPopScroll"] = await $steps["goToPopScroll"];
+                  }
+                }}
+                src={{
+                  src: "/plasmic/nan_x/images/review41Jpg.jpg",
+                  fullWidth: 1224,
+                  fullHeight: 1632,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__ggxzl)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"eager"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateImageReviewData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["imageReviewData"]
+                          },
+                          operation: 0,
+                          value: [
+                            {
+                              reviewImage:
+                                "https://res.cloudinary.com/dco1kuplm/image/upload/v1763149128/review5_g2hy1v.jpg",
+                              reviewName: "Anthony",
+                              reviewDate: "10/10/2025",
+                              reviewHeadline: "Great unboxing experience",
+                              reviewBody:
+                                "Came with the charger, instructions, and everything packed neatly. Set up took less than a minute and the battery charged fast. Works exactly like I hoped."
+                            }
+                          ]
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateImageReviewData"] != null &&
+                    typeof $steps["updateImageReviewData"] === "object" &&
+                    typeof $steps["updateImageReviewData"].then === "function"
+                  ) {
+                    $steps["updateImageReviewData"] =
+                      await $steps["updateImageReviewData"];
+                  }
+
+                  $steps["updatePopOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["popOpen"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updatePopOpen"] != null &&
+                    typeof $steps["updatePopOpen"] === "object" &&
+                    typeof $steps["updatePopOpen"].then === "function"
+                  ) {
+                    $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                  }
+
+                  $steps["goToPopScroll"] = true
+                    ? (() => {
+                        const actionArgs = { destination: "#popScroll" };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPopScroll"] != null &&
+                    typeof $steps["goToPopScroll"] === "object" &&
+                    typeof $steps["goToPopScroll"].then === "function"
+                  ) {
+                    $steps["goToPopScroll"] = await $steps["goToPopScroll"];
+                  }
+                }}
+                src={{
+                  src: "/plasmic/nan_x/images/review5Jpg.jpg",
+                  fullWidth: 1060,
+                  fullHeight: 1885,
+                  aspectRatio: undefined
+                }}
+              />
             </div>
             <div
               data-plasmic-name={"reviews12"}
               data-plasmic-override={overrides.reviews12}
               className={classNames(projectcss.all, sty.reviews12)}
             >
-              <div
-                data-plasmic-name={"offerReview114"}
-                data-plasmic-override={overrides.offerReview114}
-                className={classNames(projectcss.all, sty.offerReview114)}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__yWKuU)}
-                />
-
-                <div className={classNames(projectcss.all, sty.freeBox__gyozl)}>
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__iNoSb)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__lvJiR)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg___4POsR)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg___3Ntwo)}
-                    role={"img"}
-                  />
-
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__oi2HQ)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aufxt
-                    )}
-                  >
-                    {"11/12/2025"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__rcXuK)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___9IbVi)}
-                  >
-                    <UserIconSvgIcon
-                      className={classNames(projectcss.all, sty.svg___9GM26)}
-                      role={"img"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yg57C
-                    )}
-                  >
-                    {"Steve"}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nfhYs
-                  )}
-                >
-                  {"Way better than wipes"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___8E5MH
-                  )}
-                >
-                  {
-                    "I can sanitize my whole kitchen in under 60 seconds now. The mist covers EVERYTHING evenly, and I\u2019m not choking on chemical fumes anymore. Honestly, this little device is a game changer."
+              {(() => {
+                try {
+                  return $state.reviewPage == 1;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__ib1BA)}
-                />
-              </div>
-              <div
-                data-plasmic-name={"offerReview115"}
-                data-plasmic-override={overrides.offerReview115}
-                className={classNames(projectcss.all, sty.offerReview115)}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__n5A7Y)}
-                />
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "11/14/2025",
+                            reviewName: "Stacey",
+                            reviewHeadline:
+                              "Best cleaning tool I bought all year",
+                            reviewBody:
+                              "I got this after a bad food poisoning scare and now I spray everything. The mist covers counters fast and evenly. I honestly feel a lot safer using my kitchen now."
+                          },
+                          {
+                            reviewDate: "11/12/2025",
+                            reviewName: "Steve",
+                            reviewHeadline: "Way better than wipes",
+                            reviewBody:
+                              "I sanitize my whole kitchen in under a minute. It coats every surface evenly and the mist feels clean and light. I am not breathing chemical fumes anymore and that alone makes this worth it."
+                          },
+                          {
+                            reviewDate: "11/10/2025",
+                            reviewName: "Tonya",
+                            reviewHeadline: "Amazing around toilets",
+                            reviewBody:
+                              "I hated using wipes around the toilet. This gets behind the base and under the seat without me touching anything. It makes bathroom cleaning so much easier."
+                          },
+                          {
+                            reviewDate: "11/08/2025",
+                            reviewName: "Maria",
+                            reviewHeadline: "My kids bring home everything",
+                            reviewBody:
+                              "I have two preschoolers and this helps keep germs down. I mist toys and door handles every night. It makes me feel like the house stays cleaner."
+                          },
+                          {
+                            reviewDate: "11/05/2025",
+                            reviewName: "James",
+                            reviewHeadline: "Perfect for gym equipment",
+                            reviewBody:
+                              "I use this between clients in my small gym. The mist is super even and dries fast. My clients like seeing me use it and it makes the place look more professional."
+                          },
+                          {
+                            reviewDate: "11/01/2025",
+                            reviewName: "Denise",
+                            reviewHeadline: "Works unbelievably well",
+                            reviewBody:
+                              "I own a salon and this is amazing for quick sanitizing. The mist is fine and smooth just like the expensive foggers we used to buy."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews1"}
+                        data-plasmic-override={overrides.reviews1}
+                        className={classNames(projectcss.all, sty.reviews1)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__yWKuU
+                          )}
+                        />
 
-                <div className={classNames(projectcss.all, sty.freeBox__pKeO)}>
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__vW9F)}
-                    role={"img"}
-                  />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__gyozl
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__iNoSb
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__yV9Ss)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__lvJiR
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__f328H)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___4POsR
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__cu0N3)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___3Ntwo
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__aLo6Z)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__oi2HQ
+                            )}
+                            role={"img"}
+                          />
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ni6Os
-                    )}
-                  >
-                    {"11/10/2025"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__b6G6P)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__uo6C7)}
-                  >
-                    <UserIconSvgIcon
-                      className={classNames(projectcss.all, sty.svg___5TjuD)}
-                      role={"img"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__a07Mr
-                    )}
-                  >
-                    {"Tonya"}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3RlaT
-                  )}
-                >
-                  {"Amazing product"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dDw8Z
-                  )}
-                >
-                  {
-                    "Super lightweight, easy to refill, and the battery lasts way longer than I expected. I use it on counters, sinks, toilets\u2014really fast and zero residue left behind."
+                          <div
+                            data-plasmic-name={"reviewDate"}
+                            data-plasmic-override={overrides.reviewDate}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__rcXuK
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___9IbVi
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___9GM26
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName"}
+                            data-plasmic-override={overrides.reviewName}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline"}
+                          data-plasmic-override={overrides.reviewHeadline}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody"}
+                          data-plasmic-override={overrides.reviewBody}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ib1BA
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
+              {(() => {
+                try {
+                  return $state.reviewPage == 2;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2Ohsh)}
-                />
-              </div>
-              <div
-                data-plasmic-name={"offerReview116"}
-                data-plasmic-override={overrides.offerReview116}
-                className={classNames(projectcss.all, sty.offerReview116)}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__roDBm)}
-                />
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "10/30/2025",
+                            reviewName: "Hannah",
+                            reviewHeadline:
+                              "My kitchen feels cleaner than ever",
+                            reviewBody:
+                              "I use this every night after cooking. It reaches little cracks around my stove that wipes never touch. It makes cleanup faster and I do not miss the strong odors from old sprays."
+                          },
+                          {
+                            reviewDate: "10/28/2025",
+                            reviewName: "Carl",
+                            reviewHeadline: "Great for rental properties",
+                            reviewBody:
+                              "I clean between guests and this saves me a ton of time. The coverage is quick and even. I feel like I am giving guests a much cleaner stay."
+                          },
+                          {
+                            reviewDate: "10/26/2025",
+                            reviewName: "Evelyn",
+                            reviewHeadline: "Finally something easy to use",
+                            reviewBody:
+                              "It is lightweight, simple, and sprays exactly the right amount. I like that I can refill it fast."
+                          },
+                          {
+                            reviewDate: "10/24/2025",
+                            reviewName: "Jason",
+                            reviewHeadline: "I use it on my car interior",
+                            reviewBody:
+                              "I detail cars and this helps me sanitize seats and handles quickly. It leaves no residue at all. Clients always comment on how clean their car smells afterward."
+                          },
+                          {
+                            reviewDate: "10/21/2025",
+                            reviewName: "Laura",
+                            reviewHeadline: "Great for bathrooms",
+                            reviewBody:
+                              "I hate touching bathroom surfaces. This sprays around the toilet and under the faucet in seconds."
+                          },
+                          {
+                            reviewDate: "10/18/2025",
+                            reviewName: "Ricky",
+                            reviewHeadline: "Worth every dollar",
+                            reviewBody:
+                              "The battery life is strong and the mist comes out smooth. I use it daily now."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews2"}
+                        data-plasmic-override={overrides.reviews2}
+                        className={classNames(projectcss.all, sty.reviews2)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__f1Gxq
+                          )}
+                        />
 
-                <div className={classNames(projectcss.all, sty.freeBox__kg0Fa)}>
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__e3QwB)}
-                    role={"img"}
-                  />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ofMf4
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__sjL0P
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__fjlXm)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__yc7M
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__myfgV)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___7BDBu
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__s7Ka)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__fdPwr
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__tawfm)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__jbDMa
+                            )}
+                            role={"img"}
+                          />
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dX3VY
-                    )}
-                  >
-                    {"11/07/2025"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__fg08U)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___8JV0)}
-                  >
-                    <UserIconSvgIcon
-                      className={classNames(projectcss.all, sty.svg___5I1D)}
-                      role={"img"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__izxBc
-                    )}
-                  >
-                    {"Denise"}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oRiXd
-                  )}
-                >
-                  {"Work unbelievably well"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___88X3X
-                  )}
-                >
-                  {
-                    "I own a salon and bought this for quick sanitizing between clients. The mist is super fine and even, just like the expensive foggers we used to buy. Saves me so much time."
+                          <div
+                            data-plasmic-name={"reviewDate2"}
+                            data-plasmic-override={overrides.reviewDate2}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate2
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__d7TjS
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ncMC
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___1I1Vg
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName2"}
+                            data-plasmic-override={overrides.reviewName2}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName2
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline2"}
+                          data-plasmic-override={overrides.reviewHeadline2}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline2
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody2"}
+                          data-plasmic-override={overrides.reviewBody2}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody2
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__nfpVu
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
+              {(() => {
+                try {
+                  return $state.reviewPage == 3;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__h4O9)}
-                />
-              </div>
-              <div
-                data-plasmic-name={"offerReview117"}
-                data-plasmic-override={overrides.offerReview117}
-                className={classNames(projectcss.all, sty.offerReview117)}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2Ypzz)}
-                />
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "10/16/2025",
+                            reviewName: "Kim",
+                            reviewHeadline: "Great for pet messes",
+                            reviewBody:
+                              "I have a dog and use this to disinfect the floors fast. No harsh smell and it dries quickly which I love."
+                          },
+                          {
+                            reviewDate: "10/14/2025",
+                            reviewName: "Andre",
+                            reviewHeadline: "Lightweight but powerful",
+                            reviewBody:
+                              "The mist is finer than I expected. It coats my counters without dripping. This is one of those small gadgets that makes a big difference."
+                          },
+                          {
+                            reviewDate: "10/12/2025",
+                            reviewName: "Sophie",
+                            reviewHeadline: "Perfect for my daycare",
+                            reviewBody:
+                              "I clean toys and tables every day. This helps me keep things clean without slowing me down. Parents love that I take the extra step."
+                          },
+                          {
+                            reviewDate: "10/09/2025",
+                            reviewName: "Grant",
+                            reviewHeadline: "Solid build",
+                            reviewBody:
+                              "Feels sturdy and well made. The bottle locks in tight so I never get leaks. Battery life is great too."
+                          },
+                          {
+                            reviewDate: "10/06/2025",
+                            reviewName: "Tara",
+                            reviewHeadline: "Really helpful during cold season",
+                            reviewBody:
+                              "I mist door handles and sinks when my kids start showing symptoms. It takes seconds and gives me peace of mind."
+                          },
+                          {
+                            reviewDate: "10/03/2025",
+                            reviewName: "Michael",
+                            reviewHeadline: "Fast cleaning",
+                            reviewBody:
+                              "I sanitize my workshop tools with it. Works fast and dries smooth."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews3"}
+                        data-plasmic-override={overrides.reviews3}
+                        className={classNames(projectcss.all, sty.reviews3)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__v1RQe
+                          )}
+                        />
 
-                <div className={classNames(projectcss.all, sty.freeBox__gbIhb)}>
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg___6QmVq)}
-                    role={"img"}
-                  />
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__vJrK5
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___4V5Du
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__ux6Ct)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__jS4NU
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__jazH4)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___2WTwn
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg___1323)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__elk5R
+                            )}
+                            role={"img"}
+                          />
 
-                  <StarSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__zFW)}
-                    role={"img"}
-                  />
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rE7G
+                            )}
+                            role={"img"}
+                          />
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__oFjga
-                    )}
-                  >
-                    {"11/06/2025"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__umYvg)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__vnhQx)}
-                  >
-                    <UserIconSvgIcon
-                      className={classNames(projectcss.all, sty.svg__q0Nnx)}
-                      role={"img"}
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xpwQ
-                    )}
-                  >
-                    {"Stacey"}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___1Ell8
-                  )}
-                >
-                  {"Absolutely works!"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jpY7H
-                  )}
-                >
-                  {
-                    "It feels solid but not heavy, and the cordless design is a blessing. I can move room to room without dragging anything. Cleans fast and looks sleek."
+                          <div
+                            data-plasmic-name={"reviewDate3"}
+                            data-plasmic-override={overrides.reviewDate3}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate3
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__zIqK9
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__vt1Ek
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___1UpWt
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName3"}
+                            data-plasmic-override={overrides.reviewName3}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName3
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline3"}
+                          data-plasmic-override={overrides.reviewHeadline3}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline3
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody3"}
+                          data-plasmic-override={overrides.reviewBody3}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody3
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ix9OR
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
+              {(() => {
+                try {
+                  return $state.reviewPage == 4;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__sZelj)}
-                />
-              </div>
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "10/01/2025",
+                            reviewName: "Lauren",
+                            reviewHeadline: "So much easier than sprays",
+                            reviewBody:
+                              "My hands used to get tired from squeezing spray bottles. This fixes that completely. The mist floats evenly over everything."
+                          },
+                          {
+                            reviewDate: "09/29/2025",
+                            reviewName: "Brian",
+                            reviewHeadline: "Good for quick cleanups",
+                            reviewBody:
+                              "I use it after cooking meat. It hits the sink and counters evenly and dries quick."
+                          },
+                          {
+                            reviewDate: "09/26/2025",
+                            reviewName: "Angela",
+                            reviewHeadline: "Love the cordless design",
+                            reviewBody:
+                              "I clean multiple rooms at once and never have to stop to plug in anything. The battery lasts longer than I expected and charges quickly."
+                          },
+                          {
+                            reviewDate: "09/24/2025",
+                            reviewName: "Cole",
+                            reviewHeadline: "Happy with this",
+                            reviewBody:
+                              "A friend showed me theirs and I bought one instantly. It works great and feels like a real upgrade from wipes."
+                          },
+                          {
+                            reviewDate: "09/21/2025",
+                            reviewName: "Michelle",
+                            reviewHeadline: "Very helpful with toddlers",
+                            reviewBody:
+                              "My kids touch every surface in the house. This helps me clean toys and chairs fast."
+                          },
+                          {
+                            reviewDate: "09/18/2025",
+                            reviewName: "Jake",
+                            reviewHeadline: "Cleans with zero streaks",
+                            reviewBody:
+                              "The fine mist never leaves drips or smudges. Looks very professional."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews4"}
+                        data-plasmic-override={overrides.reviews4}
+                        className={classNames(projectcss.all, sty.reviews4)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ofA36
+                          )}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__jwDt0
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__v3VK
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__ywL18
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__f13C9
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rAqAj
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__mSy60
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            data-plasmic-name={"reviewDate4"}
+                            data-plasmic-override={overrides.reviewDate4}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate4
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__taRZj
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__jS05P
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__cpNfH
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName4"}
+                            data-plasmic-override={overrides.reviewName4}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName4
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline4"}
+                          data-plasmic-override={overrides.reviewHeadline4}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline4
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody4"}
+                          data-plasmic-override={overrides.reviewBody4}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody4
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hs1Z6
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
+              {(() => {
+                try {
+                  return $state.reviewPage == 5;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "09/16/2025",
+                            reviewName: "Paula",
+                            reviewHeadline: "Really simple to use",
+                            reviewBody:
+                              "I can sanitize my kitchen in under a minute. It is perfect for quick daily cleaning. No strong smell either."
+                          },
+                          {
+                            reviewDate: "09/14/2025",
+                            reviewName: "Evan",
+                            reviewHeadline: "Nice even mist",
+                            reviewBody:
+                              "It coats everything so smoothly. I use it on my desk and keyboard area and nothing ever gets wet or sticky."
+                          },
+                          {
+                            reviewDate: "09/11/2025",
+                            reviewName: "Rachel",
+                            reviewHeadline: "Great for small apartments",
+                            reviewBody:
+                              "I do not have much space and this fits anywhere. It works great in my bathroom and kitchen and dries fast."
+                          },
+                          {
+                            reviewDate: "09/09/2025",
+                            reviewName: "Leo",
+                            reviewHeadline: "Good value",
+                            reviewBody:
+                              "The quality is better than I expected for the price. The mist is strong and the bottle holds a good amount of liquid."
+                          },
+                          {
+                            reviewDate: "09/06/2025",
+                            reviewName: "Caroline",
+                            reviewHeadline: "Cleans my kitchen fast",
+                            reviewBody:
+                              "I cook a lot and this makes it easy to sanitize after meals. It is quick and does not leave any smell or residue."
+                          },
+                          {
+                            reviewDate: "09/03/2025",
+                            reviewName: "Marcus",
+                            reviewHeadline: "Great for shared spaces",
+                            reviewBody:
+                              "I spray our office break room every morning. My coworkers appreciate it and it takes almost no time at all."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews5"}
+                        data-plasmic-override={overrides.reviews5}
+                        className={classNames(projectcss.all, sty.reviews5)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___4OwZx
+                          )}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__w6KMu
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__nqeNd
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__zdmIi
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__lJk9L
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___1YjZ3
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__b0LSw
+                            )}
+                            role={"img"}
+                          />
+
+                          <div
+                            data-plasmic-name={"reviewDate5"}
+                            data-plasmic-override={overrides.reviewDate5}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate5
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__fqsVm
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__h1GIq
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___8V6Iw
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName5"}
+                            data-plasmic-override={overrides.reviewName5}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName5
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline5"}
+                          data-plasmic-override={overrides.reviewHeadline5}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline5
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody5"}
+                          data-plasmic-override={overrides.reviewBody5}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody5
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__k64IK
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
+              {(() => {
+                try {
+                  return $state.reviewPage == 6;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+                ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return [
+                          {
+                            reviewDate: "09/01/2025",
+                            reviewName: "Dana",
+                            reviewHeadline: "Perfect for Airbnb hosts",
+                            reviewBody:
+                              "I clean between guests and this makes everything faster. I spray handles, remotes, bedsides, and light switches. It gives me confidence the room is truly clean."
+                          },
+                          {
+                            reviewDate: "08/29/2025",
+                            reviewName: "Owen",
+                            reviewHeadline: "Helped after my stomach bug",
+                            reviewBody:
+                              "I used this to clean every surface after I got sick. It dries fast and the mist coverage is perfect. I feel like it really helped me avoid spreading anything."
+                          },
+                          {
+                            reviewDate: "08/27/2025",
+                            reviewName: "Hailey",
+                            reviewHeadline: "Very fine mist",
+                            reviewBody:
+                              "The spray is smooth and even. It never leaves puddles which I like a lot."
+                          },
+                          {
+                            reviewDate: "08/24/2025",
+                            reviewName: "Blake",
+                            reviewHeadline: "Solid product",
+                            reviewBody:
+                              "Great for sanitizing tools and handles in my workshop. It feels sturdy and works the same every time I use it."
+                          },
+                          {
+                            reviewDate: "08/21/2025",
+                            reviewName: "Julia",
+                            reviewHeadline: "Good for travel",
+                            reviewBody:
+                              "I take it on trips and spray hotel bathrooms. Makes me feel safer and it dries quickly so it never feels wet."
+                          },
+                          {
+                            reviewDate: "08/18/2025",
+                            reviewName: "Trent",
+                            reviewHeadline: "Great for large rooms",
+                            reviewBody:
+                              "The mist spreads far and covers a lot of space. I use it in my garage after projects and it works perfectly."
+                          }
+                        ];
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <div
+                        data-plasmic-name={"reviews6"}
+                        data-plasmic-override={overrides.reviews6}
+                        className={classNames(projectcss.all, sty.reviews6)}
+                        key={currentIndex}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___3FIwf
+                          )}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___9CAiF
+                          )}
+                        >
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__jrEk
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___2YaY
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__sUbTo
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__c0K1
+                            )}
+                            role={"img"}
+                          />
+
+                          <StarSvgrepoComSvgIcon
+                            className={classNames(projectcss.all, sty.svg__bv1)}
+                            role={"img"}
+                          />
+
+                          <div
+                            data-plasmic-name={"reviewDate6"}
+                            data-plasmic-override={overrides.reviewDate6}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewDate6
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewDate}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__qmr7C
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___60RMj
+                            )}
+                          >
+                            <UserIconSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__usoSf
+                              )}
+                              role={"img"}
+                            />
+                          </div>
+                          <div
+                            data-plasmic-name={"reviewName6"}
+                            data-plasmic-override={overrides.reviewName6}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.reviewName6
+                            )}
+                          >
+                            <React.Fragment>
+                              {currentItem.reviewName}
+                            </React.Fragment>
+                          </div>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewHeadline6"}
+                          data-plasmic-override={overrides.reviewHeadline6}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewHeadline6
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.reviewName;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Way better than wipes";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          data-plasmic-name={"reviewBody6"}
+                          data-plasmic-override={overrides.reviewBody6}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.reviewBody6
+                          )}
+                        >
+                          <React.Fragment>
+                            {currentItem.reviewBody}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___7SKv4
+                          )}
+                        />
+                      </div>
+                    );
+                  })
+                : null}
               <div className={classNames(projectcss.all, sty.freeBox__fy5MR)}>
                 <div
+                  data-plasmic-name={"_1Active"}
+                  data-plasmic-override={overrides._1Active}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__pkLOo
+                    sty._1Active
                   )}
                 >
                   {"1"}
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pLv2
-                  )}
-                >
-                  {"2"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___6R3SG
-                  )}
-                >
-                  {"3"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pxNwI
-                  )}
-                >
-                  {"4"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tytlb
-                  )}
-                >
-                  {"5"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zeScb
-                  )}
-                >
-                  {"6+"}
-                </div>
+                {(() => {
+                  try {
+                    return $state.reviewPage != 2;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_2Inactive"}
+                    data-plasmic-override={overrides._2Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._2Inactive
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 2
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"2"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage == 2;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_2Active"}
+                    data-plasmic-override={overrides._2Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._2Active
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 2
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"2"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage != 3;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_3Inactive"}
+                    data-plasmic-override={overrides._3Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._3Inactive
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 3
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"3"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage == 3;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_3Active"}
+                    data-plasmic-override={overrides._3Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._3Active
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 3
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"3"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage != 4;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_4Inactive"}
+                    data-plasmic-override={overrides._4Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._4Inactive
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"4"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage == 4;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_4Active"}
+                    data-plasmic-override={overrides._4Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._4Active
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"4"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage != 5;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_5Inactive"}
+                    data-plasmic-override={overrides._5Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._5Inactive
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 5
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"5"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage == 5;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_5Active"}
+                    data-plasmic-override={overrides._5Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._5Active
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 5
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"5"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage != 6;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_6Inactive"}
+                    data-plasmic-override={overrides._6Inactive}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._6Inactive
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 6
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"6+"}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.reviewPage == 6;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    data-plasmic-name={"_6Active"}
+                    data-plasmic-override={overrides._6Active}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty._6Active
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 6
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
+                  >
+                    {"6+"}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -2650,6 +5130,342 @@ function PlasmicHomepage__RenderFunc(props: {
               }
             }}
           />
+
+          {(() => {
+            try {
+              return $state.popOpen == true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__lFfPl)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updatePopOpen"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["popOpen"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updatePopOpen"] != null &&
+                  typeof $steps["updatePopOpen"] === "object" &&
+                  typeof $steps["updatePopOpen"].then === "function"
+                ) {
+                  $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                }
+              }}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__rYq5U)}
+                id={"popScroll"}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__h1KU)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__q398O)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updatePopOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["popOpen"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updatePopOpen"] != null &&
+                      typeof $steps["updatePopOpen"] === "object" &&
+                      typeof $steps["updatePopOpen"].then === "function"
+                    ) {
+                      $steps["updatePopOpen"] = await $steps["updatePopOpen"];
+                    }
+                  }}
+                >
+                  <XCircleCloseDeleteSvgIcon
+                    className={classNames(projectcss.all, sty.svg__nJlDt)}
+                    role={"img"}
+                  />
+                </div>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.imageReviewData;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__a9XYm)}
+                      key={currentIndex}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__dSh7C)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"484px"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"400px"}
+                        loading={"lazy"}
+                        src={currentItem.reviewImage}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nlgoU
+                        )}
+                      >
+                        <div
+                          data-plasmic-name={"offerReview118"}
+                          data-plasmic-override={overrides.offerReview118}
+                          className={classNames(
+                            projectcss.all,
+                            sty.offerReview118
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__eguKm
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__bpNr
+                            )}
+                          >
+                            <StarSvgrepoComSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__wtVqV
+                              )}
+                              role={"img"}
+                            />
+
+                            <StarSvgrepoComSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__o50S
+                              )}
+                              role={"img"}
+                            />
+
+                            <StarSvgrepoComSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__w81Gr
+                              )}
+                              role={"img"}
+                            />
+
+                            <StarSvgrepoComSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__l1G1U
+                              )}
+                              role={"img"}
+                            />
+
+                            <StarSvgrepoComSvgIcon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___8EUdM
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ksbrZ
+                              )}
+                            >
+                              {"11/12/2025"}
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__rBkkk
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___0YJfD
+                              )}
+                            >
+                              <UserIconSvgIcon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__v42DF
+                                )}
+                                role={"img"}
+                              />
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xDm
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.reviewName;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Steve";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__q4HF
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.reviewHeadline;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Way better than wipes";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ov2RT
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.reviewBody;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "I can sanitize my whole kitchen in under 60 seconds now. The mist covers EVERYTHING evenly, and I\u2019m not choking on chemical fumes anymore. Honestly, this little device is a game changer.";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__fhYkC
+                            )}
+                          />
+                        </div>
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__yg5Vc)}
+                          displayHeight={"90px"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"90px"}
+                          loading={"lazy"}
+                          src={currentItem.reviewImage}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -2675,13 +5491,51 @@ const PlasmicDescendants = {
     "divider2",
     "pdp",
     "reviews12",
-    "offerReview114",
-    "offerReview115",
-    "offerReview116",
-    "offerReview117",
+    "reviews1",
+    "reviewDate",
+    "reviewName",
+    "reviewHeadline",
+    "reviewBody",
+    "reviews2",
+    "reviewDate2",
+    "reviewName2",
+    "reviewHeadline2",
+    "reviewBody2",
+    "reviews3",
+    "reviewDate3",
+    "reviewName3",
+    "reviewHeadline3",
+    "reviewBody3",
+    "reviews4",
+    "reviewDate4",
+    "reviewName4",
+    "reviewHeadline4",
+    "reviewBody4",
+    "reviews5",
+    "reviewDate5",
+    "reviewName5",
+    "reviewHeadline5",
+    "reviewBody5",
+    "reviews6",
+    "reviewDate6",
+    "reviewName6",
+    "reviewHeadline6",
+    "reviewBody6",
+    "_1Active",
+    "_2Inactive",
+    "_2Active",
+    "_3Inactive",
+    "_3Active",
+    "_4Inactive",
+    "_4Active",
+    "_5Inactive",
+    "_5Active",
+    "_6Inactive",
+    "_6Active",
     "footer",
     "metaPixel",
-    "sideEffect"
+    "sideEffect",
+    "offerReview118"
   ],
   announcement: ["announcement"],
   nav: ["nav"],
@@ -2721,18 +5575,129 @@ const PlasmicDescendants = {
   pdp: ["pdp"],
   reviews12: [
     "reviews12",
-    "offerReview114",
-    "offerReview115",
-    "offerReview116",
-    "offerReview117"
+    "reviews1",
+    "reviewDate",
+    "reviewName",
+    "reviewHeadline",
+    "reviewBody",
+    "reviews2",
+    "reviewDate2",
+    "reviewName2",
+    "reviewHeadline2",
+    "reviewBody2",
+    "reviews3",
+    "reviewDate3",
+    "reviewName3",
+    "reviewHeadline3",
+    "reviewBody3",
+    "reviews4",
+    "reviewDate4",
+    "reviewName4",
+    "reviewHeadline4",
+    "reviewBody4",
+    "reviews5",
+    "reviewDate5",
+    "reviewName5",
+    "reviewHeadline5",
+    "reviewBody5",
+    "reviews6",
+    "reviewDate6",
+    "reviewName6",
+    "reviewHeadline6",
+    "reviewBody6",
+    "_1Active",
+    "_2Inactive",
+    "_2Active",
+    "_3Inactive",
+    "_3Active",
+    "_4Inactive",
+    "_4Active",
+    "_5Inactive",
+    "_5Active",
+    "_6Inactive",
+    "_6Active"
   ],
-  offerReview114: ["offerReview114"],
-  offerReview115: ["offerReview115"],
-  offerReview116: ["offerReview116"],
-  offerReview117: ["offerReview117"],
+  reviews1: [
+    "reviews1",
+    "reviewDate",
+    "reviewName",
+    "reviewHeadline",
+    "reviewBody"
+  ],
+  reviewDate: ["reviewDate"],
+  reviewName: ["reviewName"],
+  reviewHeadline: ["reviewHeadline"],
+  reviewBody: ["reviewBody"],
+  reviews2: [
+    "reviews2",
+    "reviewDate2",
+    "reviewName2",
+    "reviewHeadline2",
+    "reviewBody2"
+  ],
+  reviewDate2: ["reviewDate2"],
+  reviewName2: ["reviewName2"],
+  reviewHeadline2: ["reviewHeadline2"],
+  reviewBody2: ["reviewBody2"],
+  reviews3: [
+    "reviews3",
+    "reviewDate3",
+    "reviewName3",
+    "reviewHeadline3",
+    "reviewBody3"
+  ],
+  reviewDate3: ["reviewDate3"],
+  reviewName3: ["reviewName3"],
+  reviewHeadline3: ["reviewHeadline3"],
+  reviewBody3: ["reviewBody3"],
+  reviews4: [
+    "reviews4",
+    "reviewDate4",
+    "reviewName4",
+    "reviewHeadline4",
+    "reviewBody4"
+  ],
+  reviewDate4: ["reviewDate4"],
+  reviewName4: ["reviewName4"],
+  reviewHeadline4: ["reviewHeadline4"],
+  reviewBody4: ["reviewBody4"],
+  reviews5: [
+    "reviews5",
+    "reviewDate5",
+    "reviewName5",
+    "reviewHeadline5",
+    "reviewBody5"
+  ],
+  reviewDate5: ["reviewDate5"],
+  reviewName5: ["reviewName5"],
+  reviewHeadline5: ["reviewHeadline5"],
+  reviewBody5: ["reviewBody5"],
+  reviews6: [
+    "reviews6",
+    "reviewDate6",
+    "reviewName6",
+    "reviewHeadline6",
+    "reviewBody6"
+  ],
+  reviewDate6: ["reviewDate6"],
+  reviewName6: ["reviewName6"],
+  reviewHeadline6: ["reviewHeadline6"],
+  reviewBody6: ["reviewBody6"],
+  _1Active: ["_1Active"],
+  _2Inactive: ["_2Inactive"],
+  _2Active: ["_2Active"],
+  _3Inactive: ["_3Inactive"],
+  _3Active: ["_3Active"],
+  _4Inactive: ["_4Inactive"],
+  _4Active: ["_4Active"],
+  _5Inactive: ["_5Inactive"],
+  _5Active: ["_5Active"],
+  _6Inactive: ["_6Inactive"],
+  _6Active: ["_6Active"],
   footer: ["footer"],
   metaPixel: ["metaPixel"],
-  sideEffect: ["sideEffect"]
+  sideEffect: ["sideEffect"],
+  offerReview118: ["offerReview118"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2755,13 +5720,51 @@ type NodeDefaultElementType = {
   divider2: "div";
   pdp: typeof Pdp;
   reviews12: "div";
-  offerReview114: "div";
-  offerReview115: "div";
-  offerReview116: "div";
-  offerReview117: "div";
+  reviews1: "div";
+  reviewDate: "div";
+  reviewName: "div";
+  reviewHeadline: "div";
+  reviewBody: "div";
+  reviews2: "div";
+  reviewDate2: "div";
+  reviewName2: "div";
+  reviewHeadline2: "div";
+  reviewBody2: "div";
+  reviews3: "div";
+  reviewDate3: "div";
+  reviewName3: "div";
+  reviewHeadline3: "div";
+  reviewBody3: "div";
+  reviews4: "div";
+  reviewDate4: "div";
+  reviewName4: "div";
+  reviewHeadline4: "div";
+  reviewBody4: "div";
+  reviews5: "div";
+  reviewDate5: "div";
+  reviewName5: "div";
+  reviewHeadline5: "div";
+  reviewBody5: "div";
+  reviews6: "div";
+  reviewDate6: "div";
+  reviewName6: "div";
+  reviewHeadline6: "div";
+  reviewBody6: "div";
+  _1Active: "div";
+  _2Inactive: "div";
+  _2Active: "div";
+  _3Inactive: "div";
+  _3Active: "div";
+  _4Inactive: "div";
+  _4Active: "div";
+  _5Inactive: "div";
+  _5Active: "div";
+  _6Inactive: "div";
+  _6Active: "div";
   footer: typeof Footer;
   metaPixel: typeof Embed;
   sideEffect: typeof SideEffect;
+  offerReview118: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2842,13 +5845,51 @@ export const PlasmicHomepage = Object.assign(
     divider2: makeNodeComponent("divider2"),
     pdp: makeNodeComponent("pdp"),
     reviews12: makeNodeComponent("reviews12"),
-    offerReview114: makeNodeComponent("offerReview114"),
-    offerReview115: makeNodeComponent("offerReview115"),
-    offerReview116: makeNodeComponent("offerReview116"),
-    offerReview117: makeNodeComponent("offerReview117"),
+    reviews1: makeNodeComponent("reviews1"),
+    reviewDate: makeNodeComponent("reviewDate"),
+    reviewName: makeNodeComponent("reviewName"),
+    reviewHeadline: makeNodeComponent("reviewHeadline"),
+    reviewBody: makeNodeComponent("reviewBody"),
+    reviews2: makeNodeComponent("reviews2"),
+    reviewDate2: makeNodeComponent("reviewDate2"),
+    reviewName2: makeNodeComponent("reviewName2"),
+    reviewHeadline2: makeNodeComponent("reviewHeadline2"),
+    reviewBody2: makeNodeComponent("reviewBody2"),
+    reviews3: makeNodeComponent("reviews3"),
+    reviewDate3: makeNodeComponent("reviewDate3"),
+    reviewName3: makeNodeComponent("reviewName3"),
+    reviewHeadline3: makeNodeComponent("reviewHeadline3"),
+    reviewBody3: makeNodeComponent("reviewBody3"),
+    reviews4: makeNodeComponent("reviews4"),
+    reviewDate4: makeNodeComponent("reviewDate4"),
+    reviewName4: makeNodeComponent("reviewName4"),
+    reviewHeadline4: makeNodeComponent("reviewHeadline4"),
+    reviewBody4: makeNodeComponent("reviewBody4"),
+    reviews5: makeNodeComponent("reviews5"),
+    reviewDate5: makeNodeComponent("reviewDate5"),
+    reviewName5: makeNodeComponent("reviewName5"),
+    reviewHeadline5: makeNodeComponent("reviewHeadline5"),
+    reviewBody5: makeNodeComponent("reviewBody5"),
+    reviews6: makeNodeComponent("reviews6"),
+    reviewDate6: makeNodeComponent("reviewDate6"),
+    reviewName6: makeNodeComponent("reviewName6"),
+    reviewHeadline6: makeNodeComponent("reviewHeadline6"),
+    reviewBody6: makeNodeComponent("reviewBody6"),
+    _1Active: makeNodeComponent("_1Active"),
+    _2Inactive: makeNodeComponent("_2Inactive"),
+    _2Active: makeNodeComponent("_2Active"),
+    _3Inactive: makeNodeComponent("_3Inactive"),
+    _3Active: makeNodeComponent("_3Active"),
+    _4Inactive: makeNodeComponent("_4Inactive"),
+    _4Active: makeNodeComponent("_4Active"),
+    _5Inactive: makeNodeComponent("_5Inactive"),
+    _5Active: makeNodeComponent("_5Active"),
+    _6Inactive: makeNodeComponent("_6Inactive"),
+    _6Active: makeNodeComponent("_6Active"),
     footer: makeNodeComponent("footer"),
     metaPixel: makeNodeComponent("metaPixel"),
     sideEffect: makeNodeComponent("sideEffect"),
+    offerReview118: makeNodeComponent("offerReview118"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

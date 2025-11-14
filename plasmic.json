@@ -247,6 +247,11 @@
           "id": "L9zinInl0nYg",
           "name": "CouponSvgIcon",
           "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__CouponSvg.tsx"
+        },
+        {
+          "id": "f6ZpAAdFw3F6",
+          "name": "XCircleCloseDeleteSvgIcon",
+          "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__XCircleCloseDeleteSvg.tsx"
         }
       ],
       "images": [
@@ -314,6 +319,36 @@
           "id": "qlhCH50F-N1Y",
           "name": "nanX - Article - 6.png",
           "filePath": "../public/plasmic/nan_x/images/nanXArticle6Png.png"
+        },
+        {
+          "id": "JZP7PGb7gucU",
+          "name": "51hiuZJ5h2L.jpg",
+          "filePath": "../public/plasmic/nan_x/images/_51HiuZj5H2LJpg.jpg"
+        },
+        {
+          "id": "JD50jre1sAdf",
+          "name": "review2.jpg",
+          "filePath": "../public/plasmic/nan_x/images/review2Jpg.jpg"
+        },
+        {
+          "id": "Vbb-eV6POItT",
+          "name": "review3.jpg",
+          "filePath": "../public/plasmic/nan_x/images/review3Jpg.jpg"
+        },
+        {
+          "id": "3Q1IWwMcO0-K",
+          "name": "review4.jpg",
+          "filePath": "../public/plasmic/nan_x/images/review4Jpg.jpg"
+        },
+        {
+          "id": "-CvQxN17rxs1",
+          "name": "review5.jpg",
+          "filePath": "../public/plasmic/nan_x/images/review5Jpg.jpg"
+        },
+        {
+          "id": "qOhKIPCIwrWC",
+          "name": "review4.1.jpg",
+          "filePath": "../public/plasmic/nan_x/images/review41Jpg.jpg"
         }
       ],
       "indirect": false,
