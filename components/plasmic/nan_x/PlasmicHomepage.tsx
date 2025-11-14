@@ -4476,6 +4476,44 @@ function PlasmicHomepage__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty._1Inactive
                     )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateReviewPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["reviewPage"]
+                              },
+                              operation: 0,
+                              value: 1
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateReviewPage"] != null &&
+                        typeof $steps["updateReviewPage"] === "object" &&
+                        typeof $steps["updateReviewPage"].then === "function"
+                      ) {
+                        $steps["updateReviewPage"] =
+                          await $steps["updateReviewPage"];
+                      }
+                    }}
                   >
                     {"1"}
                   </div>

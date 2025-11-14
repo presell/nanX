@@ -3885,7 +3885,6 @@
   }
 }
 .freeBox__udlYh {
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -3896,6 +3895,7 @@
   margin-top: 0px;
   margin-bottom: 20px;
   min-width: 0;
+  display: none;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .freeBox__udlYh {
@@ -4208,7 +4208,6 @@
 }
 .freeBox__f1Gxq {
   animation: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -4224,6 +4223,7 @@
   margin-bottom: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-width: 1px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
