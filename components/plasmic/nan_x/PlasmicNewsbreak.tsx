@@ -347,7 +347,7 @@ function PlasmicNewsbreak__RenderFunc(props: {
               )}
             >
               {
-                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray them, those harsh chemicals become an aerosol that pollutes the air you breathe.\n\nMost people think their current cleaning routine is \u201cgood enough,\u201d but the truth is it\u2019s slow, it worsens indoor air quality, and it still leaves behind some of the nastiest germs.\n\nNow keep reading, because what you\u2019re about to learn will completely change how you disinfect your home."
+                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray them, those harsh chemicals become an aerosol that pollutes the air you breathe."
               }
             </div>
             <PlasmicImg__
@@ -382,7 +382,7 @@ function PlasmicNewsbreak__RenderFunc(props: {
               <React.Fragment>
                 <React.Fragment>
                   {
-                    "Instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
+                    "So instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
                   }
                 </React.Fragment>
                 <span

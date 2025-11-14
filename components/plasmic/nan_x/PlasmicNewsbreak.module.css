@@ -238,6 +238,7 @@
   margin-top: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-radius: 15px;
 }
 .img___1Lfgq > picture > img {
