@@ -347,7 +347,7 @@ function PlasmicDiscover__RenderFunc(props: {
               )}
             >
               {
-                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray them, those harsh chemicals become an aerosol that pollutes the air you breathe.\n\nMost people think their current cleaning routine is \u201cgood enough,\u201d but the truth is it\u2019s slow, it worsens indoor air quality, and it still leaves behind some of the nastiest germs.\n\nNow keep reading, because what you\u2019re about to learn will completely change how you disinfect your home."
+                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray disinfectant, toxic chemicals become an aerosol that pollutes the air you breathe."
               }
             </div>
             <PlasmicImg__
@@ -382,7 +382,7 @@ function PlasmicDiscover__RenderFunc(props: {
               <React.Fragment>
                 <React.Fragment>
                   {
-                    "Instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
+                    "So instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
                   }
                 </React.Fragment>
                 <span
@@ -998,6 +998,20 @@ function PlasmicDiscover__RenderFunc(props: {
               "\n\n<!-- Meta Pixel Code -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '819736280774420');\nfbq('track', 'PageView');      // Standard pageview event\n</script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\"\nsrc=\"https://www.facebook.com/tr?id=819736280774420&ev=PageView&noscript=1\"\n/></noscript>\n<!-- End Meta Pixel Code -->\n\n"
             }
           />
+
+          {false ? (
+            <div className={classNames(projectcss.all, sty.freeBox__dAqSu)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9YMwQ
+                )}
+              >
+                {"test"}
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

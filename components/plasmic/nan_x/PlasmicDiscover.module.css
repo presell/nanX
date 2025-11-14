@@ -238,6 +238,7 @@
   margin-top: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-radius: 15px;
 }
 .img__o74J > picture > img {
@@ -656,4 +657,27 @@
   .metaPixel:global(.__wab_instance) {
     animation: none;
   }
+}
+.freeBox__dAqSu {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  width: 400px;
+  height: auto;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  left: auto;
+  top: 826px;
+  background: #afafaf;
+  z-index: 1;
+  right: 50px;
+  padding: 8px;
+}
+.text___9YMwQ {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
