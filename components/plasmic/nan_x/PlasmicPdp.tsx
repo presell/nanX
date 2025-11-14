@@ -113,6 +113,9 @@ export type PlasmicPdp__OverridesType = {
   divider2?: Flex__<"div">;
   featuresClosed?: Flex__<"div">;
   featuresOpen?: Flex__<"div">;
+  divider22?: Flex__<"div">;
+  shippingClosed?: Flex__<"div">;
+  shippingOpen?: Flex__<"div">;
 };
 
 export interface DefaultPdpProps {
@@ -3108,7 +3111,7 @@ function PlasmicPdp__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__iA2Kh)}>
             {(() => {
               try {
-                return $state.dropdown == 1;
+                return $state.dropdown != 2;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
@@ -3248,7 +3251,7 @@ function PlasmicPdp__RenderFunc(props: {
                             variablePath: ["dropdown"]
                           },
                           operation: 0,
-                          value: 1
+                          value: 3
                         };
                         return (({
                           variable,
@@ -3481,6 +3484,338 @@ function PlasmicPdp__RenderFunc(props: {
                   )}
                 >
                   {"Surface Safe: Works with water-based cleaners"}
+                </div>
+              </div>
+            ) : null}
+          </div>
+          <div
+            data-plasmic-name={"divider22"}
+            data-plasmic-override={overrides.divider22}
+            className={classNames(projectcss.all, sty.divider22)}
+          />
+
+          <div className={classNames(projectcss.all, sty.freeBox__o4SXj)}>
+            {(() => {
+              try {
+                return $state.dropdown != 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"shippingClosed"}
+                data-plasmic-override={overrides.shippingClosed}
+                className={classNames(projectcss.all, sty.shippingClosed)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 3
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jRomb
+                  )}
+                >
+                  {"Shipping, Warranty, Returns"}
+                </div>
+                {false ? (
+                  <CanvasMinusSvgIcon
+                    className={classNames(projectcss.all, sty.svg__rAvxR)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDropdown"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["dropdown"]
+                              },
+                              operation: 0,
+                              value: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDropdown"] != null &&
+                        typeof $steps["updateDropdown"] === "object" &&
+                        typeof $steps["updateDropdown"].then === "function"
+                      ) {
+                        $steps["updateDropdown"] =
+                          await $steps["updateDropdown"];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                ) : null}
+                <CanvasPlusSvgIcon
+                  className={classNames(projectcss.all, sty.svg__ma4Jd)}
+                  role={"img"}
+                />
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown == 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                data-plasmic-name={"shippingOpen"}
+                data-plasmic-override={overrides.shippingOpen}
+                className={classNames(projectcss.all, sty.shippingOpen)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDropdown"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dropdown"]
+                          },
+                          operation: 0,
+                          value: 2
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDropdown"] != null &&
+                    typeof $steps["updateDropdown"] === "object" &&
+                    typeof $steps["updateDropdown"].then === "function"
+                  ) {
+                    $steps["updateDropdown"] = await $steps["updateDropdown"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w9G9V
+                  )}
+                >
+                  {"Shipping, Warranty, Returns"}
+                </div>
+                <CanvasMinusSvgIcon
+                  className={classNames(projectcss.all, sty.svg__gIoR7)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDropdown"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dropdown"]
+                            },
+                            operation: 0,
+                            value: 0
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDropdown"] != null &&
+                      typeof $steps["updateDropdown"] === "object" &&
+                      typeof $steps["updateDropdown"].then === "function"
+                    ) {
+                      $steps["updateDropdown"] = await $steps["updateDropdown"];
+                    }
+                  }}
+                  role={"img"}
+                />
+
+                {false ? (
+                  <CanvasPlusSvgIcon
+                    className={classNames(projectcss.all, sty.svg__hc4V8)}
+                    role={"img"}
+                  />
+                ) : null}
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown == 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__eVhpr)}>
+                <DotSvgIcon
+                  className={classNames(projectcss.all, sty.svg__w1PDi)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___5Mh5W
+                  )}
+                >
+                  {
+                    "Fast Free Shipping: Order ships free for a limited-time during our Black Friday sale. Expect deliver within 5-10 business days."
+                  }
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown == 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__bOjV9)}>
+                <DotSvgIcon
+                  className={classNames(projectcss.all, sty.svg__y5MR9)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__a3FpD
+                  )}
+                >
+                  {
+                    "Lifetime Warranty Available: After checkout, you can add a warranty for $9.95, giving you free replacements for life with zero questions asked."
+                  }
+                </div>
+              </div>
+            ) : null}
+            {(() => {
+              try {
+                return $state.dropdown == 3;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div className={classNames(projectcss.all, sty.freeBox__s9P6C)}>
+                <DotSvgIcon
+                  className={classNames(projectcss.all, sty.svg__s5Zqx)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__z8U5V
+                  )}
+                >
+                  {
+                    "Easy Returns Allowed: Try it risk-free for 30 days. If you don\u2019t love it, return it anytime for a full refund (minus the pre-paid return label and a small $4.95 restocking fee)."
+                  }
                 </div>
               </div>
             ) : null}
@@ -3794,7 +4129,10 @@ const PlasmicDescendants = {
     "benefitsClosed",
     "divider2",
     "featuresClosed",
-    "featuresOpen"
+    "featuresOpen",
+    "divider22",
+    "shippingClosed",
+    "shippingOpen"
   ],
   announcement: ["announcement"],
   nav: ["nav"],
@@ -3821,7 +4159,10 @@ const PlasmicDescendants = {
     "benefitsClosed",
     "divider2",
     "featuresClosed",
-    "featuresOpen"
+    "featuresOpen",
+    "divider22",
+    "shippingClosed",
+    "shippingOpen"
   ],
   desktopImages2: ["desktopImages2"],
   mobileImages2: ["mobileImages2"],
@@ -3860,7 +4201,10 @@ const PlasmicDescendants = {
   benefitsClosed: ["benefitsClosed"],
   divider2: ["divider2"],
   featuresClosed: ["featuresClosed"],
-  featuresOpen: ["featuresOpen"]
+  featuresOpen: ["featuresOpen"],
+  divider22: ["divider22"],
+  shippingClosed: ["shippingClosed"],
+  shippingOpen: ["shippingOpen"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3892,6 +4236,9 @@ type NodeDefaultElementType = {
   divider2: "div";
   featuresClosed: "div";
   featuresOpen: "div";
+  divider22: "div";
+  shippingClosed: "div";
+  shippingOpen: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3981,6 +4328,9 @@ export const PlasmicPdp = Object.assign(
     divider2: makeNodeComponent("divider2"),
     featuresClosed: makeNodeComponent("featuresClosed"),
     featuresOpen: makeNodeComponent("featuresOpen"),
+    divider22: makeNodeComponent("divider22"),
+    shippingClosed: makeNodeComponent("shippingClosed"),
+    shippingOpen: makeNodeComponent("shippingOpen"),
 
     // Metadata about props expected for PlasmicPdp
     internalVariantProps: PlasmicPdp__VariantProps,
