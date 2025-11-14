@@ -177,6 +177,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/newsbreak"
+        },
+        {
+          "id": "mwJf7vIwKRcj",
+          "name": "Advertorial",
+          "type": "managed",
+          "projectId": "4jNtNf7ennmHcnVPPcPauY",
+          "renderModuleFilePath": "plasmic/nan_x/PlasmicAdvertorial.tsx",
+          "importSpec": {
+            "modulePath": "Advertorial.tsx"
+          },
+          "cssFilePath": "plasmic/nan_x/PlasmicAdvertorial.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -229,6 +242,11 @@
           "id": "i3jPzxSOe98G",
           "name": "UserIconSvgIcon",
           "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__UserIconSvg.tsx"
+        },
+        {
+          "id": "L9zinInl0nYg",
+          "name": "CouponSvgIcon",
+          "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__CouponSvg.tsx"
         }
       ],
       "images": [

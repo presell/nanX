@@ -61,6 +61,7 @@ import {
 
 import Announcement from "../../Announcement"; // plasmic-import: 4lO7SXttxyIT/component
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
+import Advertorial from "../../Advertorial"; // plasmic-import: mwJf7vIwKRcj/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
@@ -71,8 +72,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import projectcss from "./plasmic.module.css"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectcss
 import sty from "./PlasmicDiscover.module.css"; // plasmic-import: uogUMQBXCRRV/css
-
-import DotSvgIcon from "./icons/PlasmicIcon__DotSvg"; // plasmic-import: MOshPqjEhwKE/icon
 
 createPlasmicElementProxy;
 
@@ -89,9 +88,12 @@ export type PlasmicDiscover__OverridesType = {
   root?: Flex__<"div">;
   announcement?: Flex__<typeof Announcement>;
   nav?: Flex__<typeof Nav>;
+  advertorial?: Flex__<typeof Advertorial>;
   pdp?: Flex__<typeof Pdp>;
   footer?: Flex__<typeof Footer>;
   metaPixel?: Flex__<typeof Embed>;
+  freeBox?: Flex__<"div">;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultDiscoverProps {}
@@ -134,8 +136,6 @@ function PlasmicDiscover__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
 
   const styleTokensClassNames = _useStyleTokens();
 
@@ -214,770 +214,12 @@ function PlasmicDiscover__RenderFunc(props: {
             className={classNames("__wab_instance", sty.nav)}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox___5Igd3)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___3GYsw
-              )}
-            >
-              {"Sanitize Any Surface In Seconds. No Scrubbing Required."}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__aVqpt)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bbE4H
-                )}
-                onClick={async event => {
-                  const $steps = {};
+          <Advertorial
+            data-plasmic-name={"advertorial"}
+            data-plasmic-override={overrides.advertorial}
+            className={classNames("__wab_instance", sty.advertorial)}
+          />
 
-                  $steps["goToHomepage"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToHomepage"] != null &&
-                    typeof $steps["goToHomepage"] === "object" &&
-                    typeof $steps["goToHomepage"].then === "function"
-                  ) {
-                    $steps["goToHomepage"] = await $steps["goToHomepage"];
-                  }
-                }}
-              >
-                <React.Fragment>
-                  <React.Fragment>{"Written by "}</React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{ textDecorationLine: "underline" }}
-                  >
-                    {"nanX"}
-                  </span>
-                </React.Fragment>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sShn1
-                )}
-              >
-                {"3 minute read"}
-              </div>
-              <DotSvgIcon
-                className={classNames(projectcss.all, sty.svg__gtva3)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__m5O3Z
-                )}
-              >
-                {"1 citation"}
-              </div>
-              <DotSvgIcon
-                className={classNames(projectcss.all, sty.svg___6UnOc)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yyww
-                )}
-              >
-                {"share"}
-              </div>
-            </div>
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__m4FCj)}
-              displayHeight={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "180px"
-                  : "350px"
-              }
-              displayMaxHeight={"none"}
-              displayMaxWidth={"none"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"100%"}
-              loading={"eager"}
-              src={{
-                src: "/plasmic/nan_x/images/nanXArticle1Png.png",
-                fullWidth: 1020,
-                fullHeight: 525,
-                aspectRatio: undefined
-              }}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fD2ZR
-              )}
-            >
-              {"Did You Know Surface Wiping Barely Kills Anything?"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xr2Sp
-              )}
-            >
-              {
-                "And disinfectant sprays aren\u2019t just ineffective \u2014 they\u2019re toxic. \n\nThe moment you spray disinfectant, toxic chemicals become an aerosol that pollutes the air you breathe."
-              }
-            </div>
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__o74J)}
-              displayHeight={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "180px"
-                  : "350px"
-              }
-              displayMaxHeight={"none"}
-              displayMaxWidth={"none"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"100%"}
-              loading={"eager"}
-              src={{
-                src: "/plasmic/nan_x/images/nanXArticle2Png.png",
-                fullWidth: 1020,
-                fullHeight: 525,
-                aspectRatio: undefined
-              }}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__edTv8
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "So instead of relying on chemical-heavy cleaners and wiping every surface by hand\u2026\n\nYou can simply "
-                  }
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"mist"}
-                </span>
-                <React.Fragment>
-                  {
-                    " your surfaces \u2014 not scrub them \u2014 using a powerful disinfecting solution made from ingredients already in your medicine cabinet.\n\nNo scrubbing.\nNo toxic fumes.\nNo sticky residue.\n\nJust mist.\nAnd done."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__avExl)}
-              displayHeight={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "180px"
-                  : "350px"
-              }
-              displayMaxHeight={"none"}
-              displayMaxWidth={"none"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"100%"}
-              loading={"eager"}
-              src={{
-                src: "/plasmic/nan_x/images/nanXArticle3Png.png",
-                fullWidth: 1020,
-                fullHeight: 525,
-                aspectRatio: undefined
-              }}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__u4KEb
-              )}
-            >
-              {"The Power of \u201cMisting\u201d Instead of Wiping"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__yw7OK
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {"But what do we mean by \u201c"}
-                </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"mist"}
-                </span>
-                <React.Fragment>
-                  {"\u201d?\n\nWe\u2019re talking about using a "}
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__a1RG
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"disinfectant spray gun"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {".\n\nThese devices spray an ultra-fine "}
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__sHwnD
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"NanoMist\u2122"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    " \u2014 a lightweight, fast-drying mist that coats every surface evenly and reaches places wipes can\u2019t, like around handles, edges, cracks, and tight corners.\n\nPeople are using these "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__lUyk1
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"spray guns"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    " on kitchen counters, bathroom sinks, toilet seats and handles, door knobs, high-touch areas, and even electronics.\n\nThe mist settles, kills germs on contact, and dries almost instantly.\n\nThat means your home becomes cleaner, safer, and more thoroughly disinfected \u2014 without wiping a single thing."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__f563K
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__gdnjg)}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "180px"
-                    : "350px"
-                }
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"eager"}
-                src={{
-                  src: "/plasmic/nan_x/images/nanX1Png.png",
-                  fullWidth: 1024,
-                  fullHeight: 1536,
-                  aspectRatio: undefined
-                }}
-              />
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jnjl6
-              )}
-            >
-              {
-                "So What Is This Powerful \u201cMedicine Cabinet\u201d Disinfect Solution?"
-              }
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qyr0C
-              )}
-            >
-              {
-                "It\u2019s surprisingly simple.\n\nYou don\u2019t need harsh cleaners.\nYou don\u2019t need bleach.\nAnd you definitely don\u2019t need expensive specialty sprays.\n\nAll you need is one common disinfecting ingredient almost every household already has\u2026 and a little water.\n\nIt\u2019s the same ingredient nurses use, the same one parents put on cuts and scrapes, and the same one found in nearly every first-aid kit in America:"
-              }
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__kL2T3
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___3KejC)}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "180px"
-                    : "350px"
-                }
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"eager"}
-                src={{
-                  src: "/plasmic/nan_x/images/nanXArticle4Png.png",
-                  fullWidth: 1020,
-                  fullHeight: 525,
-                  aspectRatio: undefined
-                }}
-              />
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__eUvNz
-              )}
-            >
-              {"Hydrogen Peroxide."}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qm7Ue
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide outperforms many standard surface cleaners in eliminating stubborn biofilms \u2014 the protective layers that allow dangerous germs to survive traditional wiping.\n\n(Some people even use rubbing alcohol for a rapid drying option \u2014 both work incredibly well.)\n\nWhen this clean solution is turned into an ultra-fine"
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__pNvk5
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {" NanoMist\u2122"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    ", it becomes a super effective, residue-free disinfectant that instantly coats surfaces and destroys germs \u2014 without scrubbing.\n\nIt\u2019s so easy you\u2019ll wonder why you spent years wiping everything by hand."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link___6K2Pl
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__zOrgf)}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "180px"
-                    : "350px"
-                }
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"eager"}
-                src={{
-                  src: "/plasmic/nan_x/images/nanXArticle5Png.png",
-                  fullWidth: 1020,
-                  fullHeight: 525,
-                  aspectRatio: undefined
-                }}
-              />
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__amg6J
-              )}
-            >
-              {"The Real Danger of \u201cGood Enough\u201d Cleaning"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__sWnHm
-              )}
-            >
-              {
-                "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes one single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a microscopic amount can trigger days of violent food poisoning, dehydration, and serious gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick.\u201d"
-              }
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__srKa6
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___0DsZ)}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "180px"
-                    : "350px"
-                }
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"eager"}
-                src={{
-                  src: "/plasmic/nan_x/images/nanXArticle6Png.png",
-                  fullWidth: 1020,
-                  fullHeight: 525,
-                  aspectRatio: undefined
-                }}
-              />
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aFhB
-              )}
-            >
-              {
-                "So What\u2019s the Best Way to Spray the Hydrogen Peroxide (or Alcohol) Solution?"
-              }
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aX5N
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "While the disinfecting mixture is incredibly potent, how you apply it matters just as much.\n\nNot all "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link___9ZmAl
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"spray guns"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    " are created equal.\n\nCheap knockoffs leak, sputter, and spray unevenly \u2014 leaving gaps, streaks, and untouched areas. Many don\u2019t even produce a true "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__a8Dj
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"NanoMist\u2122"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    ", which means the disinfectant never fully coats the surface.\n\nThat\u2019s why thousands are switching to the "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__l0FCj
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"nanX Disinfectant Spray Gun"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    ".\n\nIt\u2019s engineered to blanket surfaces quickly with an ultra-fine, perfectly even "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__ktyHg
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"NanoMist\u2122"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    ".\n\nIt runs for hours on a single charge, feels solid in the hand, and is built to last.\n\nAnd unlike the cheap versions, the "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__dVnQ
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"nanX Spray Gun"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>
-                  {
-                    " comes with a lifetime warranty \u2014 so you only buy it once."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                sty.link__aB4H
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__hj8Gu)}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "180px"
-                    : "350px"
-                }
-                displayMaxHeight={"none"}
-                displayMaxWidth={"none"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"100%"}
-                loading={"eager"}
-                src={{
-                  src: "/plasmic/nan_x/images/nanX3Jpg.jpg",
-                  fullWidth: 1500,
-                  fullHeight: 1500,
-                  aspectRatio: undefined
-                }}
-              />
-            </PlasmicLink__>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kevhx
-              )}
-            >
-              {"And Right Now Is the Best Time of the Year to Get One"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kQ9Oe
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>
-                  {
-                    "Our Black Friday sale just went live \u2014 and it\u2019s the steepest discount offered all year.\n\nRight now, when you buy two "
-                  }
-                </React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link___2Ym9G
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"nanX Spray Guns"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>{", you get a "}</React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"third one"}
-                </span>
-                <React.Fragment> </React.Fragment>
-                <span
-                  className={"plasmic_default__all plasmic_default__span"}
-                  style={{ fontWeight: 700 }}
-                >
-                  {"free"}
-                </span>
-                <React.Fragment>
-                  {
-                    ".\n\nThat means one for you \u2014 and two as gifts for loved ones who care about keeping their homes clean, safe, and fully disinfected.\n\nIt\u2019s the perfect holiday gift for yourself and everyone you love."
-                  }
-                </React.Fragment>
-              </React.Fragment>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___3AM9E
-              )}
-            >
-              <React.Fragment>
-                <React.Fragment>{""}</React.Fragment>
-                {
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      projectcss.plasmic_default__inline,
-                      sty.link__w0TnG
-                    )}
-                    component={Link}
-                    href={`/`}
-                    platform={"nextjs"}
-                  >
-                    {"\ud83d\udc49 Tap Here to Shop the Black Friday Sale"}
-                  </PlasmicLink__>
-                }
-                <React.Fragment>{""}</React.Fragment>
-              </React.Fragment>
-            </div>
-          </div>
           <Pdp
             data-plasmic-name={"pdp"}
             data-plasmic-override={overrides.pdp}
@@ -1000,12 +242,18 @@ function PlasmicDiscover__RenderFunc(props: {
           />
 
           {false ? (
-            <div className={classNames(projectcss.all, sty.freeBox__dAqSu)}>
+            <div
+              data-plasmic-name={"freeBox"}
+              data-plasmic-override={overrides.freeBox}
+              className={classNames(projectcss.all, sty.freeBox)}
+            >
               <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___9YMwQ
+                  sty.text
                 )}
               >
                 {"test"}
@@ -1019,12 +267,25 @@ function PlasmicDiscover__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "announcement", "nav", "pdp", "footer", "metaPixel"],
+  root: [
+    "root",
+    "announcement",
+    "nav",
+    "advertorial",
+    "pdp",
+    "footer",
+    "metaPixel",
+    "freeBox",
+    "text"
+  ],
   announcement: ["announcement"],
   nav: ["nav"],
+  advertorial: ["advertorial"],
   pdp: ["pdp"],
   footer: ["footer"],
-  metaPixel: ["metaPixel"]
+  metaPixel: ["metaPixel"],
+  freeBox: ["freeBox", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1033,9 +294,12 @@ type NodeDefaultElementType = {
   root: "div";
   announcement: typeof Announcement;
   nav: typeof Nav;
+  advertorial: typeof Advertorial;
   pdp: typeof Pdp;
   footer: typeof Footer;
   metaPixel: typeof Embed;
+  freeBox: "div";
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1102,9 +366,12 @@ export const PlasmicDiscover = Object.assign(
     // Helper components rendering sub-elements
     announcement: makeNodeComponent("announcement"),
     nav: makeNodeComponent("nav"),
+    advertorial: makeNodeComponent("advertorial"),
     pdp: makeNodeComponent("pdp"),
     footer: makeNodeComponent("footer"),
     metaPixel: makeNodeComponent("metaPixel"),
+    freeBox: makeNodeComponent("freeBox"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicDiscover
     internalVariantProps: PlasmicDiscover__VariantProps,

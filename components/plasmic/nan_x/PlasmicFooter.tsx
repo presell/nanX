@@ -249,7 +249,7 @@ function PlasmicFooter__RenderFunc(props: {
             sty.text___9Qonz
           )}
         >
-          {"@ 2025 nanX"}
+          {"@ 2025 nanX\u2122"}
         </div>
       </div>
     </div>

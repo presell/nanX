@@ -46,12 +46,12 @@
         {
           "type": "renderModule",
           "assetId": "uogUMQBXCRRV",
-          "checksum": "4407ecbde392e9852bab896a21d053e5"
+          "checksum": "4b4ab497b880b96dd477bb8b608897c6"
         },
         {
           "type": "cssRules",
           "assetId": "uogUMQBXCRRV",
-          "checksum": "4407ecbde392e9852bab896a21d053e5"
+          "checksum": "4b4ab497b880b96dd477bb8b608897c6"
         },
         {
           "type": "renderModule",
@@ -86,12 +86,12 @@
         {
           "type": "renderModule",
           "assetId": "El0mv80Cdurv",
-          "checksum": "9d4c46b5ae0598eccfea3ff32cbbdfe6"
+          "checksum": "ed711fdf5deca4415203bce6cee80391"
         },
         {
           "type": "cssRules",
           "assetId": "El0mv80Cdurv",
-          "checksum": "9d4c46b5ae0598eccfea3ff32cbbdfe6"
+          "checksum": "ed711fdf5deca4415203bce6cee80391"
         },
         {
           "type": "renderModule",
@@ -241,17 +241,32 @@
         {
           "type": "renderModule",
           "assetId": "dQ3Sxk4fWxOM",
-          "checksum": "2b42c3adef18166d02edc50bb978a491"
+          "checksum": "20ba30d4c7a3c1933b4fe9d3484067f5"
         },
         {
           "type": "cssRules",
           "assetId": "dQ3Sxk4fWxOM",
-          "checksum": "2b42c3adef18166d02edc50bb978a491"
+          "checksum": "20ba30d4c7a3c1933b4fe9d3484067f5"
         },
         {
           "assetId": "4jNtNf7ennmHcnVPPcPauY",
           "type": "projectCss",
           "checksum": "bbf29a089b6c738e30fef18995f18107"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "mwJf7vIwKRcj",
+          "checksum": "65469638d34c9f367b8aed536272abec"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "mwJf7vIwKRcj",
+          "checksum": "65469638d34c9f367b8aed536272abec"
+        },
+        {
+          "type": "icon",
+          "assetId": "L9zinInl0nYg",
+          "checksum": "827a0390049c05676685cd8293575810"
         }
       ],
       "codegenVersion": "0.0.2"
