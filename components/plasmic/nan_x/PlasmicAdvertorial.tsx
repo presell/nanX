@@ -605,7 +605,20 @@ function PlasmicAdvertorial__RenderFunc(props: {
         <React.Fragment>
           <React.Fragment>
             {
-              "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide outperforms many standard surface cleaners in eliminating stubborn biofilms \u2014 the protective layers that allow dangerous germs to survive traditional wiping.\n\n(Some people even use rubbing alcohol for a rapid drying option \u2014 both work incredibly well.)\n\nWhen this clean solution is turned into an ultra-fine"
+              "When mixed with water, it becomes a highly potent disinfectant that breaks down germs at the cellular level \u2014 disrupting membranes, denaturing proteins, and neutralizing harmful bacteria and viruses.\n\nStudies show hydrogen peroxide kills germs better than nearly all store-bought sprays \u2014 even the dangerous germs protected by tough layers that regular cleaners can\u2019t penetrate.\n\n"
+            }
+          </React.Fragment>
+          <span
+            className={"plasmic_default__all plasmic_default__span"}
+            style={{ fontStyle: "italic" }}
+          >
+            {
+              "(Some people even use rubbing alcohol for a rapid drying option \u2014 both work incredibly well.)"
+            }
+          </span>
+          <React.Fragment>
+            {
+              "\n\nWhen this hydrogen peroxide solution is turned into an ultra-fine"
             }
           </React.Fragment>
           {
@@ -687,7 +700,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         {
-          "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes one single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a microscopic amount can trigger days of violent food poisoning, dehydration, and serious gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick.\u201d"
+          "Maybe nothing\u2019s happened to you yet.\nOr maybe you\u2019ve had a close call.\n\nEither way, it only takes one single drop of raw chicken juice on your counter to spread Campylobacter \u2014 one of the leading causes of severe food-borne illness.\n\nYou can\u2019t see it.\nYou can\u2019t smell it.\nAnd wiping with a traditional disinfectant spray rarely kills it.\n\nCampylobacter is so aggressive that even a microscopic amount can trigger days of violent food poisoning, dehydration, and serious gut inflammation.\n\nAnd it\u2019s not just the kitchen.\n\nBathroom surfaces, toilet handles, sink fixtures, and high-touch areas can all harbor germs far more stubborn than most cleaners are designed to eliminate.\n\nThis is why proper disinfection matters long before you ever \u201cget sick\u201d \u2014 and it\u2019s even more important this winter, with cold and flu season in full swing."
         }
       </div>
       <PlasmicLink__
@@ -771,7 +784,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
         <React.Fragment>
           <React.Fragment>
             {
-              "While the disinfecting mixture is incredibly potent, how you apply it matters just as much.\n\nNot all "
+              "While this homemade disinfectant is incredibly potent, how you apply it matters just as much.\n\nSure, you could pour it into a spray bottle \u2014 but a basic spray bottle requires endless, tiring hand-pumping, and it can only shoot heavy droplets, which means uneven coverage and germs left behind.\n\nThis is why professional cleaners use "
             }
           </React.Fragment>
           {
@@ -781,18 +794,18 @@ function PlasmicAdvertorial__RenderFunc(props: {
                 projectcss.a,
                 projectcss.__wab_text,
                 projectcss.plasmic_default__inline,
-                sty.link__nTBE
+                sty.link__t1D7J
               )}
               component={Link}
               href={`/`}
               platform={"nextjs"}
             >
-              {"spray guns"}
+              {"disinfectant spray guns"}
             </PlasmicLink__>
           }
           <React.Fragment>
             {
-              " are created equal.\n\nCheap knockoffs leak, sputter, and spray unevenly \u2014 leaving gaps, streaks, and untouched areas. Many don\u2019t even produce a true "
+              " \u2014 devices that turn liquid into an ultra-fine mist so surfaces get coated quickly, evenly, and completely.\n\nAnd for the first time ever, you can get an "
             }
           </React.Fragment>
           {
@@ -802,7 +815,28 @@ function PlasmicAdvertorial__RenderFunc(props: {
                 projectcss.a,
                 projectcss.__wab_text,
                 projectcss.plasmic_default__inline,
-                sty.link__le7K
+                sty.link__ivgbb
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              {"industrial-grade spray gun"}
+            </PlasmicLink__>
+          }
+          <React.Fragment>
+            {
+              " designed for home use\u2026 \n\nOne that actually produces a real "
+            }
+          </React.Fragment>
+          {
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                projectcss.plasmic_default__inline,
+                sty.link___8WZMn
               )}
               component={Link}
               href={`/`}
@@ -813,7 +847,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
           }
           <React.Fragment>
             {
-              ", which means the disinfectant never fully coats the surface.\n\nThat\u2019s why thousands are switching to the "
+              ", not the weak, sputtering fog you see from cheap knockoffs.\n\nThe "
             }
           </React.Fragment>
           {
@@ -823,7 +857,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
                 projectcss.a,
                 projectcss.__wab_text,
                 projectcss.plasmic_default__inline,
-                sty.link___6EcrY
+                sty.link__utQ
               )}
               component={Link}
               href={`/`}
@@ -834,7 +868,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
           }
           <React.Fragment>
             {
-              ".\n\nIt\u2019s engineered to blanket surfaces quickly with an ultra-fine, perfectly even "
+              " is engineered to blanket surfaces with an ultra-fine, perfectly even NanoMist\u2122 \u2014 reaching corners and crevices traditional spraying simply can\u2019t.\n\nIt runs for hours on a single charge, feels solid in the hand, and is built to last.\n\nAnd unlike the cheap versions, the "
             }
           </React.Fragment>
           {
@@ -844,28 +878,7 @@ function PlasmicAdvertorial__RenderFunc(props: {
                 projectcss.a,
                 projectcss.__wab_text,
                 projectcss.plasmic_default__inline,
-                sty.link___9Pzjz
-              )}
-              component={Link}
-              href={`/`}
-              platform={"nextjs"}
-            >
-              {"NanoMist\u2122"}
-            </PlasmicLink__>
-          }
-          <React.Fragment>
-            {
-              ".\n\nIt runs for hours on a single charge, feels solid in the hand, and is built to last.\n\nAnd unlike the cheap versions, the "
-            }
-          </React.Fragment>
-          {
-            <PlasmicLink__
-              className={classNames(
-                projectcss.all,
-                projectcss.a,
-                projectcss.__wab_text,
-                projectcss.plasmic_default__inline,
-                sty.link__ov4GR
+                sty.link__fHv3
               )}
               component={Link}
               href={`/`}
