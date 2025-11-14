@@ -71,10 +71,14 @@ import BagSvgIcon from "./icons/PlasmicIcon__BagSvg"; // plasmic-import: bSpVB1k
 
 createPlasmicElementProxy;
 
-export type PlasmicNav__VariantMembers = {};
-export type PlasmicNav__VariantsArgs = {};
+export type PlasmicNav__VariantMembers = {
+  lean: "lean";
+};
+export type PlasmicNav__VariantsArgs = {
+  lean?: SingleBooleanChoiceArg<"lean">;
+};
 type VariantPropType = keyof PlasmicNav__VariantsArgs;
-export const PlasmicNav__VariantProps = new Array<VariantPropType>();
+export const PlasmicNav__VariantProps = new Array<VariantPropType>("lean");
 
 export type PlasmicNav__ArgsType = {};
 type ArgPropType = keyof PlasmicNav__ArgsType;
@@ -89,6 +93,7 @@ export type PlasmicNav__OverridesType = {
 };
 
 export interface DefaultNavProps {
+  lean?: SingleBooleanChoiceArg<"lean">;
   className?: string;
 }
 
@@ -131,6 +136,24 @@ function PlasmicNav__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "lean",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.lean
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   const styleTokensClassNames = _useStyleTokens();
 
   return (
@@ -145,7 +168,8 @@ function PlasmicNav__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        sty.nav
+        sty.nav,
+        { [sty.navlean]: hasVariant($state, "lean", "lean") }
       )}
     >
       <PlasmicLink__
@@ -185,7 +209,9 @@ function PlasmicNav__RenderFunc(props: {
       <BagSvgIcon
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svglean]: hasVariant($state, "lean", "lean")
+        })}
         onClick={async event => {
           const $steps = {};
 

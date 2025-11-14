@@ -41,3 +41,6 @@
   width: 19px;
   flex-shrink: 0;
 }
+.svglean {
+  display: none;
+}

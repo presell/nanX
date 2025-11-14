@@ -72,10 +72,14 @@ import InstagramSvgrepoComSvgIcon from "./icons/PlasmicIcon__InstagramSvgrepoCom
 
 createPlasmicElementProxy;
 
-export type PlasmicFooter__VariantMembers = {};
-export type PlasmicFooter__VariantsArgs = {};
+export type PlasmicFooter__VariantMembers = {
+  lean: "lean";
+};
+export type PlasmicFooter__VariantsArgs = {
+  lean?: SingleBooleanChoiceArg<"lean">;
+};
 type VariantPropType = keyof PlasmicFooter__VariantsArgs;
-export const PlasmicFooter__VariantProps = new Array<VariantPropType>();
+export const PlasmicFooter__VariantProps = new Array<VariantPropType>("lean");
 
 export type PlasmicFooter__ArgsType = {};
 type ArgPropType = keyof PlasmicFooter__ArgsType;
@@ -87,6 +91,7 @@ export type PlasmicFooter__OverridesType = {
 };
 
 export interface DefaultFooterProps {
+  lean?: SingleBooleanChoiceArg<"lean">;
   className?: string;
 }
 
@@ -129,6 +134,24 @@ function PlasmicFooter__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "lean",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.lean
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   const styleTokensClassNames = _useStyleTokens();
 
   return (
@@ -143,11 +166,20 @@ function PlasmicFooter__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         styleTokensClassNames,
-        sty.root
+        sty.root,
+        { [sty.rootlean]: hasVariant($state, "lean", "lean") }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__hM70)}>
-        <div className={classNames(projectcss.all, sty.freeBox__sw4Tz)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__hM70, {
+          [sty.freeBoxlean__hM70QlYn5]: hasVariant($state, "lean", "lean")
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__sw4Tz, {
+            [sty.freeBoxlean__sw4TzQlYn5]: hasVariant($state, "lean", "lean")
+          })}
+        >
           <PlasmicLink__
             className={classNames(
               projectcss.all,
@@ -182,12 +214,17 @@ function PlasmicFooter__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__vQCiq
+              sty.text__vQCiq,
+              { [sty.textlean__vQCiqQlYn5]: hasVariant($state, "lean", "lean") }
             )}
           >
             {"Creating a cleaner world with NanoMist\u2122 technology."}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___9GKxh)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___9GKxh, {
+              [sty.freeBoxlean___9GKxhQlYn5]: hasVariant($state, "lean", "lean")
+            })}
+          >
             <FacebookSvgSvgIcon
               className={classNames(projectcss.all, sty.svg__wh6Nh)}
               role={"img"}
@@ -200,7 +237,11 @@ function PlasmicFooter__RenderFunc(props: {
           </div>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__fd6EY)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__fd6EY, {
+          [sty.freeBoxlean__fd6EYQlYn5]: hasVariant($state, "lean", "lean")
+        })}
+      >
         <PlasmicLink__
           className={classNames(
             projectcss.all,
@@ -241,12 +282,17 @@ function PlasmicFooter__RenderFunc(props: {
           {"Return Policy"}
         </PlasmicLink__>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__g6Nd)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__g6Nd, {
+          [sty.freeBoxlean__g6NdQlYn5]: hasVariant($state, "lean", "lean")
+        })}
+      >
         <div
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text___9Qonz
+            sty.text___9Qonz,
+            { [sty.textlean___9QonzQlYn5]: hasVariant($state, "lean", "lean") }
           )}
         >
           {"@ 2025 nanX\u2122"}

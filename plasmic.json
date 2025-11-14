@@ -190,6 +190,20 @@
           "cssFilePath": "plasmic/nan_x/PlasmicAdvertorial.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "C9jivLoBUlOO",
+          "name": "Checkout1",
+          "type": "managed",
+          "projectId": "4jNtNf7ennmHcnVPPcPauY",
+          "renderModuleFilePath": "plasmic/nan_x/PlasmicCheckout1.tsx",
+          "importSpec": {
+            "modulePath": "../pages/checkout/1.tsx"
+          },
+          "cssFilePath": "plasmic/nan_x/PlasmicCheckout1.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/checkout/1"
         }
       ],
       "icons": [
@@ -252,6 +266,11 @@
           "id": "f6ZpAAdFw3F6",
           "name": "XCircleCloseDeleteSvgIcon",
           "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__XCircleCloseDeleteSvg.tsx"
+        },
+        {
+          "id": "8L-OXjCTgzs8",
+          "name": "Mail2SvgIcon",
+          "moduleFilePath": "plasmic/nan_x/icons/PlasmicIcon__Mail2Svg.tsx"
         }
       ],
       "images": [
