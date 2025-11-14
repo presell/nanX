@@ -756,7 +756,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
                   displayWidth={"60px"}
-                  loading={"lazy"}
+                  loading={"eager"}
                   src={{
                     src: "/plasmic/nan_x/images/nanX1Png.png",
                     fullWidth: 1024,

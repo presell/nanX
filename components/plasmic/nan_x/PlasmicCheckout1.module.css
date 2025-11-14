@@ -1159,7 +1159,7 @@
 }
 .footer:global(.__wab_instance) {
   max-width: 100%;
-  margin-top: 225px;
+  margin-top: 275px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .footer:global(.__wab_instance) {
