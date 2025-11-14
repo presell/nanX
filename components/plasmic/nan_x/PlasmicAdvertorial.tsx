@@ -68,6 +68,7 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: 4jNtNf7ennmHcn
 import sty from "./PlasmicAdvertorial.module.css"; // plasmic-import: mwJf7vIwKRcj/css
 
 import DotSvgIcon from "./icons/PlasmicIcon__DotSvg"; // plasmic-import: MOshPqjEhwKE/icon
+import StarSvgrepoComSvgIcon from "./icons/PlasmicIcon__StarSvgrepoComSvg"; // plasmic-import: 582rzEIEG-6Y/icon
 
 createPlasmicElementProxy;
 
@@ -956,9 +957,26 @@ function PlasmicAdvertorial__RenderFunc(props: {
         )}
       >
         <React.Fragment>
+          <React.Fragment>{"Our "}</React.Fragment>
+          {
+            <PlasmicLink__
+              className={classNames(
+                projectcss.all,
+                projectcss.a,
+                projectcss.__wab_text,
+                projectcss.plasmic_default__inline,
+                sty.link__uzYR
+              )}
+              component={Link}
+              href={`/`}
+              platform={"nextjs"}
+            >
+              {"Black Friday"}
+            </PlasmicLink__>
+          }
           <React.Fragment>
             {
-              "Our Black Friday event just went live \u2014 and the deal is honestly unbelievable.\n\nFor a very limited time, you can claim a free "
+              " event just went live \u2014 and the deal is honestly unbelievable.\n\nFor a very limited time, you can claim a free "
             }
           </React.Fragment>
           {
@@ -1041,6 +1059,32 @@ function PlasmicAdvertorial__RenderFunc(props: {
         <div className={classNames(projectcss.all, sty.freeBox__cOe0I)} />
 
         <div className={classNames(projectcss.all, sty.freeBox__kv1Fs)}>
+          <div className={classNames(projectcss.all, sty.freeBox___3Aq8J)}>
+            <StarSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg___3Na7Z)}
+              role={"img"}
+            />
+
+            <StarSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg__byVpB)}
+              role={"img"}
+            />
+
+            <StarSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg___9Jagr)}
+              role={"img"}
+            />
+
+            <StarSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg___6AsF)}
+              role={"img"}
+            />
+
+            <StarSvgrepoComSvgIcon
+              className={classNames(projectcss.all, sty.svg__wik1X)}
+              role={"img"}
+            />
+          </div>
           <div
             className={classNames(
               projectcss.all,
