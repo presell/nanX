@@ -30,7 +30,6 @@ function CheckoutForm() {
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Redirect after success
         return_url: `${window.location.origin}/payment-success`,
       },
     });
@@ -67,22 +66,32 @@ function CheckoutForm() {
   );
 }
 
-export default function StripePaymentElement({ className }: { className?: string }) {
+export default function StripePaymentElement({
+  amount,
+  className,
+}: {
+  amount: number; // dollars
+  className?: string;
+}) {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
     async function loadIntent() {
       const res = await fetch("/api/create-payment-intent", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount }),
       });
+
       const data = await res.json();
       setClientSecret(data.clientSecret);
     }
 
     loadIntent();
-  }, []);
+  }, [amount]);
 
-  if (!clientSecret) return <div className={className}>Loading payment form…</div>;
+  if (!clientSecret)
+    return <div className={className}>Loading payment form…</div>;
 
   return (
     <div className={className}>
