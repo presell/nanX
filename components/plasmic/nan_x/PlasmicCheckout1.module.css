@@ -1118,7 +1118,7 @@
   width: 100%;
   height: auto;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: left;
   user-select: text;
   font-family: "Inter", sans-serif;
@@ -1138,7 +1138,7 @@
   width: 100%;
   height: auto;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   text-align: right;
   user-select: text;
   font-family: "Inter", sans-serif;
@@ -1159,7 +1159,7 @@
 }
 .footer:global(.__wab_instance) {
   max-width: 100%;
-  margin-top: 275px;
+  margin-top: 300px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
   .footer:global(.__wab_instance) {
