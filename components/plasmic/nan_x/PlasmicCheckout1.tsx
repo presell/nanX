@@ -181,7 +181,7 @@ function PlasmicCheckout1__RenderFunc(props: {
         path: "form",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) => 3
       },
       {
         path: "ccSlot.value",
@@ -715,7 +715,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                   <StripePaymentElement
                     data-plasmic-name={"stripePaymentElement"}
                     data-plasmic-override={overrides.stripePaymentElement}
-                    amount={4490}
+                    amount={1}
                     className={classNames(
                       "__wab_instance",
                       sty.stripePaymentElement
