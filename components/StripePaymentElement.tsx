@@ -67,10 +67,9 @@ function CheckoutForm() {
   );
 }
 
-export default function StripePaymentElement() {
+export default function StripePaymentElement({ className }: { className?: string }) {
   const [clientSecret, setClientSecret] = useState("");
 
-  // Call API route when the component mounts
   useEffect(() => {
     async function loadIntent() {
       const res = await fetch("/api/create-payment-intent", {
@@ -83,11 +82,13 @@ export default function StripePaymentElement() {
     loadIntent();
   }, []);
 
-  if (!clientSecret) return <div>Loading payment form…</div>;
+  if (!clientSecret) return <div className={className}>Loading payment form…</div>;
 
   return (
-    <Elements stripe={stripePromise} options={{ clientSecret }}>
-      <CheckoutForm />
-    </Elements>
+    <div className={className}>
+      <Elements stripe={stripePromise} options={{ clientSecret }}>
+        <CheckoutForm />
+      </Elements>
+    </div>
   );
 }
