@@ -1,4 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import StripePaymentElement from "./components/StripePaymentElement";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -7,26 +8,17 @@ export const PLASMIC = initPlasmicLoader({
       token: "6so33r9xTOt0c2tdo9yC8OoZDfPjnn1E7hbQoRe5f5iPAdvb0Kk3FatMcU9BA6wgT8z8ABEb3ZcxTZ3uNg",
     },
   ],
-
-  // By default Plasmic will use the last published version of your project.
-  // For development, you can set preview to true, which will use the unpublished
-  // project, allowing you to see your designs without publishing.  Please
-  // only use this for development, as this is significantly slower.
   preview: false,
 });
 
-// You can register any code components that you want to use here; see
-// https://docs.plasmic.app/learn/code-components-ref/
-// And configure your Plasmic project to use the host url pointing at
-// the /plasmic-host page of your nextjs app (for example,
-// http://localhost:3000/plasmic-host).  See
-// https://docs.plasmic.app/learn/app-hosting/#set-a-plasmic-project-to-use-your-app-host
-
-// PLASMIC.registerComponent(...);
-
-import StripePaymentElement from "./components/StripePaymentElement";
-
+// Register the Stripe component
 PLASMIC.registerComponent(StripePaymentElement, {
   name: "StripePaymentElement",
-  props: {},
+  props: {
+    amount: {
+      type: "number",
+      defaultValue: 44.9,
+    },
+    className: "string",
+  },
 });
