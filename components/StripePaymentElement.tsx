@@ -2,9 +2,10 @@
 "use client";
 
 /**
- * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
+ * @plasmicImport StripePaymentElement from "./StripePaymentElement"
  */
 
+import dynamic from "next/dynamic";
 import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -42,6 +43,7 @@ function CheckoutForm() {
     });
 
     if (error) {
+      console.error("[Stripe] confirmPayment error:", error);
       setMessage(error.message || "Payment failed.");
       setIsSubmitting(false);
     }
@@ -74,21 +76,22 @@ function CheckoutForm() {
 }
 
 // ------------------
-// Main component
+// Main implementation (client-only, will be wrapped in a no-SSR dynamic)
 // ------------------
-export default function StripePaymentElement(props: {
+function StripePaymentElementImpl(props: {
   amount: number; // dollars, e.g. 44.9
   className?: string;
 }) {
   const { amount, className } = props;
   const [clientSecret, setClientSecret] = useState("");
 
-  // amount comes in as dollars; convert to cents for the API
   const dollars = Number(amount) || 0;
 
   useEffect(() => {
     async function loadIntent() {
       try {
+        console.log("[Stripe] Creating payment intent for", dollars, "USD");
+
         const res = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -96,19 +99,23 @@ export default function StripePaymentElement(props: {
         });
 
         if (!res.ok) {
-          console.error("Failed to create payment intent", await res.text());
+          console.error(
+            "[Stripe] Failed to create payment intent:",
+            res.status,
+            await res.text()
+          );
           return;
         }
 
         const data = await res.json();
         if (!data?.clientSecret) {
-          console.error("No clientSecret returned from API", data);
+          console.error("[Stripe] No clientSecret returned from API:", data);
           return;
         }
 
         setClientSecret(data.clientSecret);
       } catch (err) {
-        console.error("Failed to load payment intent", err);
+        console.error("[Stripe] Error loading payment intent:", err);
       }
     }
 
@@ -127,3 +134,15 @@ export default function StripePaymentElement(props: {
     </div>
   );
 }
+
+// ------------------
+// Export a no-SSR wrapper for Next.
+// This is what Plasmic will actually render.
+// ------------------
+const StripePaymentElement = dynamic(
+  () => Promise.resolve(StripePaymentElementImpl),
+  { ssr: false }
+);
+
+export default StripePaymentElement;
+export { StripePaymentElement }; // named export too, just in case
