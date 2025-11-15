@@ -1,3 +1,7 @@
+/**
+ * @plasmicImport StripePaymentElement
+ */
+
 "use client";
 
 import { useEffect, useState } from "react";
