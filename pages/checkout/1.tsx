@@ -1,25 +1,28 @@
 "use client";
 
-import * as React from "react";
-import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
-import { PlasmicCheckout1 } from "../../components/plasmic/nan_x/PlasmicCheckout1";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import ClientOnly from "@/components/ClientOnly";
 
-function Checkout1() {
+// ⛔ DO NOT import PlasmicCheckout1 directly
+// import { PlasmicCheckout1 } from "../../components/plasmic/nan_x/PlasmicCheckout1";
+
+// ✅ Dynamic import the WHOLE Plasmic component tree
+const PlasmicCheckout1 = dynamic(
+  () =>
+    import("../../components/plasmic/nan_x/PlasmicCheckout1").then(
+      (m) => m.PlasmicCheckout1
+    ),
+  { ssr: false }
+);
+
+export default function Checkout1() {
   const router = useRouter();
 
   return (
-    <PageParamsProvider__
+    <PlasmicCheckout1
       route={router?.pathname}
       params={router?.query}
       query={router?.query}
-    >
-      <ClientOnly>
-        <PlasmicCheckout1 />
-      </ClientOnly>
-    </PageParamsProvider__>
+    />
   );
 }
-
-export default Checkout1;
