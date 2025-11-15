@@ -10,12 +10,15 @@ export default async function handler(
   try {
     const { amount } = req.body;
 
-    if (!amount || typeof amount !== "number") {
-      return res.status(400).json({ error: "Invalid amount" });
+    if (!amount || isNaN(amount)) {
+      return res.status(400).json({ error: "Invalid or missing amount." });
     }
 
+    // Convert dollars → cents
+    const amountInCents = Math.round(Number(amount) * 100);
+
     const intent = await stripe.paymentIntents.create({
-      amount: Math.round(amount * 100), // convert dollars → cents
+      amount: amountInCents,
       currency: "usd",
       automatic_payment_methods: { enabled: true },
     });
