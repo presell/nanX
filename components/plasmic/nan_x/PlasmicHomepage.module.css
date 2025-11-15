@@ -4472,7 +4472,6 @@
 }
 .freeBox__v1RQe {
   animation: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -4488,6 +4487,7 @@
   margin-bottom: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-width: 1px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -4736,7 +4736,6 @@
 }
 .freeBox__ofA36 {
   animation: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -4752,6 +4751,7 @@
   margin-bottom: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-width: 1px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -5000,7 +5000,6 @@
 }
 .freeBox___4OwZx {
   animation: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -5016,6 +5015,7 @@
   margin-bottom: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-width: 1px;
 }
 @media (min-width: 0px) and (max-width: 768px) {
@@ -5264,7 +5264,6 @@
 }
 .freeBox___3FIwf {
   animation: none;
-  display: flex;
   flex-direction: column;
   position: relative;
   width: 100%;
@@ -5280,6 +5279,7 @@
   margin-bottom: 20px;
   min-width: 0;
   flex-shrink: 0;
+  display: none;
   border-width: 1px;
 }
 @media (min-width: 0px) and (max-width: 768px) {

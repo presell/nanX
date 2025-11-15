@@ -61,6 +61,7 @@ import {
 
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
+import { StripePaymentElement } from "@/components/StripePaymentElement"; // plasmic-import: RzZJ79MSW6Dl/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule
@@ -104,6 +105,7 @@ export type PlasmicCheckout1__OverridesType = {
   slot36?: Flex__<"div">;
   _3Active?: Flex__<"div">;
   slot320?: Flex__<"div">;
+  stripePaymentElement?: Flex__<typeof StripePaymentElement>;
   ccSlot?: Flex__<"textarea">;
   _3Inactive?: Flex__<"div">;
   slot35?: Flex__<"div">;
@@ -192,6 +194,12 @@ function PlasmicCheckout1__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
+      },
+      {
+        path: "address",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -704,6 +712,16 @@ function PlasmicCheckout1__RenderFunc(props: {
                   >
                     {"Payment"}
                   </div>
+                  <StripePaymentElement
+                    data-plasmic-name={"stripePaymentElement"}
+                    data-plasmic-override={overrides.stripePaymentElement}
+                    amount={4490}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.stripePaymentElement
+                    )}
+                  />
+
                   <div
                     className={classNames(projectcss.all, sty.freeBox___54Uhu)}
                     id={"scroll-form"}
@@ -1068,7 +1086,7 @@ function PlasmicCheckout1__RenderFunc(props: {
             data-plasmic-override={overrides.places}
             className={classNames("__wab_instance", sty.places)}
             code={
-              '<!-- Google Maps Autocomplete -->\n<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n<script>\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n\n      // Set the visible input value\n      input.value = place.formatted_address || "";\n\n      // \ud83d\udd25 CRITICAL: Tell Plasmic the input changed\n      // Fire both input + change because Plasmic listens to both\n      input.dispatchEvent(new Event("input", { bubbles: true }));\n      input.dispatchEvent(new Event("change", { bubbles: true }));\n\n      console.log("[Autocomplete] Dispatched synthetic input/change events");\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n'
+              '<script>\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n\n      const value = place.formatted_address || "";\n\n      // Update the visible input (optional)\n      input.value = value;\n\n      // \ud83d\udd25 DIRECTLY update Plasmic state\n      if (window.setPlasmicAddress) {\n        window.setPlasmicAddress(value);\n      }\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n\n\n\n<!-- Google Maps Autocomplete -->\n<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n\n\n<script>\n  // Expose a global function that Plasmic can call\n  window.setPlasmicAddress = (val) => {\n    try {\n      // Plasmic exposes its state setters on window.plasmicState\n      const state = window.plasmicState;\n      if (state && state.address && typeof state.address.set === "function") {\n        state.address.set(val);\n        console.log("[Plasmic] Updated $state.address \u2192", val);\n      } else {\n        console.log("[Plasmic] ERROR: Could not update $state.address");\n      }\n    } catch (err) {\n      console.log("[Plasmic] ERROR calling setPlasmicAddress:", err);\n    }\n  };\n</script>'
             }
           />
         </div>
@@ -1097,6 +1115,7 @@ const PlasmicDescendants = {
     "slot36",
     "_3Active",
     "slot320",
+    "stripePaymentElement",
     "ccSlot",
     "_3Inactive",
     "slot35",
@@ -1136,6 +1155,7 @@ const PlasmicDescendants = {
     "slot36",
     "_3Active",
     "slot320",
+    "stripePaymentElement",
     "ccSlot",
     "_3Inactive",
     "slot35"
@@ -1152,8 +1172,9 @@ const PlasmicDescendants = {
   addressSlot: ["addressSlot"],
   _2Inactive: ["_2Inactive", "slot36"],
   slot36: ["slot36"],
-  _3Active: ["_3Active", "slot320", "ccSlot"],
+  _3Active: ["_3Active", "slot320", "stripePaymentElement", "ccSlot"],
   slot320: ["slot320"],
+  stripePaymentElement: ["stripePaymentElement"],
   ccSlot: ["ccSlot"],
   _3Inactive: ["_3Inactive", "slot35"],
   slot35: ["slot35"],
@@ -1197,6 +1218,7 @@ type NodeDefaultElementType = {
   slot36: "div";
   _3Active: "div";
   slot320: "div";
+  stripePaymentElement: typeof StripePaymentElement;
   ccSlot: "textarea";
   _3Inactive: "div";
   slot35: "div";
@@ -1298,6 +1320,7 @@ export const PlasmicCheckout1 = Object.assign(
     slot36: makeNodeComponent("slot36"),
     _3Active: makeNodeComponent("_3Active"),
     slot320: makeNodeComponent("slot320"),
+    stripePaymentElement: makeNodeComponent("stripePaymentElement"),
     ccSlot: makeNodeComponent("ccSlot"),
     _3Inactive: makeNodeComponent("_3Inactive"),
     slot35: makeNodeComponent("slot35"),

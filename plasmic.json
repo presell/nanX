@@ -454,10 +454,10 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         },
         {
-          "id": "vBV2q_J3O1Ug",
-          "name": "CompvBv2QJ3O1Ug",
+          "id": "RzZJ79MSW6Dl",
+          "name": "StripePaymentElement",
           "displayName": "StripePaymentElement",
-          "componentImportPath": ""
+          "componentImportPath": "@/components/StripePaymentElement"
         }
       ],
       "customFunctions": []
