@@ -10,12 +10,16 @@ export default async function handler(
   try {
     const { amount } = req.body;
 
-    if (!amount || isNaN(amount)) {
+    if (
+      amount === undefined ||
+      amount === null ||
+      Number.isNaN(Number(amount))
+    ) {
       return res.status(400).json({ error: "Invalid or missing amount." });
     }
 
-    // Convert dollars → cents
-    const amountInCents = Math.round(Number(amount) * 100);
+    // Amount is already in cents from the frontend
+    const amountInCents = Math.round(Number(amount));
 
     const intent = await stripe.paymentIntents.create({
       amount: amountInCents,
@@ -27,6 +31,7 @@ export default async function handler(
       clientSecret: intent.client_secret,
     });
   } catch (err: any) {
+    console.error("Stripe PI error:", err);
     res.status(500).json({ error: err.message });
   }
 }
