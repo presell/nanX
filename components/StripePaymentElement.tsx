@@ -1,5 +1,6 @@
 /**
  * @plasmicImport StripePaymentElement
+ * @plasmicComponent
  */
 
 "use client";
