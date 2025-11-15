@@ -75,14 +75,7 @@ export default function StripePaymentElement({
 }) {
   const [clientSecret, setClientSecret] = useState("");
 
-  // ❗ Skip everything inside /plasmic-host (fixes publish)
-  const isPlasmicHost =
-    typeof window !== "undefined" &&
-    window.location.pathname.includes("plasmic-host");
-
   useEffect(() => {
-    if (isPlasmicHost) return; // 🔥 Prevents Plasmic sync crash
-
     async function loadIntent() {
       try {
         const res = await fetch("/api/create-payment-intent", {
@@ -99,11 +92,7 @@ export default function StripePaymentElement({
     }
 
     loadIntent();
-  }, [amount, isPlasmicHost]);
-
-  if (isPlasmicHost) {
-    return <div className={className}>Stripe disabled in Plasmic Studio</div>;
-  }
+  }, [amount]);
 
   if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
