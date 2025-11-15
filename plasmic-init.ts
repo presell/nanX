@@ -1,5 +1,6 @@
+// plasmic-init.ts
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import StripePaymentElement from "@/components/StripePaymentElement"; // <— IMPORTANT
+import StripePaymentElement from "./components/StripePaymentElement"; // <-- IMPORTANT: relative path
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -12,14 +13,15 @@ export const PLASMIC = initPlasmicLoader({
   preview: false,
 });
 
-// Register StripePaymentElement so BOTH Studio + CLI know about it
+// SINGLE source of truth for StripePaymentElement registration.
+// There must be NO OTHER PLASMIC.registerComponent(...) for this name anywhere.
 PLASMIC.registerComponent(StripePaymentElement, {
   name: "StripePaymentElement",
-  importPath: "@/components/StripePaymentElement", // <- matches the import above
+  importPath: "./components/StripePaymentElement", // <-- what CLI uses to generate imports
   props: {
     amount: {
       type: "number",
-      defaultValue: 4490, // or whatever makes sense
+      defaultValue: 4490, // or whatever
     },
     className: {
       type: "string",
