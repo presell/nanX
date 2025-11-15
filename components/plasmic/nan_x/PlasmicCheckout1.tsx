@@ -563,36 +563,56 @@ function PlasmicCheckout1__RenderFunc(props: {
                       }
                     />
                   </div>
-                  {(() => {
-                    try {
-                      return (
-                        $state.form == 2 &&
-                        !$state.addressSlot.value.includes("@")
-                      );
-                    } catch (e) {
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__wZtCp)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateForm"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["form"]
+                              },
+                              operation: 0,
+                              value: 3
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
+                        $steps["updateForm"] != null &&
+                        typeof $steps["updateForm"] === "object" &&
+                        typeof $steps["updateForm"].then === "function"
                       ) {
-                        return true;
+                        $steps["updateForm"] = await $steps["updateForm"];
                       }
-                      throw e;
-                    }
-                  })() ? (
+                    }}
+                  >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__wZtCp)}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___3PCnx
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___3PCnx
-                        )}
-                      >
-                        {"Next"}
-                      </div>
+                      {"Next"}
                     </div>
-                  ) : null}
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -722,21 +742,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                       }
                     />
                   </div>
-                  {(() => {
-                    try {
-                      return (
-                        $state.form == 3 && !$state.ccSlot.value.includes("@")
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
+                  {false ? (
                     <div
                       className={classNames(projectcss.all, sty.freeBox__h2DPr)}
                     >
@@ -808,29 +814,6 @@ function PlasmicCheckout1__RenderFunc(props: {
                   projectcss.all,
                   projectcss.__wab_text,
                   sty.text__p7Fh9
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.addressSlot.value;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0CZ1D
                 )}
               >
                 <React.Fragment>
