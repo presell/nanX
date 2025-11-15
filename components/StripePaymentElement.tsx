@@ -1,9 +1,9 @@
-// components/StripePaymentElement.tsx
 "use client";
 /**
  * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
  */
 
+import dynamic from "next/dynamic";
 import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
@@ -13,16 +13,13 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 
-// Stripe client
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
-// ⛔ Inner form MUST be client-side
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
-
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -48,31 +45,15 @@ function CheckoutForm() {
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement />
-
-      <button
-        type="submit"
-        disabled={!stripe || isSubmitting}
-        style={{
-          marginTop: 20,
-          padding: "12px 16px",
-          width: "100%",
-          borderRadius: 8,
-          background: "#000",
-          color: "#fff",
-          fontSize: "16px",
-        }}
-      >
+      <button type="submit" disabled={!stripe || isSubmitting}>
         {isSubmitting ? "Processing…" : "Pay Now"}
       </button>
-
-      {message && (
-        <div style={{ marginTop: 12, color: "red" }}>{message}</div>
-      )}
+      {message && <div style={{ color: "red" }}>{message}</div>}
     </form>
   );
 }
 
-export default function StripePaymentElement({
+function StripePaymentElementImpl({
   amount,
   className,
 }: {
@@ -81,31 +62,24 @@ export default function StripePaymentElement({
 }) {
   const [clientSecret, setClientSecret] = useState("");
 
-  // Convert user-friendly dollars → cents
-  const stripeAmount = Math.round(Number(amount) * 100);
+  const cents = Math.round(Number(amount) * 100);
 
   useEffect(() => {
-    async function loadIntent() {
-      try {
-        const res = await fetch("/api/create-payment-intent", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: stripeAmount }),
-        });
+    async function load() {
+      const res = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: cents }),
+      });
 
-        const data = await res.json();
-        setClientSecret(data.clientSecret);
-      } catch (err) {
-        console.error("Error loading payment intent:", err);
-      }
+      const data = await res.json();
+      setClientSecret(data.clientSecret);
     }
 
-    loadIntent();
-  }, [stripeAmount]);
+    load();
+  }, [cents]);
 
-  if (!clientSecret) {
-    return <div className={className}>Loading payment form…</div>;
-  }
+  if (!clientSecret) return <div className={className}>Loading...</div>;
 
   return (
     <div className={className}>
@@ -115,3 +89,8 @@ export default function StripePaymentElement({
     </div>
   );
 }
+
+// 🚨 THIS IS THE FIX — NEVER SSR THIS COMPONENT
+export default dynamic(() => Promise.resolve(StripePaymentElementImpl), {
+  ssr: false,
+});
