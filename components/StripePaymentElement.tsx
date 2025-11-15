@@ -1,5 +1,5 @@
 /**
- * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
+ * @plasmicImport StripePaymentElement from "./components/StripePaymentElement"
  */
 
 "use client";
@@ -16,6 +16,8 @@ import {
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
+
+// ...rest exactly as you already have...
 
 // ----- Inner form -----
 function CheckoutForm() {
