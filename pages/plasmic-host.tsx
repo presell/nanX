@@ -1,20 +1,29 @@
-import * as React from "react";
+"use client";
+
 import { PlasmicCanvasHost } from "@plasmicapp/loader-nextjs";
 import { PLASMIC } from "@/plasmic-init";
 
-// Safe dynamic import — prevents SSR crash
-async function registerStripeComponent() {
+// Register Stripe component ONLY on client
+async function registerStripe() {
   if (typeof window === "undefined") return;
+
   const mod = await import("@/components/StripePaymentElement");
+
   PLASMIC.registerComponent(mod.default, {
     name: "StripePaymentElement",
     props: {
-      amount: "number",
+      amount: {
+        type: "number",
+        defaultValue: 44.9,
+      },
+      className: {
+        type: "string",
+      },
     },
   });
 }
 
-registerStripeComponent();
+registerStripe();
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
