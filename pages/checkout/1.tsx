@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-// Dynamically load entire Plasmic checkout component on the client only
+// Completely disable SSR for this Plasmic page
 const PlasmicCheckout1 = dynamic(
   () =>
     import("../../components/plasmic/nan_x/PlasmicCheckout1").then(
@@ -11,6 +11,6 @@ const PlasmicCheckout1 = dynamic(
   { ssr: false }
 );
 
-export default function Checkout1() {
+export default function CheckoutPage() {
   return <PlasmicCheckout1 />;
 }
