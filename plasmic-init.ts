@@ -10,3 +10,6 @@ export const PLASMIC = initPlasmicLoader({
   ],
   preview: false,
 });
+
+// ❌ DO NOT register StripePaymentElement here
+// ❌ DO NOT import StripePaymentElement here
