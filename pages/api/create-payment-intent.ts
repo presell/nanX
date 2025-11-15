@@ -8,8 +8,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
+    const { amount } = req.body;
+
+    if (!amount || typeof amount !== "number") {
+      return res.status(400).json({ error: "Invalid amount" });
+    }
+
     const intent = await stripe.paymentIntents.create({
-      amount: 2000, // $20
+      amount: Math.round(amount * 100), // convert dollars → cents
       currency: "usd",
       automatic_payment_methods: { enabled: true },
     });
