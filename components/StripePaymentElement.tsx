@@ -1,6 +1,5 @@
 /**
- * @plasmicImport StripePaymentElement
- * @plasmicComponent
+ * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
  */
 
 "use client";
@@ -26,7 +25,7 @@ function CheckoutForm() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleSubmit(e: any) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!stripe || !elements) return;
 
