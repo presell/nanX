@@ -93,11 +93,13 @@ export type PlasmicCheckout1__OverridesType = {
   _1Active?: Flex__<"div">;
   slot34?: Flex__<"div">;
   emailSlot?: Flex__<"textarea">;
+  _1BtnInactive?: Flex__<"div">;
+  _1BtnActive?: Flex__<"div">;
   _1Inactive?: Flex__<"div">;
   slot319?: Flex__<"div">;
   _2Active?: Flex__<"div">;
   slot321?: Flex__<"div">;
-  emailSlot2?: Flex__<"textarea">;
+  addressSlot?: Flex__<"input">;
   _2Inactive?: Flex__<"div">;
   slot36?: Flex__<"div">;
   _3Active?: Flex__<"div">;
@@ -121,6 +123,7 @@ export type PlasmicCheckout1__OverridesType = {
   slot318?: Flex__<"div">;
   textareastyles?: Flex__<typeof Embed>;
   footer?: Flex__<typeof Footer>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultCheckout1Props {}
@@ -185,7 +188,7 @@ function PlasmicCheckout1__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
-        path: "emailSlot2.value",
+        path: "addressSlot.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ``
@@ -342,7 +345,9 @@ function PlasmicCheckout1__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__wQuay)}
+                      data-plasmic-name={"_1BtnInactive"}
+                      data-plasmic-override={overrides._1BtnInactive}
+                      className={classNames(projectcss.all, sty._1BtnInactive)}
                     >
                       <div
                         className={classNames(
@@ -355,11 +360,88 @@ function PlasmicCheckout1__RenderFunc(props: {
                       </div>
                     </div>
                   ) : null}
+                  {(() => {
+                    try {
+                      return (
+                        $state.form == 1 && $state.emailSlot.value.includes("@")
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      data-plasmic-name={"_1BtnActive"}
+                      data-plasmic-override={overrides._1BtnActive}
+                      className={classNames(projectcss.all, sty._1BtnActive)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateForm"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["form"]
+                                },
+                                operation: 0,
+                                value: 2
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateForm"] != null &&
+                          typeof $steps["updateForm"] === "object" &&
+                          typeof $steps["updateForm"].then === "function"
+                        ) {
+                          $steps["updateForm"] = await $steps["updateForm"];
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xzB63
+                        )}
+                      >
+                        {"Next"}
+                      </div>
+                    </div>
+                  ) : null}
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text___5OgV
+                    )}
+                  >
+                    {"This form auto-completes."}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___7M3Qt
                     )}
                   >
                     {"This form auto-submits upon completion."}
@@ -455,32 +537,32 @@ function PlasmicCheckout1__RenderFunc(props: {
                       role={"img"}
                     />
 
-                    <textarea
-                      data-plasmic-name={"emailSlot2"}
-                      data-plasmic-override={overrides.emailSlot2}
+                    <input
+                      data-plasmic-name={"addressSlot"}
+                      data-plasmic-override={overrides.addressSlot}
                       className={classNames(
                         projectcss.all,
-                        projectcss.textarea,
-                        sty.emailSlot2,
+                        projectcss.input,
+                        sty.addressSlot,
                         "custom-textarea"
                       )}
-                      id={``}
+                      id={"address-input"}
                       onChange={async (...eventArgs: any) => {
                         (e => {
                           generateStateOnChangeProp($state, [
-                            "emailSlot2",
+                            "addressSlot",
                             "value"
                           ])(e.target.value);
                         }).apply(null, eventArgs);
                       }}
-                      placeholder={"100 street address, charlotte, nc 27030"}
+                      placeholder={"Enter an address"}
                       ref={ref => {
-                        $refs["emailSlot2"] = ref;
+                        $refs["addressSlot"] = ref;
                       }}
-                      rows={1}
+                      type={"text"}
                       value={
                         generateStateValueProp($state, [
-                          "emailSlot2",
+                          "addressSlot",
                           "value"
                         ]) ?? ""
                       }
@@ -490,7 +572,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                     try {
                       return (
                         $state.form == 2 &&
-                        !$state.emailSlot2.value.includes("@")
+                        !$state.addressSlot.value.includes("@")
                       );
                     } catch (e) {
                       if (
@@ -523,7 +605,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                       sty.text__fTlx1
                     )}
                   >
-                    {"This form auto-submits upon completion."}
+                    {"This form auto-completes."}
                   </div>
                 </div>
               ) : null}
@@ -909,7 +991,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                       "font-rethink-regular"
                     )}
                   >
-                    {"-$44.40"}
+                    {"-$20.00"}
                   </div>
                 </div>
               </div>
@@ -956,6 +1038,15 @@ function PlasmicCheckout1__RenderFunc(props: {
             className={classNames("__wab_instance", sty.footer)}
             lean={true}
           />
+
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<!-- Google Maps Autocomplete -->\n<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n<script>\n  // Repeatedly check until Google + the input element both exist\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    // Prevent double-attaching\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n      input.value = place.formatted_address || "";\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  // Try every 500ms until successful\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -971,11 +1062,13 @@ const PlasmicDescendants = {
     "_1Active",
     "slot34",
     "emailSlot",
+    "_1BtnInactive",
+    "_1BtnActive",
     "_1Inactive",
     "slot319",
     "_2Active",
     "slot321",
-    "emailSlot2",
+    "addressSlot",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -998,7 +1091,8 @@ const PlasmicDescendants = {
     "slot317",
     "slot318",
     "textareastyles",
-    "footer"
+    "footer",
+    "embedHtml"
   ],
   nav: ["nav"],
   pdp: ["pdp"],
@@ -1007,11 +1101,13 @@ const PlasmicDescendants = {
     "_1Active",
     "slot34",
     "emailSlot",
+    "_1BtnInactive",
+    "_1BtnActive",
     "_1Inactive",
     "slot319",
     "_2Active",
     "slot321",
-    "emailSlot2",
+    "addressSlot",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -1020,14 +1116,16 @@ const PlasmicDescendants = {
     "_3Inactive",
     "slot35"
   ],
-  _1Active: ["_1Active", "slot34", "emailSlot"],
+  _1Active: ["_1Active", "slot34", "emailSlot", "_1BtnInactive", "_1BtnActive"],
   slot34: ["slot34"],
   emailSlot: ["emailSlot"],
+  _1BtnInactive: ["_1BtnInactive"],
+  _1BtnActive: ["_1BtnActive"],
   _1Inactive: ["_1Inactive", "slot319"],
   slot319: ["slot319"],
-  _2Active: ["_2Active", "slot321", "emailSlot2"],
+  _2Active: ["_2Active", "slot321", "addressSlot"],
   slot321: ["slot321"],
-  emailSlot2: ["emailSlot2"],
+  addressSlot: ["addressSlot"],
   _2Inactive: ["_2Inactive", "slot36"],
   slot36: ["slot36"],
   _3Active: ["_3Active", "slot320", "ccSlot"],
@@ -1050,7 +1148,8 @@ const PlasmicDescendants = {
   slot317: ["slot317"],
   slot318: ["slot318"],
   textareastyles: ["textareastyles"],
-  footer: ["footer"]
+  footer: ["footer"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1063,11 +1162,13 @@ type NodeDefaultElementType = {
   _1Active: "div";
   slot34: "div";
   emailSlot: "textarea";
+  _1BtnInactive: "div";
+  _1BtnActive: "div";
   _1Inactive: "div";
   slot319: "div";
   _2Active: "div";
   slot321: "div";
-  emailSlot2: "textarea";
+  addressSlot: "input";
   _2Inactive: "div";
   slot36: "div";
   _3Active: "div";
@@ -1091,6 +1192,7 @@ type NodeDefaultElementType = {
   slot318: "div";
   textareastyles: typeof Embed;
   footer: typeof Footer;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1161,11 +1263,13 @@ export const PlasmicCheckout1 = Object.assign(
     _1Active: makeNodeComponent("_1Active"),
     slot34: makeNodeComponent("slot34"),
     emailSlot: makeNodeComponent("emailSlot"),
+    _1BtnInactive: makeNodeComponent("_1BtnInactive"),
+    _1BtnActive: makeNodeComponent("_1BtnActive"),
     _1Inactive: makeNodeComponent("_1Inactive"),
     slot319: makeNodeComponent("slot319"),
     _2Active: makeNodeComponent("_2Active"),
     slot321: makeNodeComponent("slot321"),
-    emailSlot2: makeNodeComponent("emailSlot2"),
+    addressSlot: makeNodeComponent("addressSlot"),
     _2Inactive: makeNodeComponent("_2Inactive"),
     slot36: makeNodeComponent("slot36"),
     _3Active: makeNodeComponent("_3Active"),
@@ -1189,6 +1293,7 @@ export const PlasmicCheckout1 = Object.assign(
     slot318: makeNodeComponent("slot318"),
     textareastyles: makeNodeComponent("textareastyles"),
     footer: makeNodeComponent("footer"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicCheckout1
     internalVariantProps: PlasmicCheckout1__VariantProps,
