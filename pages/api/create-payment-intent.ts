@@ -2,9 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20", // or whatever you're using
-});
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export default async function handler(
   req: NextApiRequest,
@@ -26,9 +24,9 @@ export default async function handler(
       automatic_payment_methods: { enabled: true },
     });
 
-    res.status(200).json({ clientSecret: intent.client_secret });
+    return res.status(200).json({ clientSecret: intent.client_secret });
   } catch (err: any) {
     console.error("Stripe error:", err);
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 }
