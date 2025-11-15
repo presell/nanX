@@ -3,6 +3,7 @@
 
 import dynamic from "next/dynamic";
 
+// Load the generated Plasmic page, but only on the client
 const PlasmicCheckout1 = dynamic(
   () =>
     import("../../components/plasmic/nan_x/PlasmicCheckout1").then(
