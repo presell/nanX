@@ -1,3 +1,4 @@
+// pages/plasmic-host.tsx
 "use client";
 
 import { PlasmicCanvasHost } from "@plasmicapp/loader-nextjs";
