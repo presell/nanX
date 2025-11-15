@@ -123,7 +123,7 @@ export type PlasmicCheckout1__OverridesType = {
   slot318?: Flex__<"div">;
   textareastyles?: Flex__<typeof Embed>;
   footer?: Flex__<typeof Footer>;
-  embedHtml?: Flex__<typeof Embed>;
+  places?: Flex__<typeof Embed>;
 };
 
 export interface DefaultCheckout1Props {}
@@ -1081,11 +1081,11 @@ function PlasmicCheckout1__RenderFunc(props: {
           />
 
           <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
+            data-plasmic-name={"places"}
+            data-plasmic-override={overrides.places}
+            className={classNames("__wab_instance", sty.places)}
             code={
-              '<!-- Google Maps Autocomplete -->\n<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n<script>\n  // Repeatedly check until Google + the input element both exist\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    // Prevent double-attaching\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n      input.value = place.formatted_address || "";\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  // Try every 500ms until successful\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n\n'
+              '<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n<script>\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n\n      // Set actual input value\n      input.value = place.formatted_address || "";\n\n      // *** CRITICAL: update Plasmic\'s state ***\n      input.dispatchEvent(new Event("input", { bubbles: true }));\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n\n'
             }
           />
         </div>
@@ -1133,7 +1133,7 @@ const PlasmicDescendants = {
     "slot318",
     "textareastyles",
     "footer",
-    "embedHtml"
+    "places"
   ],
   nav: ["nav"],
   pdp: ["pdp"],
@@ -1190,7 +1190,7 @@ const PlasmicDescendants = {
   slot318: ["slot318"],
   textareastyles: ["textareastyles"],
   footer: ["footer"],
-  embedHtml: ["embedHtml"]
+  places: ["places"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1233,7 +1233,7 @@ type NodeDefaultElementType = {
   slot318: "div";
   textareastyles: typeof Embed;
   footer: typeof Footer;
-  embedHtml: typeof Embed;
+  places: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1334,7 +1334,7 @@ export const PlasmicCheckout1 = Object.assign(
     slot318: makeNodeComponent("slot318"),
     textareastyles: makeNodeComponent("textareastyles"),
     footer: makeNodeComponent("footer"),
-    embedHtml: makeNodeComponent("embedHtml"),
+    places: makeNodeComponent("places"),
 
     // Metadata about props expected for PlasmicCheckout1
     internalVariantProps: PlasmicCheckout1__VariantProps,

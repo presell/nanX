@@ -1231,7 +1231,7 @@
     margin-top: 30px;
   }
 }
-.embedHtml:global(.__wab_instance) {
+.places:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
