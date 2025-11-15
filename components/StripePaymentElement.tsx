@@ -1,8 +1,7 @@
+"use client";
 /**
  * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
  */
-
-"use client";
 
 import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
@@ -17,7 +16,9 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
-// ----- Inner form -----
+// ------------------
+// Checkout Form
+// ------------------
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -63,13 +64,14 @@ function CheckoutForm() {
         {isSubmitting ? "Processing…" : "Pay Now"}
       </button>
 
-      {message && (
-        <div style={{ marginTop: 12, color: "red" }}>{message}</div>
-      )}
+      {message && <div style={{ marginTop: 12, color: "red" }}>{message}</div>}
     </form>
   );
 }
 
+// ------------------
+// MAIN COMPONENT
+// ------------------
 export default function StripePaymentElement({
   amount,
   className,
@@ -79,13 +81,16 @@ export default function StripePaymentElement({
 }) {
   const [clientSecret, setClientSecret] = useState("");
 
+  // Convert user-friendly amount -> Stripe amount
+  const stripeAmount = Math.round(Number(amount) * 100);
+
   useEffect(() => {
     async function loadIntent() {
       try {
         const res = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount }),
+          body: JSON.stringify({ amount: stripeAmount }),
         });
 
         const data = await res.json();
@@ -96,8 +101,9 @@ export default function StripePaymentElement({
     }
 
     loadIntent();
-  }, [amount]);
+  }, [stripeAmount]);
 
+  // Never render Stripe Elements without a clientSecret
   if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
   }
