@@ -1,10 +1,10 @@
 /**
- * @plasmicImport StripePaymentElement from "./components/StripePaymentElement"
+ * @plasmicImport StripePaymentElement from "@/components/StripePaymentElement"
  */
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -17,8 +17,6 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
-// ...rest exactly as you already have...
-
 // ----- Inner form -----
 function CheckoutForm() {
   const stripe = useStripe();
@@ -27,7 +25,7 @@ function CheckoutForm() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!stripe || !elements) return;
 
