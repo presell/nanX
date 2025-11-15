@@ -17,7 +17,7 @@ const stripePromise = loadStripe(
 );
 
 // ------------------
-// Checkout Form
+// Inner checkout form
 // ------------------
 function CheckoutForm() {
   const stripe = useStripe();
@@ -70,18 +70,19 @@ function CheckoutForm() {
 }
 
 // ------------------
-// MAIN COMPONENT
+// Main exported component
 // ------------------
 export default function StripePaymentElement({
   amount,
   className,
 }: {
+  /** User-friendly dollars, e.g. 44.9 for $44.90 */
   amount: number;
   className?: string;
 }) {
   const [clientSecret, setClientSecret] = useState("");
 
-  // Convert user-friendly amount -> Stripe amount
+  // Convert dollars -> cents once, on the client
   const stripeAmount = Math.round(Number(amount) * 100);
 
   useEffect(() => {
@@ -90,7 +91,7 @@ export default function StripePaymentElement({
         const res = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: stripeAmount }),
+          body: JSON.stringify({ amount: stripeAmount }), // send cents
         });
 
         const data = await res.json();
@@ -103,7 +104,6 @@ export default function StripePaymentElement({
     loadIntent();
   }, [stripeAmount]);
 
-  // Never render Stripe Elements without a clientSecret
   if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
   }
