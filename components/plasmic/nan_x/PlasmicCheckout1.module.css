@@ -421,17 +421,6 @@
     flex-shrink: 0;
   }
 }
-.svg__h5I1C {
-  animation: none;
-  object-fit: cover;
-  max-width: 100%;
-  width: 21px;
-  height: 21px;
-  margin-right: 5px;
-  color: #535353;
-  flex-shrink: 0;
-  display: none;
-}
 .addressSlot {
   animation: none;
   display: flex;
@@ -776,6 +765,20 @@
   text-overflow: clip;
   margin-top: 0px;
   margin-bottom: 0px;
+  min-width: 0;
+}
+.text__p7Fh9 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text___0CZ1D {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   min-width: 0;
 }
 .freeBox__rL5X {

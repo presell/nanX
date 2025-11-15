@@ -532,11 +532,6 @@ function PlasmicCheckout1__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__feyv9)}
                     id={"scroll-form"}
                   >
-                    <Mail2SvgIcon
-                      className={classNames(projectcss.all, sty.svg__h5I1C)}
-                      role={"img"}
-                    />
-
                     <input
                       data-plasmic-name={"addressSlot"}
                       data-plasmic-override={overrides.addressSlot}
@@ -716,7 +711,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                           ])(e.target.value);
                         }).apply(null, eventArgs);
                       }}
-                      placeholder={"name@gmail.com"}
+                      placeholder={"4444 4444 4444"}
                       ref={ref => {
                         $refs["ccSlot"] = ref;
                       }}
@@ -763,7 +758,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                       sty.text___4Skw6
                     )}
                   >
-                    {"This form auto-submits upon completion."}
+                    {"This form auto-completes."}
                   </div>
                 </div>
               ) : null}
@@ -808,6 +803,52 @@ function PlasmicCheckout1__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__p7Fh9
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.addressSlot.value;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0CZ1D
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.addressSlot.value;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__rL5X)}>
               <div
