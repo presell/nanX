@@ -1,5 +1,4 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import StripePaymentElement from "./components/StripePaymentElement"; // ✅ REQUIRED STATIC IMPORT
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -12,15 +11,12 @@ export const PLASMIC = initPlasmicLoader({
   preview: false,
 });
 
-// ✅ STATIC REGISTRATION (required for CLI sync + GitHub publishing)
-PLASMIC.registerComponent(StripePaymentElement, {
+// Register code components for CLI sync (NOT for Plasmic Host runtime)
+PLASMIC.registerComponent(() => import("./components/StripePaymentElement"), {
   name: "StripePaymentElement",
-  importPath: "./components/StripePaymentElement", // 🔥 THIS is the missing piece
+  importPath: "@/components/StripePaymentElement",
   props: {
-    amount: {
-      type: "number",
-      defaultValue: 1,
-    },
+    amount: "number",
     className: "string",
   },
 });
