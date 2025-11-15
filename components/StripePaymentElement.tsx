@@ -80,24 +80,45 @@ export default function StripePaymentElement({
   amount: number;
   className?: string;
 }) {
+  // SSR guard — do NOT render Stripe on the server, just show a stub.
+  if (typeof window === "undefined") {
+    console.log("[STRIPE_DEBUG] StripePaymentElement rendered on server, returning stub.");
+    return <div className={className}>Loading payment form…</div>;
+  }
+
   const [clientSecret, setClientSecret] = useState("");
 
-  // Convert dollars -> cents once, on the client
+  // Convert dollars -> cents ONCE
   const stripeAmount = Math.round(Number(amount) * 100);
 
+  console.log("[STRIPE_DEBUG] render", {
+    amountProp: amount,
+    stripeAmount,
+    hasWindow: typeof window !== "undefined",
+  });
+
   useEffect(() => {
+    console.log("[STRIPE_DEBUG] useEffect -> loadIntent", { stripeAmount });
+
     async function loadIntent() {
       try {
         const res = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: stripeAmount }), // send cents
+          // send CENTS to the API
+          body: JSON.stringify({ amount: stripeAmount }),
         });
 
         const data = await res.json();
-        setClientSecret(data.clientSecret);
+        console.log("[STRIPE_DEBUG] intent response", data);
+
+        if (data?.clientSecret) {
+          setClientSecret(data.clientSecret);
+        } else {
+          console.error("[STRIPE_DEBUG] No clientSecret returned", data);
+        }
       } catch (err) {
-        console.error("Failed to load payment intent", err);
+        console.error("[STRIPE_DEBUG] Failed to load payment intent", err);
       }
     }
 
@@ -107,6 +128,8 @@ export default function StripePaymentElement({
   if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
   }
+
+  console.log("[STRIPE_DEBUG] Rendering <Elements> with clientSecret");
 
   return (
     <div className={className}>
