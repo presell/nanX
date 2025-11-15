@@ -6,11 +6,11 @@ import {
   Elements,
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
 // ----- Inner form -----
@@ -70,28 +70,44 @@ export default function StripePaymentElement({
   amount,
   className,
 }: {
-  amount: number; // dollars
+  amount: number;
   className?: string;
 }) {
   const [clientSecret, setClientSecret] = useState("");
 
-  useEffect(() => {
-    async function loadIntent() {
-      const res = await fetch("/api/create-payment-intent", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount }),
-      });
+  // ❗ Skip everything inside /plasmic-host (fixes publish)
+  const isPlasmicHost =
+    typeof window !== "undefined" &&
+    window.location.pathname.includes("plasmic-host");
 
-      const data = await res.json();
-      setClientSecret(data.clientSecret);
+  useEffect(() => {
+    if (isPlasmicHost) return; // 🔥 Prevents Plasmic sync crash
+
+    async function loadIntent() {
+      try {
+        const res = await fetch("/api/create-payment-intent", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ amount }),
+        });
+
+        const data = await res.json();
+        setClientSecret(data.clientSecret);
+      } catch (err) {
+        console.error("Failed to load payment intent", err);
+      }
     }
 
     loadIntent();
-  }, [amount]);
+  }, [amount, isPlasmicHost]);
 
-  if (!clientSecret)
+  if (isPlasmicHost) {
+    return <div className={className}>Stripe disabled in Plasmic Studio</div>;
+  }
+
+  if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
+  }
 
   return (
     <div className={className}>
