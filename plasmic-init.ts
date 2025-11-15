@@ -10,25 +10,3 @@ export const PLASMIC = initPlasmicLoader({
   ],
   preview: false,
 });
-
-// ---------------------------------------------------------------------------
-// TEMPORARY: Register StripePaymentElement ONLY so Plasmic CLI can resolve it.
-// You MUST delete this after removing Stripe components from all Plasmic pages.
-// ---------------------------------------------------------------------------
-
-PLASMIC.registerComponent(
-  () => import("../components/StripePaymentElement"),
-  {
-    name: "StripePaymentElement",
-    importPath: "../components/StripePaymentElement",
-    props: {
-      amount: {
-        type: "number",
-        defaultValue: 0,
-      },
-      className: {
-        type: "string",
-      },
-    },
-  }
-);
