@@ -1,6 +1,6 @@
 // plasmic-init.ts
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import StripePaymentElement from "@/components/StripePaymentElement";
+import StripePaymentElement from "./components/StripePaymentElement";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -13,14 +13,13 @@ export const PLASMIC = initPlasmicLoader({
   preview: false,
 });
 
-// Register the actual component (no dynamic wrapper here)
 PLASMIC.registerComponent(StripePaymentElement, {
   name: "StripePaymentElement",
-  importPath: "@/components/StripePaymentElement",
+  importPath: "./components/StripePaymentElement",
   props: {
     amount: {
       type: "number",
-      defaultValue: 44.9, // user-friendly dollars in Plasmic
+      defaultValue: 44.9, // dollars in Plasmic props
     },
     className: {
       type: "string",
