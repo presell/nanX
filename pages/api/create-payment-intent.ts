@@ -1,7 +1,10 @@
+// pages/api/create-payment-intent.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: "2024-06-20", // or whatever you're using
+});
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,16 +13,12 @@ export default async function handler(
   try {
     const { amount } = req.body;
 
-    if (
-      amount === undefined ||
-      amount === null ||
-      Number.isNaN(Number(amount))
-    ) {
+    const dollars = Number(amount);
+    if (!Number.isFinite(dollars) || dollars <= 0) {
       return res.status(400).json({ error: "Invalid or missing amount." });
     }
 
-    // Amount is already in cents from the frontend
-    const amountInCents = Math.round(Number(amount));
+    const amountInCents = Math.round(dollars * 100);
 
     const intent = await stripe.paymentIntents.create({
       amount: amountInCents,
@@ -27,11 +26,9 @@ export default async function handler(
       automatic_payment_methods: { enabled: true },
     });
 
-    res.status(200).json({
-      clientSecret: intent.client_secret,
-    });
+    res.status(200).json({ clientSecret: intent.client_secret });
   } catch (err: any) {
-    console.error("Stripe PI error:", err);
+    console.error("Stripe error:", err);
     res.status(500).json({ error: err.message });
   }
 }
