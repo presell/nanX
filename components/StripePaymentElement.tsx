@@ -68,6 +68,7 @@ function CheckoutForm() {
           borderRadius: 10,
           background: "#1C3A13",
           color: "#fff",
+          fontSize: "16px",
           border: "none",
           opacity: disabled ? 0.5 : 1,
           transition: "opacity 0.2s ease",
@@ -85,7 +86,7 @@ function CheckoutForm() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                           Inner (No-SSR) Wrapper                            */
+/*                     Inner Component (No SSR allowed!)                      */
 /* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
@@ -123,15 +124,31 @@ function StripePaymentElementImpl({
         options={{
           clientSecret,
           appearance: {
+            variables: {
+              borderRadius: "10px",
+            },
             rules: {
+              // Input styling
               ".Input": {
                 border: "1px solid #D3D3D3",
                 borderRadius: "10px",
                 padding: "12px 14px",
+                boxShadow: "none",
               },
               ".Input:focus": {
                 borderColor: "#1C3A13",
                 boxShadow: "0 0 0 1px #1C3A13",
+              },
+
+              // Label (Card number, Exp date, etc.)
+              ".Label": {
+                fontSize: "15px",
+                color: "#000",
+              },
+
+              // Error text
+              ".Error": {
+                color: "#ff4d4f",
               },
             },
           },
@@ -144,7 +161,7 @@ function StripePaymentElementImpl({
 }
 
 /* -------------------------------------------------------------------------- */
-/*                            EXPORT — NO SSR!!!!                              */
+/*                        EXPORT — Disable SSR on Stripe                      */
 /* -------------------------------------------------------------------------- */
 
 const StripePaymentElement = dynamic(
