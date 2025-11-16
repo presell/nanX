@@ -34,14 +34,9 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
     const cardElement = elements.getElement(CardElement);
 
-    const { error, paymentIntent } = await stripe.confirmCardPayment(
-      clientSecret,
-      {
-        payment_method: {
-          card: cardElement!,
-        },
-      }
-    );
+    const { error } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: { card: cardElement! },
+    });
 
     if (error) {
       setMessage(error.message || "Payment failed.");
@@ -55,25 +50,29 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          hidePostalCode: true,
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#000",
-              "::placeholder": { color: "#999" },
-              backgroundColor: "#fff",
-              border: "1px solid #D3D3D3",
-              padding: "12px 14px",
-              borderRadius: "10px",
-            },
-            invalid: {
-              color: "#ff4d4f",
-            },
-          },
+      {/* ----------------- CARD INPUT STYLED WRAPPER ----------------- */}
+      <div
+        style={{
+          border: "1px solid #D3D3D3",
+          padding: "12px 14px",
+          borderRadius: "10px",
+          backgroundColor: "#fff",
         }}
-      />
+      >
+        <CardElement
+          options={{
+            hidePostalCode: true,
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#000",
+                "::placeholder": { color: "#999" },
+              },
+              invalid: { color: "#ff4d4f" },
+            },
+          }}
+        />
+      </div>
 
       <button
         type="submit"
