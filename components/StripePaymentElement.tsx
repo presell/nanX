@@ -1,32 +1,58 @@
-import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
+"use client";
+
+import { loadStripe } from "@stripe/stripe-js";
+import {
+  Elements,
+  PaymentElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 import { useEffect, useState, FormEvent } from "react";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+);
+
+/* -------------------------------------------------------------------------- */
+/*                               Checkout Form                                */
+/* -------------------------------------------------------------------------- */
 
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [message, setMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
+  /* -------------------------------------------------------------------------- */
+  /*                      Detect PaymentElement completeness                    */
+  /* -------------------------------------------------------------------------- */
   useEffect(() => {
     if (!elements) return;
 
-    // Stripe PaymentElement instance
-    const paymentElement = elements.getElement(PaymentElement);
+    const el = elements.getElement(PaymentElement);
+    if (!el) return;
 
-    if (!paymentElement) return;
-
-    const handler = (event: { complete: boolean }) => {
-      setIsComplete(event.complete);
+    // Stripe's TS types do NOT expose addEventListener.
+    const typed = el as unknown as {
+      addEventListener: (event: string, handler: (e: any) => void) => void;
+      removeEventListener: (event: string, handler: (e: any) => void) => void;
     };
 
-    paymentElement.on("change", handler);
-
-    return () => {
-      paymentElement.off("change", handler);
+    const handler = (event: any) => {
+      if (typeof event.complete === "boolean") {
+        setIsComplete(event.complete);
+      }
     };
+
+    typed.addEventListener("change", handler);
+    return () => typed.removeEventListener("change", handler);
   }, [elements]);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                   Submit                                   */
+  /* -------------------------------------------------------------------------- */
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -42,14 +68,13 @@ function CheckoutForm() {
     });
 
     if (error) {
-      console.error("[Stripe] confirmPayment error:", error);
       setMessage(error.message || "Payment failed.");
       setIsSubmitting(false);
     }
   }
 
-  const buttonOpacity = isComplete ? 1 : 0.5;
   const isDisabled = !stripe || isSubmitting || !isComplete;
+  const buttonOpacity = isComplete ? 1 : 0.5;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -67,7 +92,7 @@ function CheckoutForm() {
           color: "#fff",
           fontSize: "16px",
           border: "none",
-          opacity: buttonOpacity, // 🔥 opacity toggle
+          opacity: buttonOpacity,
           transition: "opacity 0.2s ease",
           cursor: isDisabled ? "not-allowed" : "pointer",
         }}
@@ -82,4 +107,62 @@ function CheckoutForm() {
   );
 }
 
-export default CheckoutForm;
+/* -------------------------------------------------------------------------- */
+/*                         Main PaymentElement Wrapper                         */
+/* -------------------------------------------------------------------------- */
+
+export default function StripePaymentElement(props: {
+  amount: number;
+  className?: string;
+}) {
+  const { amount, className } = props;
+  const [clientSecret, setClientSecret] = useState("");
+
+  useEffect(() => {
+    async function loadIntent() {
+      const res = await fetch("/api/create-payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount }),
+      });
+      const data = await res.json();
+      setClientSecret(data.clientSecret);
+    }
+
+    loadIntent();
+  }, [amount]);
+
+  if (!clientSecret) {
+    return <div className={className}>Loading…</div>;
+  }
+
+  return (
+    <div className={className}>
+      <Elements
+        stripe={stripePromise}
+        options={{
+          clientSecret,
+          appearance: {
+            /* -------------------------------------------------------------- */
+            /*                          INPUT STYLING                         */
+            /* -------------------------------------------------------------- */
+            rules: {
+              ".Input": {
+                border: "1px solid #D3D3D3",
+                borderRadius: "10px",
+                padding: "12px 14px",
+                boxShadow: "none",
+              },
+              ".Input:focus": {
+                borderColor: "#1C3A13",
+                boxShadow: "0 0 0 1px #1C3A13",
+              },
+            },
+          },
+        }}
+      >
+        <CheckoutForm />
+      </Elements>
+    </div>
+  );
+}
