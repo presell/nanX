@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
+import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -8,14 +10,13 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { useEffect, useState, FormEvent } from "react";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
 /* -------------------------------------------------------------------------- */
-/*                               Checkout Form                                */
+/*                                Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
 function CheckoutForm() {
@@ -45,22 +46,21 @@ function CheckoutForm() {
     }
   }
 
-  const isDisabled = !stripe || isSubmitting || !isComplete;
-  const buttonOpacity = isDisabled ? 0.5 : 1;
+  const disabled = !stripe || !isComplete || isSubmitting;
 
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement
-        onChange={(event: any) => {
-          if (typeof event.complete === "boolean") {
-            setIsComplete(event.complete);
+        onChange={(e: any) => {
+          if (typeof e.complete === "boolean") {
+            setIsComplete(e.complete);
           }
         }}
       />
 
       <button
         type="submit"
-        disabled={isDisabled}
+        disabled={disabled}
         style={{
           marginTop: 20,
           padding: "12px 16px",
@@ -68,11 +68,10 @@ function CheckoutForm() {
           borderRadius: 10,
           background: "#1C3A13",
           color: "#fff",
-          fontSize: "16px",
           border: "none",
-          opacity: buttonOpacity,
+          opacity: disabled ? 0.5 : 1,
           transition: "opacity 0.2s ease",
-          cursor: isDisabled ? "not-allowed" : "pointer",
+          cursor: disabled ? "not-allowed" : "pointer",
         }}
       >
         {isSubmitting ? "Processing…" : "Pay Now"}
@@ -86,10 +85,10 @@ function CheckoutForm() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                         Main PaymentElement Wrapper                         */
+/*                           Inner (No-SSR) Wrapper                            */
 /* -------------------------------------------------------------------------- */
 
-export default function StripePaymentElement({
+function StripePaymentElementImpl({
   amount,
   className,
 }: {
@@ -129,7 +128,6 @@ export default function StripePaymentElement({
                 border: "1px solid #D3D3D3",
                 borderRadius: "10px",
                 padding: "12px 14px",
-                boxShadow: "none",
               },
               ".Input:focus": {
                 borderColor: "#1C3A13",
@@ -144,3 +142,15 @@ export default function StripePaymentElement({
     </div>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*                            EXPORT — NO SSR!!!!                              */
+/* -------------------------------------------------------------------------- */
+
+const StripePaymentElement = dynamic(
+  () => Promise.resolve(StripePaymentElementImpl),
+  { ssr: false }
+);
+
+export default StripePaymentElement;
+export { StripePaymentElement };
