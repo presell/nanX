@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"; // ← REQUIRED because cloneElement is used
+import React from "react"; // REQUIRED for cloneElement + isValidElement
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -18,7 +18,11 @@ const stripePromise = loadStripe(
 /*                               Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
-function CheckoutForm({ isCompleteOverride = false }: { isCompleteOverride?: boolean }) {
+function CheckoutForm({
+  isCompleteOverride = false,
+}: {
+  isCompleteOverride?: boolean;
+}) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -50,7 +54,7 @@ function CheckoutForm({ isCompleteOverride = false }: { isCompleteOverride?: boo
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement
-        onChange={(event) => {
+        onChange={(event: any) => {
           window.dispatchEvent(
             new CustomEvent("payment-complete-change", {
               detail: { complete: event.complete },
@@ -157,12 +161,22 @@ function CompletionStateProvider({ children }: any) {
 
   useEffect(() => {
     const handler = (e: any) => {
-      setComplete(e.detail.complete);
+      if (e?.detail?.complete !== undefined) {
+        setComplete(e.detail.complete);
+      }
     };
 
     window.addEventListener("payment-complete-change", handler);
-    return () => window.removeEventListener("payment-complete-change", handler);
+    return () =>
+      window.removeEventListener("payment-complete-change", handler);
   }, []);
 
-  return React.cloneElement(children, { isCompleteOverride: complete });
+  // 🔥 Prevent production crash (React error #130)
+  if (!React.isValidElement(children)) {
+    return <>{children}</>;
+  }
+
+  return React.cloneElement(children, {
+    isCompleteOverride: complete,
+  });
 }
