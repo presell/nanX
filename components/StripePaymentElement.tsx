@@ -7,6 +7,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
   CardElement,
+  PostalCodeElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -16,7 +17,7 @@ const stripePromise = loadStripe(
 );
 
 /* -------------------------------------------------------------------------- */
-/*                                Checkout Form                                */
+/*                             Checkout Form                                   */
 /* -------------------------------------------------------------------------- */
 
 function CheckoutForm({ clientSecret }: { clientSecret: string }) {
@@ -25,18 +26,27 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCardComplete, setIsCardComplete] = useState(false);
+  const [isZipComplete, setIsZipComplete] = useState(false);
   const [message, setMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!stripe || !elements || !isCardComplete) return;
+    if (!stripe || !elements || !isCardComplete || !isZipComplete) return;
 
     setIsSubmitting(true);
 
     const cardElement = elements.getElement(CardElement);
+    const postalCode = elements.getElement(PostalCodeElement);
 
     const { error } = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: { card: cardElement! },
+      payment_method: {
+        card: cardElement!,
+        billing_details: {
+          address: {
+            postal_code: (postalCode as any)?._completeValue || "",
+          },
+        },
+      },
     });
 
     if (error) {
@@ -45,21 +55,21 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       return;
     }
 
-    // SUCCESS → redirect
     window.location.href = "/confirmation";
   }
 
-  const disabled = isSubmitting || !isCardComplete;
+  const disabled = isSubmitting || !isCardComplete || !isZipComplete;
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* ---------------- CARD INPUT STYLED WRAPPER ---------------- */}
+      {/* -------- CARD FIELD -------- */}
       <div
         style={{
           border: "1px solid #D3D3D3",
           padding: "12px 14px",
           borderRadius: "10px",
           backgroundColor: "#fff",
+          marginBottom: "12px",
         }}
       >
         <CardElement
@@ -72,28 +82,50 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
                 color: "#000",
                 "::placeholder": { color: "#999" },
               },
-              invalid: {
-                color: "#ff4d4f",
-              },
+              invalid: { color: "#ff4d4f" },
             },
           }}
         />
       </div>
 
-      {/* ---------------------- PAY BUTTON ------------------------- */}
+      {/* -------- ZIP FIELD -------- */}
+      <div
+        style={{
+          border: "1px solid #D3D3D3",
+          padding: "12px 14px",
+          borderRadius: "10px",
+          backgroundColor: "#fff",
+        }}
+      >
+        <PostalCodeElement
+          onChange={(e) => setIsZipComplete(e.complete)}
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#000",
+                "::placeholder": { color: "#999" },
+              },
+              invalid: { color: "#ff4d4f" },
+            },
+          }}
+        />
+      </div>
+
+      {/* -------- PAY BUTTON -------- */}
       <button
         type="submit"
         disabled={disabled}
         style={{
           marginTop: 20,
           width: "100%",
-          height: "60px",              // ← NEW height
-          borderRadius: "6px",          // ← NEW radius
+          height: "60px",
+          borderRadius: "6px",
           background: "#1C3A13",
           color: "#fff",
           fontSize: "16px",
           border: "none",
-          opacity: disabled ? 0.5 : 1,  // ← NEW opacity state
+          opacity: disabled ? 0.5 : 1,
           transition: "opacity 0.2s ease",
           cursor: disabled ? "not-allowed" : "pointer",
         }}
@@ -109,7 +141,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                            Stripe Wrapper (NO SSR)                          */
+/*                         Stripe Wrapper (NO SSR)                             */
 /* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
