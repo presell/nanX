@@ -24,11 +24,12 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   const elements = useElements();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCardComplete, setIsCardComplete] = useState(false);
   const [message, setMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!stripe || !elements) return;
+    if (!stripe || !elements || !isCardComplete) return;
 
     setIsSubmitting(true);
 
@@ -44,22 +45,27 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       return;
     }
 
-    // SUCCESS — redirect manually
     window.location.href = "/confirmation";
   }
 
+  const disabled = isSubmitting || !isCardComplete;
+
   return (
     <form onSubmit={handleSubmit}>
-      {/* ----------------- CARD INPUT STYLED WRAPPER ----------------- */}
+      {/* ---------------- CARD INPUT STYLED WRAPPER ---------------- */}
       <div
         style={{
           border: "1px solid #D3D3D3",
-          padding: "12px 14px",
           borderRadius: "10px",
           backgroundColor: "#fff",
+          height: "55px",          // ← NEW HEIGHT
+          display: "flex",
+          alignItems: "center",
+          padding: "0 14px",        // ← Adjusted padding for perfect centering
         }}
       >
         <CardElement
+          onChange={(event) => setIsCardComplete(event.complete)}
           options={{
             hidePostalCode: true,
             style: {
@@ -68,27 +74,30 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
                 color: "#000",
                 "::placeholder": { color: "#999" },
               },
-              invalid: { color: "#ff4d4f" },
+              invalid: {
+                color: "#ff4d4f",
+              },
             },
           }}
         />
       </div>
 
+      {/* ---------------------- PAY BUTTON ------------------------- */}
       <button
         type="submit"
-        disabled={isSubmitting}
+        disabled={disabled}
         style={{
           marginTop: 20,
-          padding: "12px 16px",
           width: "100%",
-          borderRadius: 10,
+          height: "60px",
+          borderRadius: "6px",
           background: "#1C3A13",
           color: "#fff",
           fontSize: "16px",
           border: "none",
-          opacity: isSubmitting ? 0.5 : 1,
+          opacity: disabled ? 0.5 : 1,
           transition: "opacity 0.2s ease",
-          cursor: isSubmitting ? "not-allowed" : "pointer",
+          cursor: disabled ? "not-allowed" : "pointer",
         }}
       >
         {isSubmitting ? "Processing…" : "Pay Now"}
@@ -102,7 +111,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                            Stripe Wrapper (No SSR)                          */
+/*                            Stripe Wrapper (NO SSR)                          */
 /* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
@@ -125,7 +134,6 @@ function StripePaymentElementImpl({
       const data = await res.json();
       setClientSecret(data.clientSecret);
     }
-
     loadIntent();
   }, [amount]);
 
