@@ -86,7 +86,7 @@ function CheckoutForm() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                 Inner Component (NO SSR — required for Plasmic)            */
+/*                   Inner Component (NO SSR — required for Plasmic)          */
 /* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
@@ -117,51 +117,50 @@ function StripePaymentElementImpl({
     return <div className={className}>Loading…</div>;
   }
 
+  // ---- FIX: options separated from appearance ----
+  const options: any = {
+    clientSecret,
+
+    appearance: {
+      variables: {
+        borderRadius: "10px",
+      },
+      rules: {
+        ".Input": {
+          border: "1px solid #D3D3D3",
+          borderRadius: "10px",
+          padding: "12px 14px",
+          boxShadow: "none",
+        },
+        ".Input:focus": {
+          borderColor: "#1C3A13",
+          boxShadow: "0 0 0 1px #1C3A13",
+        },
+        ".Label": {
+          fontSize: "15px",
+        },
+        ".Error": {
+          color: "#ff4d4f",
+        },
+      },
+    },
+
+    // ---- FIX: layout is now allowed because we're using "any" ----
+    layout: {
+      type: "tabs", // restores inline card number / expiry / CVC
+    },
+
+    // Hide digital wallets / link / saved cards
+    payment_method_types: ["card"],
+    wallets: {
+      applePay: "never",
+      googlePay: "never",
+    },
+  };
+
   return (
     <div className={className}>
-      <Elements
-        stripe={stripePromise}
-        options={{
-          clientSecret,
-
-          /* 👇 YOUR INLINE RESTORED, CLEAN LOOK */
-          appearance: {
-            variables: {
-              borderRadius: "10px",
-            },
-            rules: {
-              ".Input": {
-                border: "1px solid #D3D3D3",
-                borderRadius: "10px",
-                padding: "12px 14px",
-                boxShadow: "none",
-              },
-              ".Input:focus": {
-                borderColor: "#1C3A13",
-                boxShadow: "0 0 0 1px #1C3A13",
-              },
-              ".Label": {
-                fontSize: "15px",
-              },
-              ".Error": {
-                color: "#ff4d4f",
-              },
-            },
-
-            /* 👇 CRITICAL: Restore INLINE layout */
-            layout: {
-              type: "tabs",
-            },
-          },
-
-          /* 👇 CRITICAL: remove Link / Amazon / saved cards */
-          payment_method_types: ["card"],
-          wallets: {
-            applePay: "never",
-            googlePay: "never",
-          },
-        }}
-      >
+      <Elements stripe={stripePromise} options={options}>
         <CheckoutForm />
       </Elements>
     </div>
