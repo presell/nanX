@@ -17,11 +17,10 @@ const stripePromise = loadStripe(
 /*                               Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
-function CheckoutForm() {
+function CheckoutForm({ isCompleteOverride }: { isCompleteOverride: boolean }) {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [isComplete, setIsComplete] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -44,12 +43,20 @@ function CheckoutForm() {
     }
   }
 
-  const isDisabled = !stripe || isSubmitting || !isComplete;
+  const isDisabled = !stripe || isSubmitting || !isCompleteOverride;
   const buttonOpacity = isDisabled ? 0.5 : 1;
 
   return (
     <form onSubmit={handleSubmit}>
-      <PaymentElement />
+      <PaymentElement
+        onChange={(event) => {
+          window.dispatchEvent(
+            new CustomEvent("payment-complete-change", {
+              detail: { complete: event.complete },
+            })
+          );
+        }}
+      />
 
       <button
         type="submit"
@@ -116,19 +123,6 @@ export default function StripePaymentElement({
         stripe={stripePromise}
         options={{
           clientSecret,
-
-          /** 🔥 OFFICIAL Stripe PaymentElement onChange hook */
-          onChange: (event: any) => {
-            if (typeof event.complete === "boolean") {
-              // We set the state indirectly in the form via custom event
-              window.dispatchEvent(
-                new CustomEvent("payment-complete-change", {
-                  detail: { complete: event.complete },
-                })
-              );
-            }
-          },
-
           appearance: {
             rules: {
               ".Input": {
@@ -145,7 +139,6 @@ export default function StripePaymentElement({
           },
         }}
       >
-        {/* This listener provides the completion state to the form */}
         <CompletionStateProvider>
           <CheckoutForm />
         </CompletionStateProvider>
@@ -155,7 +148,7 @@ export default function StripePaymentElement({
 }
 
 /* -------------------------------------------------------------------------- */
-/*      This tiny wrapper receives PaymentElement completion events           */
+/*      Provide "complete" state from the PaymentElement to form              */
 /* -------------------------------------------------------------------------- */
 
 function CompletionStateProvider({ children }: any) {
@@ -165,13 +158,10 @@ function CompletionStateProvider({ children }: any) {
     const handler = (e: any) => {
       setComplete(e.detail.complete);
     };
+
     window.addEventListener("payment-complete-change", handler);
     return () => window.removeEventListener("payment-complete-change", handler);
   }, []);
 
-  return (
-    <>
-      {React.cloneElement(children, { isCompleteOverride: complete })}
-    </>
-  );
+  return React.cloneElement(children, { isCompleteOverride: complete });
 }
