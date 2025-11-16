@@ -1,29 +1,29 @@
-// components/StripePaymentElement.tsx
-"use client";
-
-import dynamic from "next/dynamic";
-import { useEffect, useState, FormEvent } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import {
-  Elements,
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
-);
-
-// ------------------
-// Inner form
-// ------------------
-function CheckoutForm({ clientSecret }: { clientSecret: string }) {
+function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    if (!elements) return;
+
+    // Listen for card completeness
+    const paymentElement = elements.getElement("payment");
+
+    if (!paymentElement) return;
+
+    const handler = (event: any) => {
+      setIsComplete(event.complete);
+    };
+
+    paymentElement.on("change", handler);
+
+    return () => {
+      paymentElement.off("change", handler);
+    };
+  }, [elements]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,51 +31,42 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
     setIsSubmitting(true);
 
-    const cardElement = elements.getElement(CardElement);
-
-    const { error } = await stripe.confirmCardPayment(
-      clientSecret,
-      {
-        payment_method: {
-          card: cardElement!,
-        },
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
         return_url: `${window.location.origin}/confirmation`,
-      }
-    );
+      },
+    });
 
     if (error) {
-      console.error("[Stripe] confirmCardPayment error:", error);
+      console.error("[Stripe] confirmPayment error:", error);
       setMessage(error.message || "Payment failed.");
       setIsSubmitting(false);
     }
   }
 
+  const buttonOpacity = isComplete ? 1 : 0.5;
+  const isDisabled = !stripe || isSubmitting || !isComplete;
+
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          hidePostalCode: true,
-          style: {
-            base: {
-              fontSize: "16px",
-              color: "#000",
-              "::placeholder": { color: "#999" },
-            },
-          },
-        }}
-      />
+      <PaymentElement />
 
       <button
         type="submit"
-        disabled={!stripe || isSubmitting}
+        disabled={isDisabled}
         style={{
           marginTop: 20,
           padding: "12px 16px",
           width: "100%",
-          borderRadius: 8,
-          background: "#000",
+          borderRadius: 10,
+          background: "#1C3A13",
           color: "#fff",
           fontSize: "16px",
+          border: "none",
+          opacity: buttonOpacity, // 🔥 opacity toggle
+          transition: "opacity 0.2s ease",
+          cursor: isDisabled ? "not-allowed" : "pointer",
         }}
       >
         {isSubmitting ? "Processing…" : "Pay Now"}
@@ -87,66 +78,3 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
     </form>
   );
 }
-
-// ------------------
-// Main wrapper
-// ------------------
-function StripePaymentElementImpl({
-  amount,
-  className,
-}: {
-  amount: number;
-  className?: string;
-}) {
-  const [clientSecret, setClientSecret] = useState("");
-
-  useEffect(() => {
-    async function loadIntent() {
-      try {
-        const res = await fetch("/api/create-payment-intent", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount }),
-        });
-
-        const data = await res.json();
-        if (!data?.clientSecret) return;
-
-        setClientSecret(data.clientSecret);
-      } catch (err) {
-        console.error("[Stripe] Error loading payment intent:", err);
-      }
-    }
-
-    loadIntent();
-  }, [amount]);
-
-  if (!clientSecret) {
-    return <div className={className}>Loading payment form…</div>;
-  }
-
-  return (
-    <div className={className}>
-      <Elements
-        stripe={stripePromise}
-        options={{
-          clientSecret,
-          appearance: { theme: "stripe" },
-        }}
-      >
-        <CheckoutForm clientSecret={clientSecret} />
-      </Elements>
-    </div>
-  );
-}
-
-// ------------------
-// No-SSR export for Plasmic
-// ------------------
-const StripePaymentElement = dynamic(
-  () => Promise.resolve(StripePaymentElementImpl),
-  { ssr: false }
-);
-
-export default StripePaymentElement;
-export { StripePaymentElement };
