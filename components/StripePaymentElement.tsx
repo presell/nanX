@@ -18,7 +18,7 @@ const stripePromise = loadStripe(
 // ------------------
 // Inner form
 // ------------------
-function CheckoutForm() {
+function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -34,8 +34,7 @@ function CheckoutForm() {
     const cardElement = elements.getElement(CardElement);
 
     const { error } = await stripe.confirmCardPayment(
-      // PaymentIntent client secret is passed by Elements in context
-      undefined,
+      clientSecret,
       {
         payment_method: {
           card: cardElement!,
@@ -135,14 +134,14 @@ function StripePaymentElementImpl({
           appearance: { theme: "stripe" },
         }}
       >
-        <CheckoutForm />
+        <CheckoutForm clientSecret={clientSecret} />
       </Elements>
     </div>
   );
 }
 
 // ------------------
-// No-SSR export
+// No-SSR export for Plasmic
 // ------------------
 const StripePaymentElement = dynamic(
   () => Promise.resolve(StripePaymentElementImpl),
