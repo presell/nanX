@@ -1,16 +1,12 @@
 // components/StripePaymentElement.tsx
 "use client";
 
-/**
- * @plasmicImport StripePaymentElement from "./StripePaymentElement"
- */
-
 import dynamic from "next/dynamic";
 import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
-  PaymentElement,
+  CardElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -35,15 +31,21 @@ function CheckoutForm() {
 
     setIsSubmitting(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
-      confirmParams: {
+    const cardElement = elements.getElement(CardElement);
+
+    const { error } = await stripe.confirmCardPayment(
+      // PaymentIntent client secret is passed by Elements in context
+      undefined,
+      {
+        payment_method: {
+          card: cardElement!,
+        },
         return_url: `${window.location.origin}/confirmation`,
-      },
-    });
+      }
+    );
 
     if (error) {
-      console.error("[Stripe] confirmPayment error:", error);
+      console.error("[Stripe] confirmCardPayment error:", error);
       setMessage(error.message || "Payment failed.");
       setIsSubmitting(false);
     }
@@ -51,7 +53,19 @@ function CheckoutForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <PaymentElement />
+      <CardElement
+        options={{
+          hidePostalCode: true,
+          style: {
+            base: {
+              fontSize: "16px",
+              color: "#000",
+              "::placeholder": { color: "#999" },
+            },
+          },
+        }}
+      />
+
       <button
         type="submit"
         disabled={!stripe || isSubmitting}
@@ -76,42 +90,28 @@ function CheckoutForm() {
 }
 
 // ------------------
-// Main implementation (client-only, will be wrapped in a no-SSR dynamic)
+// Main wrapper
 // ------------------
-function StripePaymentElementImpl(props: {
-  amount: number; // dollars, e.g. 44.9
+function StripePaymentElementImpl({
+  amount,
+  className,
+}: {
+  amount: number;
   className?: string;
 }) {
-  const { amount, className } = props;
   const [clientSecret, setClientSecret] = useState("");
-
-  const dollars = Number(amount) || 0;
 
   useEffect(() => {
     async function loadIntent() {
       try {
-        console.log("[Stripe] Creating payment intent for", dollars, "USD");
-
         const res = await fetch("/api/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: dollars }),
+          body: JSON.stringify({ amount }),
         });
 
-        if (!res.ok) {
-          console.error(
-            "[Stripe] Failed to create payment intent:",
-            res.status,
-            await res.text()
-          );
-          return;
-        }
-
         const data = await res.json();
-        if (!data?.clientSecret) {
-          console.error("[Stripe] No clientSecret returned from API:", data);
-          return;
-        }
+        if (!data?.clientSecret) return;
 
         setClientSecret(data.clientSecret);
       } catch (err) {
@@ -120,7 +120,7 @@ function StripePaymentElementImpl(props: {
     }
 
     loadIntent();
-  }, [dollars]);
+  }, [amount]);
 
   if (!clientSecret) {
     return <div className={className}>Loading payment form…</div>;
@@ -128,7 +128,13 @@ function StripePaymentElementImpl(props: {
 
   return (
     <div className={className}>
-      <Elements stripe={stripePromise} options={{ clientSecret }}>
+      <Elements
+        stripe={stripePromise}
+        options={{
+          clientSecret,
+          appearance: { theme: "stripe" },
+        }}
+      >
         <CheckoutForm />
       </Elements>
     </div>
@@ -136,8 +142,7 @@ function StripePaymentElementImpl(props: {
 }
 
 // ------------------
-// Export a no-SSR wrapper for Next.
-// This is what Plasmic will actually render.
+// No-SSR export
 // ------------------
 const StripePaymentElement = dynamic(
   () => Promise.resolve(StripePaymentElementImpl),
@@ -145,4 +150,4 @@ const StripePaymentElement = dynamic(
 );
 
 export default StripePaymentElement;
-export { StripePaymentElement }; // named export too, just in case
+export { StripePaymentElement };
