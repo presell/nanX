@@ -60,20 +60,16 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* -------- COMBINED INPUT WRAPPER -------- */}
       <div style={{ width: "100%" }}>
         
-        {/* ---- CARD FIELD (Top) ---- */}
+        {/* ---- CARD FIELD (fixed wrapper) ---- */}
         <div
           style={{
             border: "1px solid #D3D3D3",
             borderBottom: "none",
             borderRadius: "10px 10px 0 0",
             backgroundColor: "#fff",
-            padding: "14px",
-            minHeight: "55px",
-            display: "flex",
-            alignItems: "center",
+            padding: "16px 14px",      // balanced padding so height matches ZIP
             boxSizing: "border-box",
           }}
         >
@@ -94,7 +90,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
           />
         </div>
 
-        {/* ---- ZIP FIELD (Bottom) ---- */}
+        {/* ---- ZIP FIELD ---- */}
         <input
           type="text"
           inputMode="numeric"
@@ -109,11 +105,24 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
             borderRadius: "0 0 10px 10px",
             backgroundColor: "#fff",
             fontSize: "16px",
-            fontWeight: "400",       // matches Stripe's weight
-            color: "#000",           // fixes invisible text issue
-            padding: "14px",
+            fontWeight: "400",
+            color: "#000",
+            padding: "16px 14px",
             height: "55px",
             boxSizing: "border-box",
+
+            // ---- Remove focus styling ----
+            outline: "none",
+          }}
+          onFocus={(e) => {
+            e.target.style.outline = "none";
+            e.target.style.boxShadow = "none";
+            e.target.style.borderColor = "#D3D3D3";
+          }}
+          onBlur={(e) => {
+            e.target.style.outline = "none";
+            e.target.style.boxShadow = "none";
+            e.target.style.borderColor = "#D3D3D3";
           }}
         />
       </div>
