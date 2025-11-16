@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react"; // ← REQUIRED because cloneElement is used
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
