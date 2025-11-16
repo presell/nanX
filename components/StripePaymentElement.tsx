@@ -28,7 +28,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   const [zip, setZip] = useState("");
   const [message, setMessage] = useState("");
 
-  const isZipComplete = zip.trim().length >= 5; // Basic US ZIP validation
+  const isZipComplete = zip.trim().length >= 5;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,56 +60,60 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* -------- CARD FIELD -------- */}
-      <div
-        style={{
-          border: "1px solid #D3D3D3",
-          borderRadius: "10px",
-          backgroundColor: "#fff",
-          height: "55px",
-          padding: "14px",
-          marginBottom: "12px",
-          display: "block",          // REQUIRED for Stripe iframe rendering
-          boxSizing: "border-box",   // ensures no overflow issues
-        }}
-      >
-        <CardElement
-          onChange={(event) => setIsCardComplete(event.complete)}
-          options={{
-            hidePostalCode: true,
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#000",
-                lineHeight: "26px",
-                "::placeholder": { color: "#999" },
+
+      {/* -------- COMBINED INPUT WRAPPER -------- */}
+      <div style={{ width: "100%" }}>
+
+        {/* ---- CARD FIELD (top of the combined box) ---- */}
+        <div
+          style={{
+            border: "1px solid #D3D3D3",
+            borderBottom: "none",
+            borderRadius: "10px 10px 0 0",
+            backgroundColor: "#fff",
+            height: "55px",
+            padding: "14px",
+            display: "block",
+            boxSizing: "border-box",
+          }}
+        >
+          <CardElement
+            onChange={(event) => setIsCardComplete(event.complete)}
+            options={{
+              hidePostalCode: true,
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#000",
+                  "::placeholder": { color: "#999" },
+                },
+                invalid: { color: "#ff4d4f" },
               },
-              invalid: { color: "#ff4d4f" },
-            },
+            }}
+          />
+        </div>
+
+        {/* ---- ZIP FIELD (bottom of the combined box) ---- */}
+        <input
+          type="text"
+          inputMode="numeric"
+          maxLength={10}
+          placeholder="Billing ZIP Code"
+          value={zip}
+          onChange={(e) => setZip(e.target.value)}
+          style={{
+            width: "100%",
+            border: "1px solid #D3D3D3",
+            borderTop: "none",
+            borderRadius: "0 0 10px 10px",
+            backgroundColor: "#fff",
+            fontSize: "16px",
+            padding: "12px 14px",
+            height: "55px",
+            boxSizing: "border-box",
           }}
         />
       </div>
-
-      {/* -------- ZIP FIELD -------- */}
-      <input
-        type="text"
-        inputMode="numeric"
-        maxLength={10}
-        placeholder="ZIP Code"
-        value={zip}
-        onChange={(e) => setZip(e.target.value)}
-        style={{
-          width: "100%",
-          border: "1px solid #D3D3D3",
-          padding: "12px 14px",
-          borderRadius: "10px",
-          backgroundColor: "#fff",
-          fontSize: "16px",
-          marginBottom: "10px",
-          height: "55px",
-          boxSizing: "border-box",
-        }}
-      />
 
       {/* -------- PAY BUTTON -------- */}
       <button
