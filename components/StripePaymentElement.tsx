@@ -86,7 +86,7 @@ function CheckoutForm() {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                     Inner Component (No SSR allowed!)                      */
+/*                 Inner Component (NO SSR — required for Plasmic)            */
 /* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
@@ -123,6 +123,8 @@ function StripePaymentElementImpl({
         stripe={stripePromise}
         options={{
           clientSecret,
+
+          /* 👇 YOUR INLINE RESTORED, CLEAN LOOK */
           appearance: {
             variables: {
               borderRadius: "10px",
@@ -140,16 +142,23 @@ function StripePaymentElementImpl({
               },
               ".Label": {
                 fontSize: "15px",
-                color: "#000",
               },
               ".Error": {
                 color: "#ff4d4f",
               },
             },
+
+            /* 👇 CRITICAL: Restore INLINE layout */
             layout: {
-              type: "accordion",         // <-- REQUIRED for inline fields
-              defaultCollapsed: false,   // <-- Opens the card fields immediately
+              type: "tabs",
             },
+          },
+
+          /* 👇 CRITICAL: remove Link / Amazon / saved cards */
+          payment_method_types: ["card"],
+          wallets: {
+            applePay: "never",
+            googlePay: "never",
           },
         }}
       >
@@ -160,7 +169,7 @@ function StripePaymentElementImpl({
 }
 
 /* -------------------------------------------------------------------------- */
-/*                        EXPORT — Disable SSR on Stripe                      */
+/*                             NO SSR EXPORT (Plasmic)                        */
 /* -------------------------------------------------------------------------- */
 
 const StripePaymentElement = dynamic(
