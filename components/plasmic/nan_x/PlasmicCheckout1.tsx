@@ -61,7 +61,7 @@ import {
 
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
-import { StripePaymentElement } from "@/components/StripePaymentElement"; // plasmic-import: RzZJ79MSW6Dl/codeComponent
+import { StripePaymentElement } from "../../StripePaymentElement"; // plasmic-import: RzZJ79MSW6Dl/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule

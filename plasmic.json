@@ -457,7 +457,7 @@
           "id": "RzZJ79MSW6Dl",
           "name": "StripePaymentElement",
           "displayName": "StripePaymentElement",
-          "componentImportPath": "@/components/StripePaymentElement"
+          "componentImportPath": "./components/StripePaymentElement"
         }
       ],
       "customFunctions": []
