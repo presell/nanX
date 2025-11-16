@@ -15,10 +15,6 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
-/* -------------------------------------------------------------------------- */
-/*                                Checkout Form                                */
-/* -------------------------------------------------------------------------- */
-
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -85,10 +81,6 @@ function CheckoutForm() {
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                   Inner Component (NO SSR — required for Plasmic)          */
-/* -------------------------------------------------------------------------- */
-
 function StripePaymentElementImpl({
   amount,
   className,
@@ -117,10 +109,10 @@ function StripePaymentElementImpl({
     return <div className={className}>Loading…</div>;
   }
 
-  // ---- FIX: options separated from appearance ----
   const options: any = {
     clientSecret,
 
+    // Styling
     appearance: {
       variables: {
         borderRadius: "10px",
@@ -145,16 +137,9 @@ function StripePaymentElementImpl({
       },
     },
 
-    // ---- FIX: layout is now allowed because we're using "any" ----
+    // Inline layout restored
     layout: {
-      type: "tabs", // restores inline card number / expiry / CVC
-    },
-
-    // Hide digital wallets / link / saved cards
-    payment_method_types: ["card"],
-    wallets: {
-      applePay: "never",
-      googlePay: "never",
+      type: "tabs",
     },
   };
 
@@ -166,10 +151,6 @@ function StripePaymentElementImpl({
     </div>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                             NO SSR EXPORT (Plasmic)                        */
-/* -------------------------------------------------------------------------- */
 
 const StripePaymentElement = dynamic(
   () => Promise.resolve(StripePaymentElementImpl),
