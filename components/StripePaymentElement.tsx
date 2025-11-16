@@ -34,22 +34,23 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
     const cardElement = elements.getElement(CardElement);
 
-    const { error } = await stripe.confirmCardPayment(
+    const { error, paymentIntent } = await stripe.confirmCardPayment(
       clientSecret,
       {
         payment_method: {
           card: cardElement!,
         },
-      },
-      {
-        return_url: `${window.location.origin}/confirmation`,
       }
     );
 
     if (error) {
       setMessage(error.message || "Payment failed.");
       setIsSubmitting(false);
+      return;
     }
+
+    // SUCCESS — redirect manually
+    window.location.href = "/confirmation";
   }
 
   return (
