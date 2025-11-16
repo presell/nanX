@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"; // REQUIRED for cloneElement + isValidElement
+import React, { ReactElement } from "react"; 
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -18,11 +18,11 @@ const stripePromise = loadStripe(
 /*                               Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
-function CheckoutForm({
-  isCompleteOverride = false,
-}: {
+interface CheckoutFormProps {
   isCompleteOverride?: boolean;
-}) {
+}
+
+function CheckoutForm({ isCompleteOverride = false }: CheckoutFormProps) {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -156,7 +156,11 @@ export default function StripePaymentElement({
 /*      Provide "complete" state from the PaymentElement to form              */
 /* -------------------------------------------------------------------------- */
 
-function CompletionStateProvider({ children }: any) {
+interface CompletionProviderProps {
+  children: ReactElement<CheckoutFormProps>;
+}
+
+function CompletionStateProvider({ children }: CompletionProviderProps) {
   const [complete, setComplete] = useState(false);
 
   useEffect(() => {
@@ -170,11 +174,6 @@ function CompletionStateProvider({ children }: any) {
     return () =>
       window.removeEventListener("payment-complete-change", handler);
   }, []);
-
-  // 🔥 Prevent production crash (React error #130)
-  if (!React.isValidElement(children)) {
-    return <>{children}</>;
-  }
 
   return React.cloneElement(children, {
     isCompleteOverride: complete,
