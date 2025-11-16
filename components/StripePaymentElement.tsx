@@ -7,7 +7,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
   CardElement,
-  PostalCodeElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -26,8 +25,10 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isCardComplete, setIsCardComplete] = useState(false);
-  const [isZipComplete, setIsZipComplete] = useState(false);
+  const [zip, setZip] = useState("");
   const [message, setMessage] = useState("");
+
+  const isZipComplete = zip.trim().length >= 5; // basic US ZIP validation
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -36,15 +37,12 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
     setIsSubmitting(true);
 
     const cardElement = elements.getElement(CardElement);
-    const postalCode = elements.getElement(PostalCodeElement);
 
     const { error } = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: cardElement!,
         billing_details: {
-          address: {
-            postal_code: (postalCode as any)?._completeValue || "",
-          },
+          address: { postal_code: zip },
         },
       },
     });
@@ -70,6 +68,9 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
           borderRadius: "10px",
           backgroundColor: "#fff",
           marginBottom: "12px",
+          height: "55px",
+          display: "flex",
+          alignItems: "center",
         }}
       >
         <CardElement
@@ -89,28 +90,24 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       </div>
 
       {/* -------- ZIP FIELD -------- */}
-      <div
+      <input
+        type="text"
+        inputMode="numeric"
+        maxLength={10}
+        placeholder="ZIP Code"
+        value={zip}
+        onChange={(e) => setZip(e.target.value)}
         style={{
+          width: "100%",
           border: "1px solid #D3D3D3",
           padding: "12px 14px",
           borderRadius: "10px",
           backgroundColor: "#fff",
+          fontSize: "16px",
+          marginBottom: "10px",
+          height: "55px",
         }}
-      >
-        <PostalCodeElement
-          onChange={(e) => setIsZipComplete(e.complete)}
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#000",
-                "::placeholder": { color: "#999" },
-              },
-              invalid: { color: "#ff4d4f" },
-            },
-          }}
-        />
-      </div>
+      />
 
       {/* -------- PAY BUTTON -------- */}
       <button
