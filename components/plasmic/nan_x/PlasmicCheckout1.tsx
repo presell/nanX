@@ -712,17 +712,16 @@ function PlasmicCheckout1__RenderFunc(props: {
                   >
                     {"Payment"}
                   </div>
-                  {false ? (
-                    <StripePaymentElement
-                      data-plasmic-name={"stripePaymentElement"}
-                      data-plasmic-override={overrides.stripePaymentElement}
-                      amount={1}
-                      className={classNames(
-                        "__wab_instance",
-                        sty.stripePaymentElement
-                      )}
-                    />
-                  ) : null}
+                  <StripePaymentElement
+                    data-plasmic-name={"stripePaymentElement"}
+                    data-plasmic-override={overrides.stripePaymentElement}
+                    amount={1}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.stripePaymentElement
+                    )}
+                  />
+
                   <div
                     className={classNames(projectcss.all, sty.freeBox___54Uhu)}
                     id={"scroll-form"}
