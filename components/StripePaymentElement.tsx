@@ -17,7 +17,7 @@ const stripePromise = loadStripe(
 /*                               Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
-function CheckoutForm({ isCompleteOverride }: { isCompleteOverride: boolean }) {
+function CheckoutForm({ isCompleteOverride = false }: { isCompleteOverride?: boolean }) {
   const stripe = useStripe();
   const elements = useElements();
 
