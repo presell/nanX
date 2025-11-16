@@ -28,7 +28,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   const [zip, setZip] = useState("");
   const [message, setMessage] = useState("");
 
-  const isZipComplete = zip.trim().length >= 5; // basic US ZIP validation
+  const isZipComplete = zip.trim().length >= 5; // Basic US ZIP validation
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -64,13 +64,13 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       <div
         style={{
           border: "1px solid #D3D3D3",
-          padding: "12px 14px",
           borderRadius: "10px",
           backgroundColor: "#fff",
-          marginBottom: "12px",
           height: "55px",
-          display: "flex",
-          alignItems: "center",
+          padding: "14px",
+          marginBottom: "12px",
+          display: "block",          // REQUIRED for Stripe iframe rendering
+          boxSizing: "border-box",   // ensures no overflow issues
         }}
       >
         <CardElement
@@ -81,6 +81,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
               base: {
                 fontSize: "16px",
                 color: "#000",
+                lineHeight: "26px",
                 "::placeholder": { color: "#999" },
               },
               invalid: { color: "#ff4d4f" },
@@ -106,6 +107,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
           fontSize: "16px",
           marginBottom: "10px",
           height: "55px",
+          boxSizing: "border-box",
         }}
       />
 
