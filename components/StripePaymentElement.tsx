@@ -60,20 +60,20 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
 
   return (
     <form onSubmit={handleSubmit}>
-
       {/* -------- COMBINED INPUT WRAPPER -------- */}
       <div style={{ width: "100%" }}>
-
-        {/* ---- CARD FIELD (top of the combined box) ---- */}
+        
+        {/* ---- CARD FIELD (Top) ---- */}
         <div
           style={{
             border: "1px solid #D3D3D3",
             borderBottom: "none",
             borderRadius: "10px 10px 0 0",
             backgroundColor: "#fff",
-            height: "55px",
             padding: "14px",
-            display: "block",
+            minHeight: "55px",
+            display: "flex",
+            alignItems: "center",
             boxSizing: "border-box",
           }}
         >
@@ -85,6 +85,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
                 base: {
                   fontSize: "16px",
                   color: "#000",
+                  fontWeight: "400",
                   "::placeholder": { color: "#999" },
                 },
                 invalid: { color: "#ff4d4f" },
@@ -93,7 +94,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
           />
         </div>
 
-        {/* ---- ZIP FIELD (bottom of the combined box) ---- */}
+        {/* ---- ZIP FIELD (Bottom) ---- */}
         <input
           type="text"
           inputMode="numeric"
@@ -104,11 +105,13 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
           style={{
             width: "100%",
             border: "1px solid #D3D3D3",
-            borderTop: "none",
+            borderTop: "1px solid #D3D3D3",
             borderRadius: "0 0 10px 10px",
             backgroundColor: "#fff",
             fontSize: "16px",
-            padding: "12px 14px",
+            fontWeight: "400",       // matches Stripe's weight
+            color: "#000",           // fixes invisible text issue
+            padding: "14px",
             height: "55px",
             boxSizing: "border-box",
           }}
