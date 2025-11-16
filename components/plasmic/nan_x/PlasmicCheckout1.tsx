@@ -101,6 +101,7 @@ export type PlasmicCheckout1__OverridesType = {
   _2Active?: Flex__<"div">;
   slot321?: Flex__<"div">;
   addressSlot?: Flex__<"input">;
+  addressSlot2?: Flex__<"input">;
   _2Inactive?: Flex__<"div">;
   slot36?: Flex__<"div">;
   _3Active?: Flex__<"div">;
@@ -181,7 +182,7 @@ function PlasmicCheckout1__RenderFunc(props: {
         path: "form",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 3
+        initFunc: ({ $props, $state, $queries, $ctx }) => 2
       },
       {
         path: "ccSlot.value",
@@ -200,6 +201,12 @@ function PlasmicCheckout1__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "addressSlot2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       }
     ],
     [$props, $ctx, $refs]
@@ -473,6 +480,43 @@ function PlasmicCheckout1__RenderFunc(props: {
                   data-plasmic-name={"_1Inactive"}
                   data-plasmic-override={overrides._1Inactive}
                   className={classNames(projectcss.all, sty._1Inactive)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateForm"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["form"]
+                            },
+                            operation: 0,
+                            value: 1
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateForm"] != null &&
+                      typeof $steps["updateForm"] === "object" &&
+                      typeof $steps["updateForm"].then === "function"
+                    ) {
+                      $steps["updateForm"] = await $steps["updateForm"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -558,7 +602,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                           ])(e.target.value);
                         }).apply(null, eventArgs);
                       }}
-                      placeholder={"Enter an address"}
+                      placeholder={"Full name"}
                       ref={ref => {
                         $refs["addressSlot"] = ref;
                       }}
@@ -566,6 +610,41 @@ function PlasmicCheckout1__RenderFunc(props: {
                       value={
                         generateStateValueProp($state, [
                           "addressSlot",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__cSugs)}
+                    id={"scroll-form"}
+                  >
+                    <input
+                      data-plasmic-name={"addressSlot2"}
+                      data-plasmic-override={overrides.addressSlot2}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.input,
+                        sty.addressSlot2,
+                        "custom-textarea"
+                      )}
+                      id={"address-input"}
+                      onChange={async (...eventArgs: any) => {
+                        (e => {
+                          generateStateOnChangeProp($state, [
+                            "addressSlot2",
+                            "value"
+                          ])(e.target.value);
+                        }).apply(null, eventArgs);
+                      }}
+                      placeholder={"Address"}
+                      ref={ref => {
+                        $refs["addressSlot2"] = ref;
+                      }}
+                      type={"text"}
+                      value={
+                        generateStateValueProp($state, [
+                          "addressSlot2",
                           "value"
                         ]) ?? ""
                       }
@@ -649,6 +728,43 @@ function PlasmicCheckout1__RenderFunc(props: {
                   data-plasmic-name={"_2Inactive"}
                   data-plasmic-override={overrides._2Inactive}
                   className={classNames(projectcss.all, sty._2Inactive)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateForm"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["form"]
+                            },
+                            operation: 0,
+                            value: 2
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateForm"] != null &&
+                      typeof $steps["updateForm"] === "object" &&
+                      typeof $steps["updateForm"].then === "function"
+                    ) {
+                      $steps["updateForm"] = await $steps["updateForm"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -837,7 +953,7 @@ function PlasmicCheckout1__RenderFunc(props: {
                 <React.Fragment>
                   {(() => {
                     try {
-                      return $state.addressSlot.value;
+                      return $state.address;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -1083,7 +1199,9 @@ function PlasmicCheckout1__RenderFunc(props: {
             data-plasmic-name={"places"}
             data-plasmic-override={overrides.places}
             className={classNames("__wab_instance", sty.places)}
-            code={""}
+            code={
+              '<script>\n  const attachAutocomplete = () => {\n    const input = document.getElementById("address-input");\n\n    if (!window.google || !google.maps || !google.maps.places) {\n      console.log("[Autocomplete] Google not ready yet...");\n      return;\n    }\n\n    if (!input) {\n      console.log("[Autocomplete] Input not found yet...");\n      return;\n    }\n\n    if (input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] Already attached, skipping...");\n      return;\n    }\n\n    console.log("[Autocomplete] Attaching autocomplete to:", input);\n\n    const ac = new google.maps.places.Autocomplete(input, {\n      fields: ["formatted_address", "address_components", "geometry"],\n    });\n\n    ac.addListener("place_changed", function () {\n      const place = ac.getPlace();\n      console.log("[Autocomplete] place_changed:", place);\n\n      const value = place.formatted_address || "";\n\n      // Update the visible input (optional)\n      input.value = value;\n\n      // \ud83d\udd25 DIRECTLY update Plasmic state\n      if (window.setPlasmicAddress) {\n        window.setPlasmicAddress(value);\n      }\n    });\n\n    input.dataset.autocompleteAttached = "true";\n  };\n\n  const interval = setInterval(() => {\n    attachAutocomplete();\n\n    const input = document.getElementById("address-input");\n    if (input && input.dataset.autocompleteAttached === "true") {\n      console.log("[Autocomplete] DONE \u2014 clearing interval");\n      clearInterval(interval);\n    }\n  }, 500);\n</script>\n\n\n\n\n<!-- Google Maps Autocomplete -->\n<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async\n  defer\n></script>\n\n\n\n<script>\n  // Expose a global function that Plasmic can call\n  window.setPlasmicAddress = (val) => {\n    try {\n      // Plasmic exposes its state setters on window.plasmicState\n      const state = window.plasmicState;\n      if (state && state.address && typeof state.address.set === "function") {\n        state.address.set(val);\n        console.log("[Plasmic] Updated $state.address \u2192", val);\n      } else {\n        console.log("[Plasmic] ERROR: Could not update $state.address");\n      }\n    } catch (err) {\n      console.log("[Plasmic] ERROR calling setPlasmicAddress:", err);\n    }\n  };\n</script>'
+            }
           />
         </div>
       </div>
@@ -1107,6 +1225,7 @@ const PlasmicDescendants = {
     "_2Active",
     "slot321",
     "addressSlot",
+    "addressSlot2",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -1147,6 +1266,7 @@ const PlasmicDescendants = {
     "_2Active",
     "slot321",
     "addressSlot",
+    "addressSlot2",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -1163,9 +1283,10 @@ const PlasmicDescendants = {
   _1BtnActive: ["_1BtnActive"],
   _1Inactive: ["_1Inactive", "slot319"],
   slot319: ["slot319"],
-  _2Active: ["_2Active", "slot321", "addressSlot"],
+  _2Active: ["_2Active", "slot321", "addressSlot", "addressSlot2"],
   slot321: ["slot321"],
   addressSlot: ["addressSlot"],
+  addressSlot2: ["addressSlot2"],
   _2Inactive: ["_2Inactive", "slot36"],
   slot36: ["slot36"],
   _3Active: ["_3Active", "slot320", "stripePaymentElement", "ccSlot"],
@@ -1210,6 +1331,7 @@ type NodeDefaultElementType = {
   _2Active: "div";
   slot321: "div";
   addressSlot: "input";
+  addressSlot2: "input";
   _2Inactive: "div";
   slot36: "div";
   _3Active: "div";
@@ -1312,6 +1434,7 @@ export const PlasmicCheckout1 = Object.assign(
     _2Active: makeNodeComponent("_2Active"),
     slot321: makeNodeComponent("slot321"),
     addressSlot: makeNodeComponent("addressSlot"),
+    addressSlot2: makeNodeComponent("addressSlot2"),
     _2Inactive: makeNodeComponent("_2Inactive"),
     slot36: makeNodeComponent("slot36"),
     _3Active: makeNodeComponent("_3Active"),
