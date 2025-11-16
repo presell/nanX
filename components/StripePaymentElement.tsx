@@ -128,7 +128,6 @@ function StripePaymentElementImpl({
               borderRadius: "10px",
             },
             rules: {
-              // Input styling
               ".Input": {
                 border: "1px solid #D3D3D3",
                 borderRadius: "10px",
@@ -139,17 +138,17 @@ function StripePaymentElementImpl({
                 borderColor: "#1C3A13",
                 boxShadow: "0 0 0 1px #1C3A13",
               },
-
-              // Label (Card number, Exp date, etc.)
               ".Label": {
                 fontSize: "15px",
                 color: "#000",
               },
-
-              // Error text
               ".Error": {
                 color: "#ff4d4f",
               },
+            },
+            layout: {
+              type: "accordion",         // <-- REQUIRED for inline fields
+              defaultCollapsed: false,   // <-- Opens the card fields immediately
             },
           },
         }}
