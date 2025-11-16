@@ -6,7 +6,7 @@ import { useEffect, useState, FormEvent } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
-  PaymentElement,
+  CardElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
@@ -15,22 +15,29 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
 );
 
-function CheckoutForm() {
+/* -------------------------------------------------------------------------- */
+/*                                Checkout Form                                */
+/* -------------------------------------------------------------------------- */
+
+function CheckoutForm({ clientSecret }: { clientSecret: string }) {
   const stripe = useStripe();
   const elements = useElements();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
   const [message, setMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!stripe || !elements || !isComplete) return;
+    if (!stripe || !elements) return;
 
     setIsSubmitting(true);
 
-    const { error } = await stripe.confirmPayment({
-      elements,
+    const cardElement = elements.getElement(CardElement);
+
+    const { error } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: cardElement!,
+      },
       confirmParams: {
         return_url: `${window.location.origin}/confirmation`,
       },
@@ -42,21 +49,31 @@ function CheckoutForm() {
     }
   }
 
-  const disabled = !stripe || !isComplete || isSubmitting;
-
   return (
     <form onSubmit={handleSubmit}>
-      <PaymentElement
-        onChange={(e: any) => {
-          if (typeof e.complete === "boolean") {
-            setIsComplete(e.complete);
-          }
+      <CardElement
+        options={{
+          hidePostalCode: true,
+          style: {
+            base: {
+              fontSize: "16px",
+              color: "#000",
+              "::placeholder": { color: "#999" },
+              backgroundColor: "#fff",
+              border: "1px solid #D3D3D3",
+              padding: "12px 14px",
+              borderRadius: "10px",
+            },
+            invalid: {
+              color: "#ff4d4f",
+            },
+          },
         }}
       />
 
       <button
         type="submit"
-        disabled={disabled}
+        disabled={isSubmitting}
         style={{
           marginTop: 20,
           padding: "12px 16px",
@@ -66,9 +83,9 @@ function CheckoutForm() {
           color: "#fff",
           fontSize: "16px",
           border: "none",
-          opacity: disabled ? 0.5 : 1,
+          opacity: isSubmitting ? 0.5 : 1,
           transition: "opacity 0.2s ease",
-          cursor: disabled ? "not-allowed" : "pointer",
+          cursor: isSubmitting ? "not-allowed" : "pointer",
         }}
       >
         {isSubmitting ? "Processing…" : "Pay Now"}
@@ -80,6 +97,10 @@ function CheckoutForm() {
     </form>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*                            Stripe Wrapper (No SSR)                          */
+/* -------------------------------------------------------------------------- */
 
 function StripePaymentElementImpl({
   amount,
@@ -109,44 +130,10 @@ function StripePaymentElementImpl({
     return <div className={className}>Loading…</div>;
   }
 
-  const options: any = {
-    clientSecret,
-
-    // Styling
-    appearance: {
-      variables: {
-        borderRadius: "10px",
-      },
-      rules: {
-        ".Input": {
-          border: "1px solid #D3D3D3",
-          borderRadius: "10px",
-          padding: "12px 14px",
-          boxShadow: "none",
-        },
-        ".Input:focus": {
-          borderColor: "#1C3A13",
-          boxShadow: "0 0 0 1px #1C3A13",
-        },
-        ".Label": {
-          fontSize: "15px",
-        },
-        ".Error": {
-          color: "#ff4d4f",
-        },
-      },
-    },
-
-    // Inline layout restored
-    layout: {
-      type: "tabs",
-    },
-  };
-
   return (
     <div className={className}>
-      <Elements stripe={stripePromise} options={options}>
-        <CheckoutForm />
+      <Elements stripe={stripePromise} options={{ clientSecret }}>
+        <CheckoutForm clientSecret={clientSecret} />
       </Elements>
     </div>
   );
