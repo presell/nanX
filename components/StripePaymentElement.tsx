@@ -1,3 +1,6 @@
+import { useStripe, useElements, PaymentElement } from "@stripe/react-stripe-js";
+import { useEffect, useState, FormEvent } from "react";
+
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
@@ -9,12 +12,12 @@ function CheckoutForm() {
   useEffect(() => {
     if (!elements) return;
 
-    // Listen for card completeness
-    const paymentElement = elements.getElement("payment");
+    // Stripe PaymentElement instance
+    const paymentElement = elements.getElement(PaymentElement);
 
     if (!paymentElement) return;
 
-    const handler = (event: any) => {
+    const handler = (event: { complete: boolean }) => {
       setIsComplete(event.complete);
     };
 
@@ -78,3 +81,5 @@ function CheckoutForm() {
     </form>
   );
 }
+
+export default CheckoutForm;
