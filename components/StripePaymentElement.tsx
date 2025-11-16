@@ -1,6 +1,6 @@
 "use client";
 
-import React, { ReactElement } from "react"; 
+import React from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import {
   Elements,
@@ -18,20 +18,17 @@ const stripePromise = loadStripe(
 /*                               Checkout Form                                */
 /* -------------------------------------------------------------------------- */
 
-interface CheckoutFormProps {
-  isCompleteOverride?: boolean;
-}
-
-function CheckoutForm({ isCompleteOverride = false }: CheckoutFormProps) {
+function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
   const [message, setMessage] = useState("");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!stripe || !elements) return;
+    if (!stripe || !elements || !isComplete) return;
 
     setIsSubmitting(true);
 
@@ -48,18 +45,16 @@ function CheckoutForm({ isCompleteOverride = false }: CheckoutFormProps) {
     }
   }
 
-  const isDisabled = !stripe || isSubmitting || !isCompleteOverride;
+  const isDisabled = !stripe || isSubmitting || !isComplete;
   const buttonOpacity = isDisabled ? 0.5 : 1;
 
   return (
     <form onSubmit={handleSubmit}>
       <PaymentElement
         onChange={(event: any) => {
-          window.dispatchEvent(
-            new CustomEvent("payment-complete-change", {
-              detail: { complete: event.complete },
-            })
-          );
+          if (typeof event.complete === "boolean") {
+            setIsComplete(event.complete);
+          }
         }}
       />
 
@@ -144,38 +139,8 @@ export default function StripePaymentElement({
           },
         }}
       >
-        <CompletionStateProvider>
-          <CheckoutForm />
-        </CompletionStateProvider>
+        <CheckoutForm />
       </Elements>
     </div>
   );
-}
-
-/* -------------------------------------------------------------------------- */
-/*      Provide "complete" state from the PaymentElement to form              */
-/* -------------------------------------------------------------------------- */
-
-interface CompletionProviderProps {
-  children: ReactElement<CheckoutFormProps>;
-}
-
-function CompletionStateProvider({ children }: CompletionProviderProps) {
-  const [complete, setComplete] = useState(false);
-
-  useEffect(() => {
-    const handler = (e: any) => {
-      if (e?.detail?.complete !== undefined) {
-        setComplete(e.detail.complete);
-      }
-    };
-
-    window.addEventListener("payment-complete-change", handler);
-    return () =>
-      window.removeEventListener("payment-complete-change", handler);
-  }, []);
-
-  return React.cloneElement(children, {
-    isCompleteOverride: complete,
-  });
 }
