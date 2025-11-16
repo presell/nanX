@@ -45,6 +45,7 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       return;
     }
 
+    // SUCCESS → redirect
     window.location.href = "/confirmation";
   }
 
@@ -56,12 +57,9 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
       <div
         style={{
           border: "1px solid #D3D3D3",
+          padding: "12px 14px",
           borderRadius: "10px",
           backgroundColor: "#fff",
-          height: "55px",          // ← NEW HEIGHT
-          display: "flex",
-          alignItems: "center",
-          padding: "0 14px",        // ← Adjusted padding for perfect centering
         }}
       >
         <CardElement
@@ -89,13 +87,13 @@ function CheckoutForm({ clientSecret }: { clientSecret: string }) {
         style={{
           marginTop: 20,
           width: "100%",
-          height: "60px",
-          borderRadius: "6px",
+          height: "60px",              // ← NEW height
+          borderRadius: "6px",          // ← NEW radius
           background: "#1C3A13",
           color: "#fff",
           fontSize: "16px",
           border: "none",
-          opacity: disabled ? 0.5 : 1,
+          opacity: disabled ? 0.5 : 1,  // ← NEW opacity state
           transition: "opacity 0.2s ease",
           cursor: disabled ? "not-allowed" : "pointer",
         }}
