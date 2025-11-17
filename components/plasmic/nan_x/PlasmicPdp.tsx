@@ -3768,7 +3768,7 @@ function PlasmicPdp__RenderFunc(props: {
                   )}
                 >
                   {
-                    "Fast Free Shipping: Order ships free for a limited-time during our Black Friday sale. Expect deliver within 5-10 business days."
+                    "Fast Free Shipping: Order ships free for a limited-time during our Black Friday sale. "
                   }
                 </div>
               </div>
@@ -3800,7 +3800,7 @@ function PlasmicPdp__RenderFunc(props: {
                   )}
                 >
                   {
-                    "Lifetime Warranty Available: After checkout, you can add a warranty for $9.95, giving you free replacements for life with zero questions asked."
+                    "Lifetime Warranty Available: Add-on free replacements for life with zero questions asked after checkout ($9.95)."
                   }
                 </div>
               </div>
