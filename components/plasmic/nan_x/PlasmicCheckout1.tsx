@@ -61,8 +61,8 @@ import {
 
 import Nav from "../../Nav"; // plasmic-import: 32hGVgiLB7NT/component
 import Pdp from "../../Pdp"; // plasmic-import: 8MpFhDHD96MB/component
-import { StripePaymentElement } from "../../StripePaymentElement"; // plasmic-import: RzZJ79MSW6Dl/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { StripePaymentElement } from "../../StripePaymentElement"; // plasmic-import: RzZJ79MSW6Dl/codeComponent
 import Footer from "../../Footer"; // plasmic-import: El0mv80Cdurv/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: 4jNtNf7ennmHcnVPPcPauY/styleTokensProvider
@@ -102,6 +102,7 @@ export type PlasmicCheckout1__OverridesType = {
   slot321?: Flex__<"div">;
   addressSlot?: Flex__<"input">;
   addressSlot2?: Flex__<"input">;
+  embedHtml?: Flex__<typeof Embed>;
   _2Inactive?: Flex__<"div">;
   slot36?: Flex__<"div">;
   _3Active?: Flex__<"div">;
@@ -619,35 +620,45 @@ function PlasmicCheckout1__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__cSugs)}
                     id={"scroll-form"}
                   >
-                    <input
-                      data-plasmic-name={"addressSlot2"}
-                      data-plasmic-override={overrides.addressSlot2}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.input,
-                        sty.addressSlot2,
-                        "custom-textarea"
-                      )}
-                      id={"address-input"}
-                      name={"address"}
-                      onChange={async (...eventArgs: any) => {
-                        (e => {
-                          generateStateOnChangeProp($state, [
+                    {false ? (
+                      <input
+                        data-plasmic-name={"addressSlot2"}
+                        data-plasmic-override={overrides.addressSlot2}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.input,
+                          sty.addressSlot2,
+                          "custom-textarea"
+                        )}
+                        id={"address-input"}
+                        name={"address"}
+                        onChange={async (...eventArgs: any) => {
+                          (e => {
+                            generateStateOnChangeProp($state, [
+                              "addressSlot2",
+                              "value"
+                            ])(e.target.value);
+                          }).apply(null, eventArgs);
+                        }}
+                        placeholder={"Address"}
+                        ref={ref => {
+                          $refs["addressSlot2"] = ref;
+                        }}
+                        type={"text"}
+                        value={
+                          generateStateValueProp($state, [
                             "addressSlot2",
                             "value"
-                          ])(e.target.value);
-                        }).apply(null, eventArgs);
-                      }}
-                      placeholder={"Address"}
-                      ref={ref => {
-                        $refs["addressSlot2"] = ref;
-                      }}
-                      type={"text"}
-                      value={
-                        generateStateValueProp($state, [
-                          "addressSlot2",
-                          "value"
-                        ]) ?? ""
+                          ]) ?? ""
+                        }
+                      />
+                    ) : null}
+                    <Embed
+                      data-plasmic-name={"embedHtml"}
+                      data-plasmic-override={overrides.embedHtml}
+                      className={classNames("__wab_instance", sty.embedHtml)}
+                      code={
+                        '<script type="module" src="https://unpkg.com/@googlemaps/extended-component-library@0.6.11"></script>\n\n<gmpx-api-loader\n  key="YOUR_KEY_HERE"\n  solution-channel="GMP_GPX_autocomplete_v1">\n</gmpx-api-loader>\n\n<gmpx-place-autocomplete\n  id="google-address-autocomplete"\n  placeholder="Start typing your shipping address">\n</gmpx-place-autocomplete>'
                       }
                     />
                   </div>
@@ -1201,7 +1212,7 @@ function PlasmicCheckout1__RenderFunc(props: {
             data-plasmic-override={overrides.places}
             className={classNames("__wab_instance", sty.places)}
             code={
-              '<script\n  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZd_zfrv4PUMtChBplfplIxSN7VXG-q4&libraries=places"\n  async defer\n></script>\n\n<script>\nfunction attachGoogleAutocomplete() {\n  const input = document.querySelector("#address-input");\n\n  if (!input || !(input instanceof HTMLInputElement)) {\n    console.log("[AC] input not ready or not a real <input>");\n    return;\n  }\n\n  if (input.dataset.acAttached === "true") {\n    console.log("[AC] Already attached");\n    return;\n  }\n\n  console.log("[AC] Attaching to:", input);\n\n  const ac = new google.maps.places.Autocomplete(input, {\n    fields: ["formatted_address", "geometry", "address_components"],\n  });\n\n  ac.addListener("place_changed", () => {\n    const place = ac.getPlace();\n    console.log("[AC] place_changed:", place);\n  });\n\n  input.dataset.acAttached = "true";\n}\n\nfunction waitForPlasmicInputStable() {\n  const observer = new MutationObserver(() => {\n    const input = document.querySelector("#address-input");\n\n    if (input && input instanceof HTMLInputElement) {\n      console.log("[AC] Stable input detected");\n      observer.disconnect();\n      attachGoogleAutocomplete();\n    }\n  });\n\n  observer.observe(document.body, { subtree: true, childList: true });\n}\n\nfunction waitForGoogle() {\n  const int = setInterval(() => {\n    if (window.google && google.maps && google.maps.places) {\n      clearInterval(int);\n      console.log("[AC] Google ready");\n      waitForPlasmicInputStable();\n    }\n  }, 200);\n}\n\nwaitForGoogle();\n</script>'
+              '<script>\n  // Wait for Google\'s web component to exist\n  const elInterval = setInterval(() => {\n    const el = document.getElementById("google-address-autocomplete");\n    if (!el) return;\n\n    clearInterval(elInterval);\n\n    console.log("[gmpx] Autocomplete ready");\n\n    // Listen for selection from Google Autocomplete\n    el.addEventListener("gmpx-placechange", () => {\n      const place = el.value; // Google returns a full place object\n      if (!place) return;\n\n      const formatted = place.formatted_address || "";\n      console.log("[gmpx] Selected:", formatted);\n\n      // ---- Write directly into Plasmic State ----\n      if (window.plasmicState?.address?.set) {\n        window.plasmicState.address.set(formatted);\n        console.log("[Plasmic] Updated $state.address \u2192", formatted);\n      }\n    });\n  }, 200);\n</script>'
             }
           />
         </div>
@@ -1227,6 +1238,7 @@ const PlasmicDescendants = {
     "slot321",
     "addressSlot",
     "addressSlot2",
+    "embedHtml",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -1268,6 +1280,7 @@ const PlasmicDescendants = {
     "slot321",
     "addressSlot",
     "addressSlot2",
+    "embedHtml",
     "_2Inactive",
     "slot36",
     "_3Active",
@@ -1284,10 +1297,11 @@ const PlasmicDescendants = {
   _1BtnActive: ["_1BtnActive"],
   _1Inactive: ["_1Inactive", "slot319"],
   slot319: ["slot319"],
-  _2Active: ["_2Active", "slot321", "addressSlot", "addressSlot2"],
+  _2Active: ["_2Active", "slot321", "addressSlot", "addressSlot2", "embedHtml"],
   slot321: ["slot321"],
   addressSlot: ["addressSlot"],
   addressSlot2: ["addressSlot2"],
+  embedHtml: ["embedHtml"],
   _2Inactive: ["_2Inactive", "slot36"],
   slot36: ["slot36"],
   _3Active: ["_3Active", "slot320", "stripePaymentElement", "ccSlot"],
@@ -1333,6 +1347,7 @@ type NodeDefaultElementType = {
   slot321: "div";
   addressSlot: "input";
   addressSlot2: "input";
+  embedHtml: typeof Embed;
   _2Inactive: "div";
   slot36: "div";
   _3Active: "div";
@@ -1436,6 +1451,7 @@ export const PlasmicCheckout1 = Object.assign(
     slot321: makeNodeComponent("slot321"),
     addressSlot: makeNodeComponent("addressSlot"),
     addressSlot2: makeNodeComponent("addressSlot2"),
+    embedHtml: makeNodeComponent("embedHtml"),
     _2Inactive: makeNodeComponent("_2Inactive"),
     slot36: makeNodeComponent("slot36"),
     _3Active: makeNodeComponent("_3Active"),

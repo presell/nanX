@@ -493,6 +493,12 @@
     animation: none;
   }
 }
+.embedHtml:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  min-width: 0;
+}
 .freeBox__wZtCp {
   animation: none;
   display: flex;
